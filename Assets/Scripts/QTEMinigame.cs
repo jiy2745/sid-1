@@ -37,6 +37,8 @@ public class QTEMinigame : MonoBehaviour
 
     [Tooltip("스폰 지점에서부터 key가 생성될 수 있는 최대 거리")]
     public float spawnXRange = 5.0f;
+    [Tooltip("플레이어의 위치에서 key가 생성되는 Y좌표가 떨어진 정도")]
+    public float spawnYPosition = 3.0f;
 
     [Tooltip("새 key의 생성 주기")]
     public float spawnInterval = 1.0f;
@@ -59,11 +61,15 @@ public class QTEMinigame : MonoBehaviour
     private float minigameTimer;    // timer for whole minigame
     private float spawnTimer;       // timer for each new key spawn
     private bool gameActive = false;
-
+    private TriggerArea triggerArea;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        this.enabled = false;   // Disable script at start (managed by minigame manager)
+        triggerArea = GetComponentInChildren<TriggerArea>();
+        triggerArea.onPlayerEnter.AddListener(StartMinigame);
+
+        GameObject player = GameObject.FindWithTag("Player");
+        keySpawnPoint = player.transform;
     }
 
     // Update is called once per frame
@@ -92,7 +98,7 @@ public class QTEMinigame : MonoBehaviour
         CheckPlayerInput();
     }
 
-     // handles player input
+    // handles player input
     private void CheckPlayerInput()
     {
         bool correctKeyPressed = false;
@@ -194,15 +200,14 @@ public class QTEMinigame : MonoBehaviour
         if (playerWon)
         {
             Debug.Log("Player Won");
-            // Do additional stuff
+            // Do additional stuff when won
         }
         else
         {
             Debug.Log("Player Lost");
-            // Do additional stuff
+            // Do additional stuff when lost
         }
         onMinigameStop?.Invoke();
-        this.enabled = false;   // stop this script from running
     }
 
     // spawns random key prefab at random location specified in keySpawnPoint
@@ -210,7 +215,7 @@ public class QTEMinigame : MonoBehaviour
     {
         KeyPrefab newKey = keyOptions[UnityEngine.Random.Range(0, keyOptions.Length)];
         float XPos = UnityEngine.Random.Range(-spawnXRange / 2, spawnXRange / 2);
-        Vector3 spawnPosition = new Vector3(keySpawnPoint.position.x + XPos, keySpawnPoint.position.y, keySpawnPoint.position.z);
+        Vector3 spawnPosition = new Vector3(keySpawnPoint.position.x + XPos, keySpawnPoint.position.y + spawnYPosition, keySpawnPoint.position.z);
 
         // instantiate new key prefab and store it to list
         GameObject newInstance = Instantiate(newKey.prefab, spawnPosition, keySpawnPoint.rotation);

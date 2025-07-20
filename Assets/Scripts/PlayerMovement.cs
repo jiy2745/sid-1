@@ -38,13 +38,12 @@ public class PlayerMovement : MonoBehaviour
     {
         // Hide sprite and disable this script
         this.enabled = false;
-        sprite.enabled = false;     
+        //sprite.enabled = false;     
     }
 
     public void OnMinigameStop()
     {
         this.enabled = true;
-        sprite.enabled = true;
-        SetPlayerPosition(new Vector3(-1.5f, 0.0f, 0.0f));
+        //sprite.enabled = true;
     }
 }
