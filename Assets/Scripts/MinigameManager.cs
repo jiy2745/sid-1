@@ -16,7 +16,7 @@ public class MinigameManager : MonoBehaviour
     {
         currentGame = Minigame.QTE_MINIGAME;
         qteMinigame.enabled = true;
-        qteMinigame.StartMinigame();
+        //qteMinigame.StartMinigame();
     }
 
     // Update is called once per frame

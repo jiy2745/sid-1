@@ -329,9 +329,9 @@ MonoBehaviour:
   - key: 112
     prefab: {fileID: 7422364359031798107, guid: bfabb1c2659026e478825da26f7ca8dd, type: 3}
   keySpawnPoint: {fileID: 545089092}
-  spawnXRange: 5
-  spawnInterval: 1
-  fallSpeed: 2
+  spawnXRange: 10
+  spawnInterval: 2
+  fallSpeed: 3
   despawnYPosition: -5
   playerHealth: 100
   healthPenalty: 20

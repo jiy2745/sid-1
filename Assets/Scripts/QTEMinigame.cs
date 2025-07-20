@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 // helper class
 [System.Serializable]
@@ -52,6 +53,8 @@ public class QTEMinigame : MonoBehaviour
     [Header("True로 설정 시, 화면에 없는 키를 누르면 패널티 부여")]
     public bool penalizeWrongKey = false;
 
+    public UnityEvent onMinigameStop;
+
     private List<ActiveKey> activeKeys = new List<ActiveKey>();
     private float minigameTimer;    // timer for whole minigame
     private float spawnTimer;       // timer for each new key spawn
@@ -60,7 +63,7 @@ public class QTEMinigame : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        this.enabled = false;   // Disable script at start (managed by minigame manager)
     }
 
     // Update is called once per frame
@@ -198,6 +201,7 @@ public class QTEMinigame : MonoBehaviour
             Debug.Log("Player Lost");
             // Do additional stuff
         }
+        onMinigameStop?.Invoke();
         this.enabled = false;   // stop this script from running
     }
 
