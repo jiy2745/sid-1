@@ -58,10 +58,12 @@ public class QTEMinigame : MonoBehaviour
     public UnityEvent onMinigameStop;
 
     private List<ActiveKey> activeKeys = new List<ActiveKey>();
-    private float minigameTimer;    // timer for whole minigame
-    private float spawnTimer;       // timer for each new key spawn
+    private float minigameTimer;    // Timer for whole minigame
+    private float spawnTimer;       // Timer for each new key spawn
     private bool gameActive = false;
-    private TriggerArea triggerArea;
+    private TriggerArea triggerArea;    // Child gameObject for player detection
+
+    [SerializeField] private GameObject EffectOnDestroyPrefab;      // Effect prefab for key prefab destruction
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -150,6 +152,10 @@ public class QTEMinigame : MonoBehaviour
     // called when player hits right key
     private void HandleSuccess(ActiveKey clearedKey)
     {
+        if (EffectOnDestroyPrefab)
+        {
+            Instantiate(EffectOnDestroyPrefab, clearedKey.Instance.transform.position, Quaternion.identity);
+        }
         Destroy(clearedKey.Instance);
         activeKeys.Remove(clearedKey);
     }

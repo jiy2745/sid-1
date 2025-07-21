@@ -253,3 +253,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  EffectOnDestroyPrefab: {fileID: 1506598432750966755, guid: c4fa839bbefc36d4ea48b498b8e3980b, type: 3}
