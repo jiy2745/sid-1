@@ -46,4 +46,23 @@ public class PlayerMovement : MonoBehaviour
         this.enabled = true;
         //sprite.enabled = true;
     }
+
+    
+
+    // (07/22: 진성민) 이 아래 부분을 추가했습니다! 
+    // PlayerMovement 스크립트를 켜거나 끄는 기능.
+    // "isActive" 가 true면 켜고, false면 끈다. 
+
+    public void SetMovementActive(bool isActive)
+    {
+        if (!isActive)
+        {
+            // 움직임을 멈추기 위해 물리적 속도를 0으로 만들기. 
+            rb.linearVelocity = Vector2.zero;
+        }
+        // 해당 스크립트 자체를 켜거나 끔.
+        this.enabled = isActive;
+    }
+
+
 }
