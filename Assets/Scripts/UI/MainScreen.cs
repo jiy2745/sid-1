@@ -26,9 +26,9 @@ public class UIManager : MonoBehaviour
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
 
-        _mainScreenStartButton = root.Q<Button>("main-screen-start-button");
-        _mainScreenSettingButton = root.Q<Button>("main-screen-setting-button");
-        _mainScreenExitButton = root.Q<Button>("main-screen-exit-button");
+        _mainScreenStartButton = root.Q<Button>("StartButton");
+        _mainScreenSettingButton = root.Q<Button>("SettingButton");
+        _mainScreenExitButton = root.Q<Button>("ExitButton");
 
         _mainScreenStartButton.RegisterCallback<ClickEvent>(OnStartButtonClicked);
         _mainScreenSettingButton.RegisterCallback<ClickEvent>(OnSettingButtonClicked);
