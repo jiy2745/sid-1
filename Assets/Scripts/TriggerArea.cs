@@ -3,6 +3,9 @@ using UnityEngine.Events;
 
 public class TriggerArea : MonoBehaviour
 {
+    // (07/22: 진성민) 추가
+    public bool stopPlayerOnEnter = true; 
+
     public UnityEvent onPlayerEnter;
     private GameObject player;
     private PlayerMovement playerMovement;
@@ -18,7 +21,14 @@ public class TriggerArea : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             onPlayerEnter?.Invoke();
-            playerMovement.OnMinigameStart();   // Stop player from moving
+
+            // (07/22: 진성민) 수정
+            // playerMovement.OnMinigameStart();   // Stop player from moving: 기존코드
+            if (stopPlayerOnEnter && playerMovement != null)
+            {
+                playerMovement.OnMinigameStart();
+            }
+
             this.enabled = false;               // Disable this script to prevent duplicate events
         }
     }
