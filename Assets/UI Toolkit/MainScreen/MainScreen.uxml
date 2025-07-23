@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MainScreen/MainScreen.uss?fileID=7433441132597879392&amp;guid=f01ccf3945d422a4199285e6e6fdfb14&amp;type=3#MainScreen" />
+    <ui:VisualElement name="MainScreen" style="flex-grow: 1; align-items: center; justify-content: center;">
+        <ui:VisualElement style="flex-grow: 1; justify-content: center;">
+            <ui:Label text="Title" name="Title" style="color: rgb(255, 255, 255); font-size: 100px; -unity-font-definition: url(&quot;project://database/Assets/Fonts/neodgm.asset?fileID=11400000&amp;guid=adc9f46869f2c60438044ad9960e510c&amp;type=2#neodgm&quot;);" />
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; justify-content: center;">
+            <ui:Button name="StartButton" text="Start" class="main-screen-button" />
+            <ui:Button text="Setting" name="SettingButton" class="main-screen-button" />
+            <ui:Button text="Exit&#10;" name="ExitButton" class="main-screen-button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
