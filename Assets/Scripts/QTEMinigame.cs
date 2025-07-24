@@ -104,7 +104,7 @@ public class QTEMinigame : MonoBehaviour
     private void CheckPlayerInput()
     {
         bool correctKeyPressed = false;
-        ActiveKey keyToClear = null;
+        //ActiveKey keyToClear = null;
 
         foreach (ActiveKey activeKey in activeKeys)
         {
@@ -112,6 +112,9 @@ public class QTEMinigame : MonoBehaviour
             if (Input.GetKeyDown(key))
             {
                 Debug.Log("pressed + " + key);
+                HandleSuccess(activeKey);
+                correctKeyPressed = true;
+                /*
                 // Find all keys that match the one pressed.
                 var matchingKeys = activeKeys.Where(ak => ak.Key == key).ToList();
                 if (matchingKeys.Any())
@@ -121,6 +124,7 @@ public class QTEMinigame : MonoBehaviour
                     HandleSuccess(keyToClear);
                     correctKeyPressed = true;
                 }
+                */
                 break;
             }
         }
