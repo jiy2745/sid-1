@@ -19,8 +19,8 @@ public class DebugCanvas : MonoBehaviour
             case Minigame.QTE_MINIGAME:
                 currentMinigame.text = "Current Minigame : QTE";
                 break;
-            case Minigame.DROP_MINIGAME:
-                currentMinigame.text = "Current Minigame : Drop";
+            case Minigame.DODGE_MINIGAME:
+                currentMinigame.text = "Current Minigame : Dodge";
                 break;
             case Minigame.SLASH_MINIGAME:
                 currentMinigame.text = "Current Minigame : Slash";

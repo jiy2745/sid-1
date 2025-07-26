@@ -5,7 +5,7 @@ public enum Minigame
 {
     NONE,
     QTE_MINIGAME,
-    DROP_MINIGAME,
+    DODGE_MINIGAME,
     SLASH_MINIGAME
 }
 
@@ -14,18 +14,27 @@ public class MinigameManager : MonoBehaviour
     public Minigame currentGame = Minigame.NONE;
 
     [Tooltip("Reference to player")]
-    public GameObject player;
+    private GameObject player;
 
     [Tooltip("Reference to QTE Minigame prefab")]
     public GameObject qteMinigamePrefab;
 
+    [Tooltip("Reference to Dodge Minigame prefab")]
+    public GameObject dodgeMinigamePrefab;
+
+    [Tooltip("Reference to Slash Minigame prefab")]
+    public GameObject slashMinigamePrefab;
+
+    // Reference to instance of each minigame prefab;
     private GameObject qteMinigameInstance;
+    private GameObject dodgeMinigameInstance;
+    private GameObject slashMinigameInstance;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentGame = Minigame.NONE;
-
+        player = GameObject.FindWithTag("Player");
         if (player == null)
         {
             Debug.LogError("Player not present in scene!");
@@ -52,6 +61,7 @@ public class MinigameManager : MonoBehaviour
                 if (qteMinigameInstance == null)
                 {
                     qteMinigameInstance = Instantiate(qteMinigamePrefab);
+                    //TODO: set transform.position of minigame (position of TriggerArea) accordingly
                     QTEMinigame game = qteMinigameInstance.GetComponent<QTEMinigame>();
                     // Subscribe to the new instance's game stop event
                     game.onMinigameStop.AddListener(() => SetCurrentGame(0));
