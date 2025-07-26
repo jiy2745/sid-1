@@ -135,7 +135,7 @@ public class QTEMinigame : MonoBehaviour
             HandleFailure(null);
         }
     }
-    
+
     // Move key prefabs downwards and check for failure in each key
     private void HandleActiveKeys()
     {
@@ -243,5 +243,11 @@ public class QTEMinigame : MonoBehaviour
             }
         }
         activeKeys.Clear();
+    }
+    
+    // Removes any dangling references to the event
+    private void OnDestroy()
+    {
+        onMinigameStop.RemoveAllListeners();
     }
 }

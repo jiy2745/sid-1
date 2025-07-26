@@ -52,8 +52,10 @@ public class MinigameManager : MonoBehaviour
                 playerMovement.OnMinigameStop();
 
                 currentGame = Minigame.NONE;
+                // destroy all minigames
                 if (qteMinigameInstance != null) Destroy(qteMinigameInstance);
-                // disable other minigames
+                if (dodgeMinigameInstance != null) Destroy(dodgeMinigameInstance);
+                if (slashMinigameInstance != null) Destroy(slashMinigameInstance);
                 break;
 
             case (int)Minigame.QTE_MINIGAME:
@@ -65,8 +67,16 @@ public class MinigameManager : MonoBehaviour
                     QTEMinigame game = qteMinigameInstance.GetComponent<QTEMinigame>();
                     // Subscribe to the new instance's game stop event
                     game.onMinigameStop.AddListener(() => SetCurrentGame(0));
-                } 
-                // disable other minigames
+                }
+                // destroy other minigames
+                if (dodgeMinigameInstance != null) Destroy(dodgeMinigameInstance);
+                if (slashMinigameInstance != null) Destroy(slashMinigameInstance);
+                break;
+            case (int)Minigame.DODGE_MINIGAME:
+                currentGame = Minigame.DODGE_MINIGAME;
+                break;
+            case (int)Minigame.SLASH_MINIGAME:
+                currentGame = Minigame.SLASH_MINIGAME;
                 break;
         }
     }
