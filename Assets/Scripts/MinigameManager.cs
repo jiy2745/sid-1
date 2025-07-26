@@ -72,11 +72,24 @@ public class MinigameManager : MonoBehaviour
                 if (dodgeMinigameInstance != null) Destroy(dodgeMinigameInstance);
                 if (slashMinigameInstance != null) Destroy(slashMinigameInstance);
                 break;
+
             case (int)Minigame.DODGE_MINIGAME:
                 currentGame = Minigame.DODGE_MINIGAME;
                 break;
+
             case (int)Minigame.SLASH_MINIGAME:
                 currentGame = Minigame.SLASH_MINIGAME;
+                if (slashMinigameInstance == null)
+                {
+                    slashMinigameInstance = Instantiate(slashMinigamePrefab);
+                    //TODO: set transform.position of minigame (position of TriggerArea) accordingly
+                    SlashMinigame game = slashMinigameInstance.GetComponent<SlashMinigame>();
+                    // Subscribe to the new instance's game stop event
+                    game.onMinigameStop.AddListener(() => SetCurrentGame(0));
+                }
+                // destroy other minigames
+                if (dodgeMinigameInstance != null) Destroy(dodgeMinigameInstance);
+                if (qteMinigameInstance != null) Destroy(qteMinigameInstance);
                 break;
         }
     }
