@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class SlashMinigameObject : MonoBehaviour
 {
+    [SerializeField] private GameObject EffectOnDestroyPrefab;      // Effect prefab for key prefab destruction
     private Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,6 +32,10 @@ public class SlashMinigameObject : MonoBehaviour
     // Slashed object is destroyed
     public void Slash()
     {
+        if (EffectOnDestroyPrefab != null)
+        {
+            Instantiate(EffectOnDestroyPrefab, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 }

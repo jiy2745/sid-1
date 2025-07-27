@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1123512021613911013}
   - component: {fileID: 1211207523903956588}
   - component: {fileID: 5806970029290150717}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SlashObject_triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a666aa383ec7d4e86bd8d696b3ea5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EffectOnDestroyPrefab: {fileID: 1506598432750966755, guid: c4fa839bbefc36d4ea48b498b8e3980b, type: 3}
 --- !u!50 &1211207523903956588
 Rigidbody2D:
   serializedVersion: 5
