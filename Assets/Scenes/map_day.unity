@@ -7396,6 +7396,7 @@ GameObject:
   - component: {fileID: 791795815}
   - component: {fileID: 791795814}
   - component: {fileID: 791795813}
+  - component: {fileID: 791795816}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7446,7 +7447,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -7477,6 +7478,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &791795816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791795812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c77a10d0c41d494dbd12384b2339733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1784179288}
+  minX: -31
+  maxX: -19
+  minY: 1
+  maxY: 9
 --- !u!1 &932539787
 GameObject:
   m_ObjectHideFlags: 0
@@ -27373,11 +27391,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2053518115102101881, guid: 521aebf732701414da1c25c63cb8390b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.08
+      value: -30.98
       objectReference: {fileID: 0}
     - target: {fileID: 2053518115102101881, guid: 521aebf732701414da1c25c63cb8390b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.4
+      value: 7.06
       objectReference: {fileID: 0}
     - target: {fileID: 2053518115102101881, guid: 521aebf732701414da1c25c63cb8390b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -27495,8 +27513,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.8252114}
-  m_Size: {x: 0.5, y: 1.6418302}
+  m_Offset: {x: -0.081329346, y: 0.30815315}
+  m_Size: {x: 0.5899353, y: 0.6224632}
   m_Direction: 0
 --- !u!114 &1784179286
 MonoBehaviour:
@@ -27510,7 +27528,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17196aa965f9b87439d1e6d2eb178cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 13
+  moveSpeed: 6
+--- !u!4 &1784179288 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2053518115102101881, guid: 521aebf732701414da1c25c63cb8390b, type: 3}
+  m_PrefabInstance: {fileID: 1784179282}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1818418077
 GameObject:
   m_ObjectHideFlags: 0
