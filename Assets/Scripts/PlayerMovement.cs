@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem; // 한글 입력도 상호작용 가능하도록 
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -25,9 +26,8 @@ public class PlayerMovement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");   // W/S or Up/Down
 
         // (07/29 진성민) 새로 추가: E키를 눌렀고, 상호작용할 오브젝트가 있다면
-        if (Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
+        if (Keyboard.current.eKey.wasPressedThisFrame && currentInteractable != null)
         {
-            // 해당 오브젝트의 Interact() 함수를 호출
             currentInteractable.Interact();
         }
     }
