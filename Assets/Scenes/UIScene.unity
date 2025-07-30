@@ -332,8 +332,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100%
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fe5fcdfc519ec3e42a9c1244d939d75a, type: 2}
-  m_sharedMaterial: {fileID: -8623541741451191979, guid: fe5fcdfc519ec3e42a9c1244d939d75a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2880f8c47e804754e97386f280e8dce0, type: 2}
+  m_sharedMaterial: {fileID: -8804543363103822724, guid: 2880f8c47e804754e97386f280e8dce0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -982,7 +982,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 170, y: -70}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 850, y: 240}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &964806523
 MonoBehaviour:
@@ -1004,10 +1004,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fe5fcdfc519ec3e42a9c1244d939d75a, type: 2}
-  m_sharedMaterial: {fileID: -8623541741451191979, guid: fe5fcdfc519ec3e42a9c1244d939d75a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2880f8c47e804754e97386f280e8dce0, type: 2}
+  m_sharedMaterial: {fileID: -8804543363103822724, guid: 2880f8c47e804754e97386f280e8dce0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1069,7 +1069,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 4.2572784, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1167,6 +1167,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 259448833}
     m_Modifications:
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1727853870}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnItemButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NewMonoBehaviourScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2756337305080436851, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1324,8 +1348,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: DAY - 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fe5fcdfc519ec3e42a9c1244d939d75a, type: 2}
-  m_sharedMaterial: {fileID: -8623541741451191979, guid: fe5fcdfc519ec3e42a9c1244d939d75a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2880f8c47e804754e97386f280e8dce0, type: 2}
+  m_sharedMaterial: {fileID: -8804543363103822724, guid: 2880f8c47e804754e97386f280e8dce0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1460,8 +1484,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC18C\uC9C0\uD488\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fe5fcdfc519ec3e42a9c1244d939d75a, type: 2}
-  m_sharedMaterial: {fileID: -8623541741451191979, guid: fe5fcdfc519ec3e42a9c1244d939d75a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2880f8c47e804754e97386f280e8dce0, type: 2}
+  m_sharedMaterial: {fileID: -8804543363103822724, guid: 2880f8c47e804754e97386f280e8dce0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1545,6 +1569,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 259448833}
     m_Modifications:
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1727853870}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnItemButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NewMonoBehaviourScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2756337305080436851, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1651,6 +1699,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 259448833}
     m_Modifications:
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1727853870}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnItemButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NewMonoBehaviourScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1620259527089434895, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
       propertyPath: m_Color.a
       value: 0
@@ -1844,6 +1916,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5aa1c72aac13b94081c385e1456b495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dayCounterText: {fileID: 1486182522}
+  enlightenmentMeterImage: {fileID: 36938985}
+  enlightenmentMeterText: {fileID: 173067677}
+  ItemDescriptionText: {fileID: 964806523}
 --- !u!1 &1837680395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1956,6 +2032,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 259448833}
     m_Modifications:
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1727853870}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnItemButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NewMonoBehaviourScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2756337305080436851, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2138,6 +2238,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 259448833}
     m_Modifications:
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1727853870}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnItemButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NewMonoBehaviourScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1620259527089434895, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
       propertyPath: m_Color.a
       value: 0
@@ -2248,6 +2372,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 259448833}
     m_Modifications:
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1727853870}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnItemButtonClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NewMonoBehaviourScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 270041372926452642, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2756337305080436851, guid: 22372a63e72626942ac279407ae7d0bc, type: 3}
       propertyPath: m_Sprite
       value: 
