@@ -1,0 +1,2769 @@
+fileFormatVersion: 2
+guid: 75d29d6116924de46b75cbb4e006693f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7864915538755276236
+    second: room16_rabbit_spritesheet_0
+  - first:
+      213: 6286101706656242332
+    second: room16_rabbit_spritesheet_1
+  - first:
+      213: 8255578308437821005
+    second: room16_rabbit_spritesheet_2
+  - first:
+      213: -8214745718694318513
+    second: room16_rabbit_spritesheet_3
+  - first:
+      213: -5510018827388631916
+    second: room16_rabbit_spritesheet_4
+  - first:
+      213: 2978957885128881802
+    second: room16_rabbit_spritesheet_5
+  - first:
+      213: 4127813002478906796
+    second: room16_rabbit_spritesheet_6
+  - first:
+      213: 8124017292048173517
+    second: room16_rabbit_spritesheet_7
+  - first:
+      213: -4390477762025548690
+    second: room16_rabbit_spritesheet_8
+  - first:
+      213: -7831602367571050449
+    second: room16_rabbit_spritesheet_9
+  - first:
+      213: 5456469074505341135
+    second: room16_rabbit_spritesheet_10
+  - first:
+      213: 6355615736216591921
+    second: room16_rabbit_spritesheet_11
+  - first:
+      213: -3465383157959184561
+    second: room16_rabbit_spritesheet_12
+  - first:
+      213: 2506727119356307334
+    second: room16_rabbit_spritesheet_13
+  - first:
+      213: 2050991957160404320
+    second: room16_rabbit_spritesheet_14
+  - first:
+      213: 3474782636693994784
+    second: room16_rabbit_spritesheet_15
+  - first:
+      213: 7632166031735274708
+    second: room16_rabbit_spritesheet_16
+  - first:
+      213: 3013786822251280777
+    second: room16_rabbit_spritesheet_17
+  - first:
+      213: 3392884118882986623
+    second: room16_rabbit_spritesheet_18
+  - first:
+      213: 7506006132786922365
+    second: room16_rabbit_spritesheet_19
+  - first:
+      213: -2660105812443970539
+    second: room16_rabbit_spritesheet_20
+  - first:
+      213: -8314843575579781986
+    second: room16_rabbit_spritesheet_21
+  - first:
+      213: 5601712999693591524
+    second: room16_rabbit_spritesheet_22
+  - first:
+      213: 5703933290833660285
+    second: room16_rabbit_spritesheet_23
+  - first:
+      213: 3818672541592633094
+    second: room16_rabbit_spritesheet_24
+  - first:
+      213: -2441244768938562821
+    second: room16_rabbit_spritesheet_25
+  - first:
+      213: -297561874482536233
+    second: room16_rabbit_spritesheet_26
+  - first:
+      213: 3821907034124577524
+    second: room16_rabbit_spritesheet_27
+  - first:
+      213: 4938811414315684006
+    second: room16_rabbit_spritesheet_28
+  - first:
+      213: -601669356539969769
+    second: room16_rabbit_spritesheet_29
+  - first:
+      213: -4388174564652687221
+    second: room16_rabbit_spritesheet_30
+  - first:
+      213: -4339499942276263913
+    second: room16_rabbit_spritesheet_31
+  - first:
+      213: 3243159623193472580
+    second: room16_rabbit_spritesheet_32
+  - first:
+      213: -5149407543581416126
+    second: room16_rabbit_spritesheet_33
+  - first:
+      213: -4579225906726917360
+    second: room16_rabbit_spritesheet_34
+  - first:
+      213: 759812410823779133
+    second: room16_rabbit_spritesheet_35
+  - first:
+      213: 1829516170664364168
+    second: room16_rabbit_spritesheet_36
+  - first:
+      213: 7070293996334185584
+    second: room16_rabbit_spritesheet_37
+  - first:
+      213: 7826671869214494636
+    second: room16_rabbit_spritesheet_38
+  - first:
+      213: -1301295698701920073
+    second: room16_rabbit_spritesheet_39
+  - first:
+      213: 621986511957680257
+    second: room16_rabbit_spritesheet_40
+  - first:
+      213: 5138655550803318562
+    second: room16_rabbit_spritesheet_41
+  - first:
+      213: 8368372073029944188
+    second: room16_rabbit_spritesheet_42
+  - first:
+      213: 5143047306751195983
+    second: room16_rabbit_spritesheet_43
+  - first:
+      213: 1134507599127416884
+    second: room16_rabbit_spritesheet_44
+  - first:
+      213: -5598610350175608309
+    second: room16_rabbit_spritesheet_45
+  - first:
+      213: 1992098693323250273
+    second: room16_rabbit_spritesheet_46
+  - first:
+      213: -1340131240870787307
+    second: room16_rabbit_spritesheet_47
+  - first:
+      213: 7412190198886503475
+    second: room16_rabbit_spritesheet_48
+  - first:
+      213: 3706411337747187424
+    second: room16_rabbit_spritesheet_49
+  - first:
+      213: -2205637290543064396
+    second: room16_rabbit_spritesheet_50
+  - first:
+      213: 6949461460265193732
+    second: room16_rabbit_spritesheet_51
+  - first:
+      213: -5392437172470249756
+    second: room16_rabbit_spritesheet_52
+  - first:
+      213: 5594792063522456741
+    second: room16_rabbit_spritesheet_53
+  - first:
+      213: -8356716538300668149
+    second: room16_rabbit_spritesheet_54
+  - first:
+      213: 7478122844858547325
+    second: room16_rabbit_spritesheet_55
+  - first:
+      213: 1557853707684325428
+    second: room16_rabbit_spritesheet_56
+  - first:
+      213: 4873438829463878798
+    second: room16_rabbit_spritesheet_57
+  - first:
+      213: -57041924238024443
+    second: room16_rabbit_spritesheet_58
+  - first:
+      213: -5401415577117262513
+    second: room16_rabbit_spritesheet_59
+  - first:
+      213: 6959146548342194280
+    second: room16_rabbit_spritesheet_60
+  - first:
+      213: 5113436253258471806
+    second: room16_rabbit_spritesheet_61
+  - first:
+      213: -131920634723364185
+    second: room16_rabbit_spritesheet_62
+  - first:
+      213: -7331851653360169205
+    second: room16_rabbit_spritesheet_63
+  - first:
+      213: -3000414424332801254
+    second: room16_rabbit_spritesheet_64
+  - first:
+      213: -8741531217059935825
+    second: room16_rabbit_spritesheet_65
+  - first:
+      213: 5883560681703890472
+    second: room16_rabbit_spritesheet_66
+  - first:
+      213: -6883893409570964919
+    second: room16_rabbit_spritesheet_67
+  - first:
+      213: 6744502210826437301
+    second: room16_rabbit_spritesheet_68
+  - first:
+      213: -1631636351553666858
+    second: room16_rabbit_spritesheet_69
+  - first:
+      213: -3604038301388758710
+    second: room16_rabbit_spritesheet_70
+  - first:
+      213: 3322704249697692216
+    second: room16_rabbit_spritesheet_71
+  - first:
+      213: -7619307723027535033
+    second: room16_rabbit_spritesheet_72
+  - first:
+      213: -4691106656458754613
+    second: room16_rabbit_spritesheet_73
+  - first:
+      213: 4882186470343661477
+    second: room16_rabbit_spritesheet_74
+  - first:
+      213: 5786786155087429572
+    second: room16_rabbit_spritesheet_75
+  - first:
+      213: -2337932693464712672
+    second: room16_rabbit_spritesheet_76
+  - first:
+      213: 93206747883937098
+    second: room16_rabbit_spritesheet_77
+  - first:
+      213: 5156421516745142232
+    second: room16_rabbit_spritesheet_78
+  - first:
+      213: 7865810837084696588
+    second: room16_rabbit_spritesheet_79
+  - first:
+      213: -7560740516421997131
+    second: room16_rabbit_spritesheet_80
+  - first:
+      213: -2696429195498611156
+    second: room16_rabbit_spritesheet_81
+  - first:
+      213: 3512240678409396310
+    second: room16_rabbit_spritesheet_82
+  - first:
+      213: 340255333899715773
+    second: room16_rabbit_spritesheet_83
+  - first:
+      213: 4916662219492735328
+    second: room16_rabbit_spritesheet_84
+  - first:
+      213: -8245705400327686242
+    second: room16_rabbit_spritesheet_85
+  - first:
+      213: 2884274234922095922
+    second: room16_rabbit_spritesheet_86
+  - first:
+      213: -2076248707222018337
+    second: room16_rabbit_spritesheet_87
+  - first:
+      213: -8645496574896191062
+    second: room16_rabbit_spritesheet_88
+  - first:
+      213: 1983611497943310057
+    second: room16_rabbit_spritesheet_89
+  - first:
+      213: -7108585341847907784
+    second: room16_rabbit_spritesheet_90
+  - first:
+      213: 326744910245217626
+    second: room16_rabbit_spritesheet_91
+  - first:
+      213: -225846895069285937
+    second: room16_rabbit_spritesheet_92
+  - first:
+      213: 7728622158671402029
+    second: room16_rabbit_spritesheet_93
+  - first:
+      213: 6448852071151424558
+    second: room16_rabbit_spritesheet_94
+  - first:
+      213: -6586385831016000705
+    second: room16_rabbit_spritesheet_95
+  - first:
+      213: 1614078177144923616
+    second: room16_rabbit_spritesheet_96
+  - first:
+      213: -5420367192617131099
+    second: room16_rabbit_spritesheet_97
+  - first:
+      213: -568904574594189115
+    second: room16_rabbit_spritesheet_98
+  - first:
+      213: 3477622609080582696
+    second: room16_rabbit_spritesheet_99
+  - first:
+      213: -3205006088036025387
+    second: room16_rabbit_spritesheet_100
+  - first:
+      213: -9033578359804405959
+    second: room16_rabbit_spritesheet_101
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 831
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 432ba04dcf43ad290800000000000000
+      internalID: -7864915538755276236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 831
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9ad83f6238bc3750800000000000000
+      internalID: 6286101706656242332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 831
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d464bd94bb4b19270800000000000000
+      internalID: 8255578308437821005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 831
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4e601dda4c5ffd80800000000000000
+      internalID: -8214745718694318513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 783
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49449cfd11b7883b0800000000000000
+      internalID: -5510018827388631916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 783
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a86b4ffc962675920800000000000000
+      internalID: 2978957885128881802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 783
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cad6eff3e00f84930800000000000000
+      internalID: 4127813002478906796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 783
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc989a92fae4eb070800000000000000
+      internalID: 8124017292048173517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 735
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e641738bcb3e113c0800000000000000
+      internalID: -4390477762025548690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 735
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f20c1dae32f805390800000000000000
+      internalID: -7831602367571050449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 735
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc89bc1b6b549bb40800000000000000
+      internalID: 5456469074505341135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 735
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13e921ea6dea33850800000000000000
+      internalID: 6355615736216591921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 687
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4fa833d06c78efc0800000000000000
+      internalID: -3465383157959184561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 687
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 687221aa80fa9c220800000000000000
+      internalID: 2506727119356307334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 691
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 065aab38156967c10800000000000000
+      internalID: 2050991957160404320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 690
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02d37dbd568e83030800000000000000
+      internalID: 3474782636693994784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 687
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dc3264a196eae960800000000000000
+      internalID: 7632166031735274708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 687
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9897a09a52f13d920800000000000000
+      internalID: 3013786822251280777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 639
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7aa51e3122f51f20800000000000000
+      internalID: 3392884118882986623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 639
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d730baa2fc0ba2860800000000000000
+      internalID: 7506006132786922365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 641
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51443508bd7651bd0800000000000000
+      internalID: -2660105812443970539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 642
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e94d0aa62ddbb9c80800000000000000
+      internalID: -8314843575579781986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 639
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e3ac684b484dbd40800000000000000
+      internalID: 5601712999693591524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 639
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d794aa67b11782f40800000000000000
+      internalID: 5703933290833660285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 591
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60fba23c176aef430800000000000000
+      internalID: 3818672541592633094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 591
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfae2a121d4fe1ed0800000000000000
+      internalID: -2441244768938562821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 592
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d0e4cc3d09dedbf0800000000000000
+      internalID: -297561874482536233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 594
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4faef8db2342a0530800000000000000
+      internalID: 3821907034124577524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 592
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a05eea70de2a8440800000000000000
+      internalID: 4938811414315684006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 591
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71f723378e076a7f0800000000000000
+      internalID: -601669356539969769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 543
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b80e875ab721a13c0800000000000000
+      internalID: -4388174564652687221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 543
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7109bcd4bcff6c3c0800000000000000
+      internalID: -4339499942276263913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 543
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44e265a8e74020d20800000000000000
+      internalID: 3243159623193472580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 543
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 245ec113f11a988b0800000000000000
+      internalID: -5149407543581416126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 540
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01ba643bc425370c0800000000000000
+      internalID: -4579225906726917360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 540
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d33a51bac556b8a00800000000000000
+      internalID: 759812410823779133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 541
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8884847934fb36910800000000000000
+      internalID: 1829516170664364168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 540
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07c731dfdeabe1260800000000000000
+      internalID: 7070293996334185584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 495
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caf821af89ced9c60800000000000000
+      internalID: 7826671869214494636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 495
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b8d023e47ed0fde0800000000000000
+      internalID: -1301295698701920073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 495
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 180625cef6db1a800800000000000000
+      internalID: 621986511957680257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 495
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22798b86ffb205740800000000000000
+      internalID: 5138655550803318562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 495
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c73cf39101e622470800000000000000
+      internalID: 8368372073029944188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 495
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4b3fe5c646cf5740800000000000000
+      internalID: 5143047306751195983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 495
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43098f886a49ebf00800000000000000
+      internalID: 1134507599127416884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 495
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0225f99c8dbd42b0800000000000000
+      internalID: -5598610350175608309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 447
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16a5d0df43b55ab10800000000000000
+      internalID: 1992098693323250273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 447
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5174e7b9cb5e66de0800000000000000
+      internalID: -1340131240870787307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 447
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3341344e6b36dd660800000000000000
+      internalID: 7412190198886503475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 446
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e6c6e96971df6330800000000000000
+      internalID: 3706411337747187424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 446
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ba53d9f1900461e0800000000000000
+      internalID: -2205637290543064396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 446
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 401df57d062717060800000000000000
+      internalID: 6949461460265193732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 446
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e68c4546f63a25b0800000000000000
+      internalID: -5392437172470249756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 446
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a44e624db1b4ad40800000000000000
+      internalID: 5594792063522456741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 399
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b07e4fd859af60c80800000000000000
+      internalID: -8356716538300668149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 399
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7cf68a4b11a7c760800000000000000
+      internalID: 7478122844858547325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 399
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 438ac8a71bb9e9510800000000000000
+      internalID: 1557853707684325428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 399
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8c3ac87bcee1a340800000000000000
+      internalID: 4873438829463878798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 399
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 501ec701ca8553ff0800000000000000
+      internalID: -57041924238024443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 399
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4df9a986215a05b0800000000000000
+      internalID: -5401415577117262513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 351
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86082d12aead39060800000000000000
+      internalID: 6959146548342194280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 351
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7953112e2396f640800000000000000
+      internalID: 5113436253258471806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 351
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a215c4b1e25b2ef0800000000000000
+      internalID: -131920634723364185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 351
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0f4b9f54c7004a90800000000000000
+      internalID: -7331851653360169205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 351
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1b6faa5af26c56d0800000000000000
+      internalID: -3000414424332801254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_65
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 351
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa987263ca7dfa680800000000000000
+      internalID: -8741531217059935825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_66
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 301
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82e5a6f744b96a150800000000000000
+      internalID: 5883560681703890472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_67
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 301
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94abeda9a6f7770a0800000000000000
+      internalID: -6883893409570964919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_68
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 301
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b2852fd609499d50800000000000000
+      internalID: 6744502210826437301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_69
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 301
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d0870f02634b59e0800000000000000
+      internalID: -1631636351553666858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_70
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 301
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4122d88242ebfdc0800000000000000
+      internalID: -3604038301388758710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_71
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 301
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83a69e029ed9c1e20800000000000000
+      internalID: 3322704249697692216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_72
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 255
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74bad86aef7c24690800000000000000
+      internalID: -7619307723027535033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_73
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 255
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc53e4ab957d5eeb0800000000000000
+      internalID: -4691106656458754613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_74
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 255
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a75d045ab201c340800000000000000
+      internalID: 4882186470343661477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_75
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 255
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cf722d295bce4050800000000000000
+      internalID: 5786786155087429572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_76
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 256
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02a73492a9efd8fd0800000000000000
+      internalID: -2337932693464712672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_77
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4d9a4a1b032b4100800000000000000
+      internalID: 93206747883937098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_78
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 207
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8df66c1bc0a4f8740800000000000000
+      internalID: 5156421516745142232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_79
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 207
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c00f9de0849f82d60800000000000000
+      internalID: 7865810837084696588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_80
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 207
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bd63cf0f8ad21790800000000000000
+      internalID: -7560740516421997131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_81
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 207
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2e1058deeb549ad0800000000000000
+      internalID: -2696429195498611156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_82
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 207
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 650e442d94cfdb030800000000000000
+      internalID: 3512240678409396310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_83
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 207
+        width: 26
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db446066c64d8b400800000000000000
+      internalID: 340255333899715773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_84
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 159
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 069b2713d3e7b3440800000000000000
+      internalID: 4916662219492735328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_85
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 157
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e97b2f240ae519d80800000000000000
+      internalID: -8245705400327686242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_86
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 153
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 235d7579220070820800000000000000
+      internalID: 2884274234922095922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_87
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 150
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd6eaac1dceaf23e0800000000000000
+      internalID: -2076248707222018337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_88
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 146
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa9c472cba6050880800000000000000
+      internalID: -8645496574896191062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_89
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 144
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ee9a43d524378b10800000000000000
+      internalID: 1983611497943310057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_90
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 111
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8325b936b4b395d90800000000000000
+      internalID: -7108585341847907784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_91
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 111
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a554553c3c4d88400800000000000000
+      internalID: 326744910245217626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_92
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 111
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc135cd0271addcf0800000000000000
+      internalID: -225846895069285937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_93
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 119
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2452d2c7e4914b60800000000000000
+      internalID: 7728622158671402029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_94
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 63
+        width: 27
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e24d50e8accee7950800000000000000
+      internalID: 6448852071151424558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_95
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 119
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3310ac9bf47894a0800000000000000
+      internalID: -6586385831016000705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_96
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 63
+        width: 24
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e5ee64ec8b566610800000000000000
+      internalID: 1614078177144923616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_97
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 63
+        width: 68
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a3efd3b1ccf6c4b0800000000000000
+      internalID: -5420367192617131099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_98
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c8f738bd48da18f0800000000000000
+      internalID: -568904574594189115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_99
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8228d15765ff24030800000000000000
+      internalID: 3477622609080582696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_100
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dbf5ab91f78583d0800000000000000
+      internalID: -3205006088036025387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room16_rabbit_spritesheet_101
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 937d33df75842a280800000000000000
+      internalID: -9033578359804405959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      room16_rabbit_spritesheet_0: -7864915538755276236
+      room16_rabbit_spritesheet_1: 6286101706656242332
+      room16_rabbit_spritesheet_10: 5456469074505341135
+      room16_rabbit_spritesheet_100: -3205006088036025387
+      room16_rabbit_spritesheet_101: -9033578359804405959
+      room16_rabbit_spritesheet_11: 6355615736216591921
+      room16_rabbit_spritesheet_12: -3465383157959184561
+      room16_rabbit_spritesheet_13: 2506727119356307334
+      room16_rabbit_spritesheet_14: 2050991957160404320
+      room16_rabbit_spritesheet_15: 3474782636693994784
+      room16_rabbit_spritesheet_16: 7632166031735274708
+      room16_rabbit_spritesheet_17: 3013786822251280777
+      room16_rabbit_spritesheet_18: 3392884118882986623
+      room16_rabbit_spritesheet_19: 7506006132786922365
+      room16_rabbit_spritesheet_2: 8255578308437821005
+      room16_rabbit_spritesheet_20: -2660105812443970539
+      room16_rabbit_spritesheet_21: -8314843575579781986
+      room16_rabbit_spritesheet_22: 5601712999693591524
+      room16_rabbit_spritesheet_23: 5703933290833660285
+      room16_rabbit_spritesheet_24: 3818672541592633094
+      room16_rabbit_spritesheet_25: -2441244768938562821
+      room16_rabbit_spritesheet_26: -297561874482536233
+      room16_rabbit_spritesheet_27: 3821907034124577524
+      room16_rabbit_spritesheet_28: 4938811414315684006
+      room16_rabbit_spritesheet_29: -601669356539969769
+      room16_rabbit_spritesheet_3: -8214745718694318513
+      room16_rabbit_spritesheet_30: -4388174564652687221
+      room16_rabbit_spritesheet_31: -4339499942276263913
+      room16_rabbit_spritesheet_32: 3243159623193472580
+      room16_rabbit_spritesheet_33: -5149407543581416126
+      room16_rabbit_spritesheet_34: -4579225906726917360
+      room16_rabbit_spritesheet_35: 759812410823779133
+      room16_rabbit_spritesheet_36: 1829516170664364168
+      room16_rabbit_spritesheet_37: 7070293996334185584
+      room16_rabbit_spritesheet_38: 7826671869214494636
+      room16_rabbit_spritesheet_39: -1301295698701920073
+      room16_rabbit_spritesheet_4: -5510018827388631916
+      room16_rabbit_spritesheet_40: 621986511957680257
+      room16_rabbit_spritesheet_41: 5138655550803318562
+      room16_rabbit_spritesheet_42: 8368372073029944188
+      room16_rabbit_spritesheet_43: 5143047306751195983
+      room16_rabbit_spritesheet_44: 1134507599127416884
+      room16_rabbit_spritesheet_45: -5598610350175608309
+      room16_rabbit_spritesheet_46: 1992098693323250273
+      room16_rabbit_spritesheet_47: -1340131240870787307
+      room16_rabbit_spritesheet_48: 7412190198886503475
+      room16_rabbit_spritesheet_49: 3706411337747187424
+      room16_rabbit_spritesheet_5: 2978957885128881802
+      room16_rabbit_spritesheet_50: -2205637290543064396
+      room16_rabbit_spritesheet_51: 6949461460265193732
+      room16_rabbit_spritesheet_52: -5392437172470249756
+      room16_rabbit_spritesheet_53: 5594792063522456741
+      room16_rabbit_spritesheet_54: -8356716538300668149
+      room16_rabbit_spritesheet_55: 7478122844858547325
+      room16_rabbit_spritesheet_56: 1557853707684325428
+      room16_rabbit_spritesheet_57: 4873438829463878798
+      room16_rabbit_spritesheet_58: -57041924238024443
+      room16_rabbit_spritesheet_59: -5401415577117262513
+      room16_rabbit_spritesheet_6: 4127813002478906796
+      room16_rabbit_spritesheet_60: 6959146548342194280
+      room16_rabbit_spritesheet_61: 5113436253258471806
+      room16_rabbit_spritesheet_62: -131920634723364185
+      room16_rabbit_spritesheet_63: -7331851653360169205
+      room16_rabbit_spritesheet_64: -3000414424332801254
+      room16_rabbit_spritesheet_65: -8741531217059935825
+      room16_rabbit_spritesheet_66: 5883560681703890472
+      room16_rabbit_spritesheet_67: -6883893409570964919
+      room16_rabbit_spritesheet_68: 6744502210826437301
+      room16_rabbit_spritesheet_69: -1631636351553666858
+      room16_rabbit_spritesheet_7: 8124017292048173517
+      room16_rabbit_spritesheet_70: -3604038301388758710
+      room16_rabbit_spritesheet_71: 3322704249697692216
+      room16_rabbit_spritesheet_72: -7619307723027535033
+      room16_rabbit_spritesheet_73: -4691106656458754613
+      room16_rabbit_spritesheet_74: 4882186470343661477
+      room16_rabbit_spritesheet_75: 5786786155087429572
+      room16_rabbit_spritesheet_76: -2337932693464712672
+      room16_rabbit_spritesheet_77: 93206747883937098
+      room16_rabbit_spritesheet_78: 5156421516745142232
+      room16_rabbit_spritesheet_79: 7865810837084696588
+      room16_rabbit_spritesheet_8: -4390477762025548690
+      room16_rabbit_spritesheet_80: -7560740516421997131
+      room16_rabbit_spritesheet_81: -2696429195498611156
+      room16_rabbit_spritesheet_82: 3512240678409396310
+      room16_rabbit_spritesheet_83: 340255333899715773
+      room16_rabbit_spritesheet_84: 4916662219492735328
+      room16_rabbit_spritesheet_85: -8245705400327686242
+      room16_rabbit_spritesheet_86: 2884274234922095922
+      room16_rabbit_spritesheet_87: -2076248707222018337
+      room16_rabbit_spritesheet_88: -8645496574896191062
+      room16_rabbit_spritesheet_89: 1983611497943310057
+      room16_rabbit_spritesheet_9: -7831602367571050449
+      room16_rabbit_spritesheet_90: -7108585341847907784
+      room16_rabbit_spritesheet_91: 326744910245217626
+      room16_rabbit_spritesheet_92: -225846895069285937
+      room16_rabbit_spritesheet_93: 7728622158671402029
+      room16_rabbit_spritesheet_94: 6448852071151424558
+      room16_rabbit_spritesheet_95: -6586385831016000705
+      room16_rabbit_spritesheet_96: 1614078177144923616
+      room16_rabbit_spritesheet_97: -5420367192617131099
+      room16_rabbit_spritesheet_98: -568904574594189115
+      room16_rabbit_spritesheet_99: 3477622609080582696
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
