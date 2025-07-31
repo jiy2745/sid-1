@@ -29,6 +29,12 @@ public class QTEMinigame : MonoBehaviour
     [Tooltip("미니게임의 지속 시간 (초 단위)")]
     public float minigameDuration = 20.0f;
 
+    [Header("Batch Settings")]
+    [Tooltip("The number of keys that will be spawned in a single batch.")]
+    public int keysPerBatch = 5;
+    [Tooltip("The time in seconds between the end of one batch and the start of the next.")]
+    public float batchSpawnInterval = 2.0f;
+
     [Tooltip("생성될 key prefab들의 리스트")]
     public KeyPrefab[] keyOptions;
 
@@ -39,9 +45,6 @@ public class QTEMinigame : MonoBehaviour
     public float spawnXRange = 5.0f;
     [Tooltip("플레이어의 위치에서 key가 생성되는 Y좌표가 떨어진 정도")]
     public float spawnYPosition = 3.0f;
-
-    [Tooltip("새 key의 생성 주기")]
-    public float spawnInterval = 1.0f;
 
     [Header("Key Object Settings")]
     [Tooltip("Key의 추락 속도")]
@@ -57,13 +60,16 @@ public class QTEMinigame : MonoBehaviour
 
     public UnityEvent onMinigameStop;
 
-    private List<ActiveKey> activeKeys = new List<ActiveKey>();
+    private List<ActiveKey> currentBatch = new List<ActiveKey>();
     private float minigameTimer;    // Timer for whole minigame
     private float spawnTimer;       // Timer for each new key spawn
     private bool gameActive = false;
+    private bool isWaitingForNextBatch = false;
+    [SerializeField] private Color spriteColor;
     private TriggerArea triggerArea;    // Child gameObject for player detection
 
     [SerializeField] private GameObject EffectOnDestroyPrefab;      // Effect prefab for key prefab destruction
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -88,16 +94,20 @@ public class QTEMinigame : MonoBehaviour
         }
 
         // --- Key spawn logic ---
-        spawnTimer -= Time.deltaTime;
-        if (spawnTimer <= 0)
+        if (isWaitingForNextBatch)
         {
-            SpawnNewKey();
-            spawnTimer = spawnInterval;
+            spawnTimer -= Time.deltaTime;
+            if (spawnTimer <= 0)
+            {
+                SpawnNewKey();
+            }
         }
-
-        // --- Key fall and input handling ---
-        HandleActiveKeys();
-        CheckPlayerInput();
+        else
+        {
+             // --- Key fall and input handling ---
+            HandleActiveKeys();
+            CheckPlayerInput();
+        }
     }
 
     // handles player input
@@ -106,7 +116,7 @@ public class QTEMinigame : MonoBehaviour
         bool correctKeyPressed = false;
         //ActiveKey keyToClear = null;
 
-        foreach (ActiveKey activeKey in activeKeys)
+        foreach (ActiveKey activeKey in currentBatch)
         {
             KeyCode key = activeKey.Key;
             if (Input.GetKeyDown(key))
@@ -139,9 +149,9 @@ public class QTEMinigame : MonoBehaviour
     // Move key prefabs downwards and check for failure in each key
     private void HandleActiveKeys()
     {
-        for (int i = activeKeys.Count - 1; i >= 0; i--)
+        for (int i = currentBatch.Count - 1; i >= 0; i--)
         {
-            ActiveKey key = activeKeys[i];
+            ActiveKey key = currentBatch[i];
             // Move the key down in 2D space (Y-axis).
             key.Instance.transform.position -= new Vector3(0, fallSpeed * Time.deltaTime, 0);
 
@@ -149,6 +159,7 @@ public class QTEMinigame : MonoBehaviour
             if (key.Instance.transform.position.y < despawnYPosition)
             {
                 HandleFailure(key);
+                return; // Exit after handling failure to avoid further processing.
             }
         }
     }
@@ -160,8 +171,39 @@ public class QTEMinigame : MonoBehaviour
         {
             Instantiate(EffectOnDestroyPrefab, clearedKey.Instance.transform.position, Quaternion.identity);
         }
+        ParticleSystem ps = EffectOnDestroyPrefab.GetComponent<ParticleSystem>();
+        if (ps != null)
+        {
+            var main = ps.main;
+            main.startColor = spriteColor;
+
+            var col = ps.colorOverLifetime;
+            col.enabled = true;
+
+            // Gradient fades to transparent
+            Gradient gradient = new Gradient();
+            gradient.SetKeys(
+            new GradientColorKey[] {
+                new GradientColorKey(spriteColor, 0.0f),
+                new GradientColorKey(spriteColor, 1.0f)
+            },
+            new GradientAlphaKey[] {
+            new GradientAlphaKey(spriteColor.a, 0.0f),
+            new GradientAlphaKey(0.0f, 1.0f)
+            }
+            );
+            col.color = new ParticleSystem.MinMaxGradient(gradient);
+        }
         Destroy(clearedKey.Instance);
-        activeKeys.Remove(clearedKey);
+        currentBatch.Remove(clearedKey);
+
+        if (currentBatch.Count == 0)
+        {
+            // If all keys in the current batch are cleared, prepare for the next batch.
+            isWaitingForNextBatch = true;
+            spawnTimer = batchSpawnInterval;
+        }
+ 
     }
 
     // called when player misses a key, checks whether minigame over
@@ -169,17 +211,18 @@ public class QTEMinigame : MonoBehaviour
     {
         playerHealth -= healthPenalty;
 
-        // Remove missed key
-        if (key != null)
-        {
-            Destroy(key.Instance);
-            activeKeys.Remove(key);
-        }
+        CleanUpAllKeys();
+
         // Game over check
         if (playerHealth <= 0)
         {
             playerHealth = 0;
             StopMinigame(false); // Player was defeated.
+        }
+        else
+        {
+            isWaitingForNextBatch = true;
+            spawnTimer = batchSpawnInterval;
         }
     }
 
@@ -195,6 +238,7 @@ public class QTEMinigame : MonoBehaviour
             }
             gameActive = true;
             minigameTimer = minigameDuration;
+            isWaitingForNextBatch = true;
             spawnTimer = 0;
 
             // TODO: temporary testing variable (remove and connect to actual player later!!!)
@@ -223,26 +267,31 @@ public class QTEMinigame : MonoBehaviour
     // spawns random key prefab at random location specified in keySpawnPoint
     private void SpawnNewKey()
     {
-        KeyPrefab newKey = keyOptions[UnityEngine.Random.Range(0, keyOptions.Length)];
-        float XPos = UnityEngine.Random.Range(-spawnXRange / 2, spawnXRange / 2);
-        Vector3 spawnPosition = new Vector3(keySpawnPoint.position.x + XPos, keySpawnPoint.position.y + spawnYPosition, keySpawnPoint.position.z);
+        isWaitingForNextBatch = false;
 
-        // instantiate new key prefab and store it to list
-        GameObject newInstance = Instantiate(newKey.prefab, spawnPosition, keySpawnPoint.rotation);
-        activeKeys.Add(new ActiveKey(newInstance, newKey.key));
+        for (int i = 0; i < keysPerBatch; i++)
+        {
+           KeyPrefab newKey = keyOptions[UnityEngine.Random.Range(0, keyOptions.Length)];
+            float xPos = keySpawnPoint.position.x - (spawnXRange / 2) + (spawnXRange * (i + 0.5f) / keysPerBatch);
+            Vector3 spawnPosition = new Vector3(keySpawnPoint.position.x + xPos, keySpawnPoint.position.y + spawnYPosition, keySpawnPoint.position.z);
+
+            // instantiate new key prefab and store it to list
+            GameObject newInstance = Instantiate(newKey.prefab, spawnPosition, keySpawnPoint.rotation);
+            currentBatch.Add(new ActiveKey(newInstance, newKey.key));
+        }
     }
 
     // Destroys all prefab instances in activekeys list
     private void CleanUpAllKeys()
     {
-        foreach (var key in activeKeys)
+        foreach (var key in currentBatch)
         {
             if (key.Instance != null)
             {
                 Destroy(key.Instance);
             }
         }
-        activeKeys.Clear();
+        currentBatch.Clear();
     }
     
     // Removes any dangling references to the event
