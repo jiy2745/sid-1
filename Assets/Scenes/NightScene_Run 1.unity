@@ -243,9 +243,9 @@ MonoBehaviour:
   moveSpeed: 5
   chunkWidth: 20
   chunks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 841879240}
+  - {fileID: 1919908662}
+  - {fileID: 720564220}
 --- !u!4 &571489541
 Transform:
   m_ObjectHideFlags: 0
