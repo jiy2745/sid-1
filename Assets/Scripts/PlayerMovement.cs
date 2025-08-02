@@ -21,6 +21,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // (08/02 김지섭) 대화 중에는 플레이어 움직임 비활성화
+        if (DialogueManager.instance != null && DialogueManager.instance.isDialogueActive)
+        {
+            // If dialogue is active, disable player movement
+            movement = Vector2.zero;
+            return;
+        }
+
         // Get input from WASD or arrow keys
         movement.x = Input.GetAxisRaw("Horizontal"); // A/D or Left/Right
         movement.y = Input.GetAxisRaw("Vertical");   // W/S or Up/Down
