@@ -10,6 +10,28 @@ public class CameraFollow : MonoBehaviour
     public float minY;
     public float maxY;
 
+    // 새로 추가: 씬 시작 시 플레이어를 자동으로 찾는다
+    void Start()
+    {
+        // Inspector 창에서 Target이 미리 연결되지 않았다면
+        if (target == null)
+        {
+            // "Player" 태그를 가진 오브젝트를 씬에서 찾기
+            GameObject playerObject = GameObject.FindWithTag("Player");
+
+            // 성공적으로 찾았다면
+            if (playerObject != null)
+            {
+                // 해당 오브젝트의 Transform을 target으로 설정
+                target = playerObject.transform;
+            }
+            else
+            {
+                Debug.LogError("카메라가 'Player' 태그를 가진 오브젝트를 찾을 수 없습니다!");
+            }
+        }
+    }
+
     // 모든 update가 끝난 후 마지막으로 수행되어야 하는 카메라 움직임
     void LateUpdate()
     {
