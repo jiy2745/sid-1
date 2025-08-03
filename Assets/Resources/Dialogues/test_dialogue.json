@@ -1,0 +1,16 @@
+{
+  "dialogueLines": [
+    {
+      "characterName": "Player",
+      "dialogueText": "Hello there! The town looks lively today."
+    },
+    {
+      "characterName": "Old Man",
+      "dialogueText": "Welcome, traveler! Be sure to try some of our famous <color=\"yellow\">Sun-Ripened Apples</color>."
+    },
+    {
+      "characterName": "Player",
+      "dialogueText": "I'll do that. Thank you!"
+    }
+  ]
+}
