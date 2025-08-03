@@ -59,6 +59,9 @@ public class DialogueManager : MonoBehaviour
         }
 
         DialogueLine line = dialogueQueue.Dequeue();
+
+        line.onLineStart?.Invoke();     // Invoke the event for the line start
+
         characterName.text = line.characterName;
         
         StopAllCoroutines(); // Stop any ongoing typing effec
@@ -67,11 +70,19 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeDialogue(DialogueLine line)
     {
-        dialogueText.text = "";
-        foreach (char letter in line.dialogueText.ToCharArray())
+        dialogueText.text = line.dialogueText;
+        dialogueText.maxVisibleCharacters = 0;
+
+        yield return new WaitForSeconds(dialogueSpeed);
+
+        int totalVisibleCharacters = dialogueText.textInfo.characterCount;
+        int counter = 0;
+
+        while(counter <= totalVisibleCharacters)
         {
-            yield return new WaitForSeconds(dialogueSpeed); // Wait for the specified dialogue speed
-            dialogueText.text += letter; // Append each letter to the dialogue text
+            dialogueText.maxVisibleCharacters = counter;
+            counter++;
+            yield return new WaitForSeconds(dialogueSpeed);
         }
     }
 }

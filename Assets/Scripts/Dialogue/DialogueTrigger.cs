@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [System.Serializable]
 public class DialogueLine
@@ -7,6 +8,7 @@ public class DialogueLine
     public string characterName;
     [TextArea(3, 10)]
     public string dialogueText;
+    public UnityEvent onLineStart; // Event to trigger when the line starts
 }
 
 [System.Serializable]
