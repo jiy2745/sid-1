@@ -810,8 +810,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: {fileID: 292925571}
   dialogueText: {fileID: 1469534057}
-  dialogueSpeed: 0.05
   animator: {fileID: 202885261}
+  dialogueSpeed: 0.05
 --- !u!4 &248669109
 Transform:
   m_ObjectHideFlags: 0
@@ -27086,6 +27086,7 @@ GameObject:
   - component: {fileID: 2101473832}
   - component: {fileID: 2101473831}
   - component: {fileID: 2101473830}
+  - component: {fileID: 2101473835}
   - component: {fileID: 2101473834}
   - component: {fileID: 2101473833}
   m_Layer: 0
@@ -27245,43 +27246,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602c4ec77dc8d42429b09257812c8e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conditionalDialogues:
-  - dialogueId: test_dialogue
-    requiredDay: 0
-    dialogueEvents:
-      dialogueLines:
-      - characterName: 
-        dialogueText: 
-        onLineStart:
-          m_PersistentCalls:
-            m_Calls: []
-      - characterName: 
-        dialogueText: 
-        onLineStart:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 947726875}
-              m_TargetAssemblyTypeName: MinigameManager, Assembly-CSharp
-              m_MethodName: SetCurrentGame
-              m_Mode: 3
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 1
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
-      - characterName: 
-        dialogueText: 
-        onLineStart:
-          m_PersistentCalls:
-            m_Calls: []
+--- !u!114 &2101473835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101473829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df0f6c6376d76fb4ba25b406dde94f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredDay: 0
   defaultDialogue:
     dialogueId: default_dialogue
-    requiredDay: 0
     dialogueEvents:
       dialogueLines: []
+  dialogues:
+  - requiredDay: 0
+    dialogueReference:
+      dialogueId: test_dialogue
+      dialogueEvents:
+        dialogueLines:
+        - characterName: 
+          dialogueText: 
+          onLineStart:
+            m_PersistentCalls:
+              m_Calls: []
+        - characterName: 
+          dialogueText: 
+          onLineStart:
+            m_PersistentCalls:
+              m_Calls:
+              - m_Target: {fileID: 947726875}
+                m_TargetAssemblyTypeName: MinigameManager, Assembly-CSharp
+                m_MethodName: SetCurrentGame
+                m_Mode: 3
+                m_Arguments:
+                  m_ObjectArgument: {fileID: 0}
+                  m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                  m_IntArgument: 1
+                  m_FloatArgument: 0
+                  m_StringArgument: 
+                  m_BoolArgument: 0
+                m_CallState: 2
+        - characterName: 
+          dialogueText: 
+          onLineStart:
+            m_PersistentCalls:
+              m_Calls: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
