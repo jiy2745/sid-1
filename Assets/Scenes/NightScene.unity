@@ -536,6 +536,7 @@ GameObject:
   - component: {fileID: 202885263}
   - component: {fileID: 202885262}
   - component: {fileID: 202885261}
+  - component: {fileID: 202885264}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -625,6 +626,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202885259}
   m_CullTransparentMesh: 1
+--- !u!114 &202885264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202885259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925da77aaea4da04f940e8ca473a6ba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterNameText: {fileID: 292925571}
+  dialogueText: {fileID: 1469534057}
+  animator: {fileID: 202885261}
 --- !u!1 &218108647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,7 +1286,7 @@ GameObject:
   - component: {fileID: 376048091}
   - component: {fileID: 376048090}
   m_Layer: 5
-  m_Name: UICanvas
+  m_Name: DialogueCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26748,6 +26764,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010464624}
   m_CullTransparentMesh: 1
+--- !u!1 &2026000234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2026000236}
+  - component: {fileID: 2026000235}
+  m_Layer: 0
+  m_Name: TestSceneLoad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2026000235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026000234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72f6447201e9ce94884d0fb1ab166661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopPlayerOnEnter: 0
+  onPlayerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &2026000236
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026000234}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.57152, y: 0.0323, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2066619201
 GameObject:
   m_ObjectHideFlags: 0
@@ -27269,3 +27333,4 @@ SceneRoots:
   - {fileID: 757842473}
   - {fileID: 1635469079}
   - {fileID: 1178076578}
+  - {fileID: 2026000236}

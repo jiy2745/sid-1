@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -31,8 +31,50 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    // Subscribe to the sceneLoaded event when the object is enabled
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // Unsubscribe when the object is disabled to prevent memory leaks
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Find the new scene's DialogueUI marker component
+        DialogueUI ui = FindObjectOfType<DialogueUI>();
+        if (ui != null)
+        {
+            // Get the UI component references from the marker
+            characterName = ui.characterNameText;
+            dialogueText = ui.dialogueText;
+            animator = ui.animator;
+        }
+        else
+        {
+            // If no DialogueUI is in the scene, clear references to prevent errors
+            characterName = null;
+            dialogueText = null;
+            animator = null;
+        }
+
+        // Ensure dialogue is not active when a new scene starts
+        isDialogueActive = false;
+        StopAllCoroutines();
+    }
+
     public void StartDialogue(Dialogue dialogue)
     {
+        if (characterName == null || dialogueText == null || animator == null)
+        {
+            Debug.LogError("Dialogue UI references not found in the current scene. Make sure a DialogueUI component exists on the canvas.");
+            return;
+        }
+
         isDialogueActive = true;
         animator.Play("DialogueBoxPopUp");  // Play popup animation
 
@@ -47,7 +89,10 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         isDialogueActive = false;
-        animator.Play("DialogueBoxPopDown"); // Play dropdown animation
+        if (animator != null)
+        {
+            animator.Play("DialogueBoxPopDown"); // Play dropdown animation
+        }
     }
 
     public void DisplayNextLine()
