@@ -74,6 +74,16 @@ public class GameManager : MonoBehaviour, IDataPersistence
             UseAction();
         }
     }
+    
+    public void WaterSprout()
+{
+    if (CanAct())
+    {
+        Debug.Log("새싹에 물을 주었다. 계몽 수치가 3 감소합니다.");
+        enlightenmentMeter -= 3;
+        UseAction();
+    }
+}
 
 
 
@@ -89,7 +99,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         if (actionsLeft <= 0)
         {
             Debug.Log("오늘의 행동 횟수를 모두 사용했습니다. 밤으로 넘어갑니다.");
-            
+
             // 여기에 밤으로 넘어가는 로직을 추가하면 될듯함
             // ChangeToNight()....;
 
