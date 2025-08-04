@@ -11,10 +11,11 @@ public class DialogueManager : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI characterName;
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] public Animator animator; // Animator for dialogue UI
 
     public bool isDialogueActive { get; private set; } = false;
     public float dialogueSpeed = 0.05f; // Speed of dialogue text display
-    public Animator animator; // Animator for dialogue UI
+    
     private Queue<DialogueLine> dialogueQueue = new Queue<DialogueLine>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
