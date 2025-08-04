@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events; 
 
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IDataPersistence
 {
 
     // 싱글턴 인스턴스: 어떤 스크립트에서도 이 인스턴스를 통해 GameManager에 접근 가능
@@ -119,5 +119,27 @@ public class GameManager : MonoBehaviour
         actionsLeft = 4; // 행동 횟수 초기화
         Debug.Log(currentDay + "일차 시작. 남은 행동 횟수: " + actionsLeft);
         onStateChanged.Invoke();
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.currentDay = data.currentDay;
+        this.actionsLeft = data.actionsLeft;
+        this.enlightenmentMeter = data.enlightenmentMeter;
+        this.girlFavorability = data.girlFavorability;
+        this.glassesFavorability = data.glassesFavorability;
+        this.rabbitFavorability = data.rabbitFavorability;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.currentDay = this.currentDay;
+        data.actionsLeft = this.actionsLeft;
+        data.enlightenmentMeter = this.enlightenmentMeter;
+        data.girlFavorability = this.girlFavorability;
+        data.glassesFavorability = this.glassesFavorability;
+        data.rabbitFavorability = this.rabbitFavorability;
+
+        Debug.Log("Saved game data");
     }
 }

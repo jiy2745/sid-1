@@ -1,0 +1,8 @@
+{
+  "dialogueLines": [
+    {
+      "characterName": "DefaultDialogue",
+      "dialogueText": "If you see this, something went <color=\"red\">wrong</color> with the dialogue loading."
+    }
+  ]
+}
