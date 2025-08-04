@@ -47,7 +47,8 @@ public class DialogueManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // Find the new scene's DialogueUI marker component
-        DialogueUI ui = FindObjectOfType<DialogueUI>();
+        DialogueUI ui = FindFirstObjectByType<DialogueUI>();
+
         if (ui != null)
         {
             // Get the UI component references from the marker

@@ -72,6 +72,6 @@ public class DataPersistenceManager : MonoBehaviour
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
         // Find all objects in the scene that implement IDataPersistence
-        return FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>().ToList();
+        return FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IDataPersistence>().ToList();
     }
 }
