@@ -14,7 +14,8 @@
 
 ### 주의 사항
 - 대사 파일은 Assets/Resources/Dialogues 내에 저장
-- 반드시 DialogueSelector 컴포넌트가 DialogueTrigger 컴포넌트와 같이 존재해야 함
+- 반드시 하나의 오브젝트에 DialogueSelector 컴포넌트가 DialogueTrigger 컴포넌트와 같이 존재해야 함
+- 만약 강제 이벤트 방식으로 대화창을 부르고 싶은 경우 (UnityEvent 등을 이용하여) DialogueManager의 StartDialogue 함수를 호출하면 됨
 
 ### DialogueSelector 클래스
 
@@ -22,4 +23,4 @@ NPC 또는 상호작용할 물체가 어떤 경우에 어떤 대화를 출력할
 
 **현재 구현해둔 클래스**
 - NPCDialogueSelector  
-기본적인 NPC 행동을 위한 클래스, Game Manager 클래스의 현재 날짜를 바탕으로 대사를 지정한다.
+기본적인 NPC 행동을 위한 클래스, Game Manager 클래스에 저장된 현재 날짜를 바탕으로 대사를 지정한다.
