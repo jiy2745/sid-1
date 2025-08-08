@@ -31,6 +31,10 @@ public class DialogueTrigger : MonoBehaviour
 {
     private DialogueSelector dialogueSelector;
 
+    [Header("Post-Dialogue Events")]
+    [Tooltip("Event fired after dialogue sequence ends.")]
+    public UnityEvent OnDialogueCompleted; // Event to call when dialogue ends
+
     private void Awake()
     {
         dialogueSelector = GetComponent<DialogueSelector>();
@@ -63,7 +67,7 @@ public class DialogueTrigger : MonoBehaviour
                 }
             }
             // Start the dialogue with the loaded dialogue lines
-            DialogueManager.instance.StartDialogue(loadedDialogue);
+            DialogueManager.instance.StartDialogue(loadedDialogue, OnDialogueCompleted.Invoke);
         }
         else
         {

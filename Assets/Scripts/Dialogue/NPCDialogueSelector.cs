@@ -10,11 +10,9 @@ public class NPCDialogueSelector : DialogueSelector
     {
         [Header("Conditions")]
         [Tooltip("Required day for this dialogue to trigger. Set to 0 to ignore.")]
-        public int requiredDay; // The day on which this dialogue can be triggered
+        public int requiredDay; // The day on which this dialogue can be triggered, set to 0 to ignore this condition
         public DialogueReference dialogueReference; // The dialogue reference to use for this day
     }
-    
-    public int requiredDay = 0; // The day on which this dialogue can be triggered. Set to 0 for any day.
 
     public DialogueReference defaultDialogue; // Default dialogue to use if no conditions are met
 

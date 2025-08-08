@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
+    private Action onDialogueCompleted; // Callback for when dialogue ends
     public static DialogueManager instance { get; private set; }
 
     [Header("UI References")]
@@ -69,7 +71,7 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, Action onCompletedCallback = null)
     {
         if (characterName == null || dialogueText == null || animator == null)
         {
@@ -85,6 +87,8 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueQueue.Enqueue(line); // Add each dialogue line to the queue
         }
+
+        this.onDialogueCompleted = onCompletedCallback; // Store calback for when dialogue ends
         DisplayNextLine();
     }
 
@@ -95,6 +99,8 @@ public class DialogueManager : MonoBehaviour
         {
             animator.Play("DialogueBoxPopDown"); // Play dropdown animation
         }
+        onDialogueCompleted?.Invoke(); // Invoke the callback if set
+        onDialogueCompleted = null; // Clear the callback after use
     }
 
     public void DisplayNextLine()
