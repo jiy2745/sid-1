@@ -2,21 +2,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Inventory : MonoBehaviour
 {
-    // (임시 변수) 나중에 다른 씬이랑 합쳤을 때 GameManager.cs에 있는 currentDay를 쓸 예정입니다.
-    private int currentDay = 3;
-    // (임시 변수) 나중에 다른 씬이랑 합쳤을 때 GameManager.cs에 있는 currentDay를 쓸 예정입니다.
-    private int enlightenmentMeter = 70;
-
     // DAY - (숫자)가 써있는 텍스트
     public TextMeshProUGUI dayCounterText;
     // 계몽 수치 게이지
     public Image enlightenmentMeterImage;
     // 계몽 수치 퍼센트 텍스트
     public TextMeshProUGUI enlightenmentMeterText;
-
-    public TextMeshProUGUI ItemDescriptionText;
+    // 아이템 설명 텍스트
+    public TextMeshProUGUI itemDescriptionText;
 
     void OnEnable()
     {
@@ -24,23 +19,32 @@ public class NewMonoBehaviourScript : MonoBehaviour
         UpdateEnlightenmentMeterImage();
         UpdateenlightenmentMeterText();
     }
+    
+    /*
+    void Update()
+    {
+        UpdateDayCounterText();
+        UpdateEnlightenmentMeterImage();
+        UpdateenlightenmentMeterText();
+    }
+    */
 
     // UI에 일수 업데이트
     private void UpdateDayCounterText()
     {
-        dayCounterText.text = "DAY - " + currentDay;
+        dayCounterText.text = "DAY - " + GameManager.instance.currentDay;
     }
 
     // 계몽 수치 바 업데이트
     private void UpdateEnlightenmentMeterImage()
     {
-        enlightenmentMeterImage.fillAmount = enlightenmentMeter / 100f;
+        enlightenmentMeterImage.fillAmount = GameManager.instance.enlightenmentMeter / 100f;
     }
 
     // 계몽 수치 퍼센트 업데이트
     private void UpdateenlightenmentMeterText()
     {
-        enlightenmentMeterText.text = enlightenmentMeter + "%";
+        enlightenmentMeterText.text = GameManager.instance.enlightenmentMeter + "%";
     }
 
     // 버튼에 따라 다른 텍스트를 보여주는 함수
@@ -70,6 +74,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
                 break;
         }
 
-        ItemDescriptionText.text = itemDescription;
+        itemDescriptionText.text = itemDescription;
     }
 }
