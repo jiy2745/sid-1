@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    // 아이템 아이콘들
+    public Button[] itemButtons;
     // DAY - (숫자)가 써있는 텍스트
     public TextMeshProUGUI dayCounterText;
     // 계몽 수치 게이지
@@ -12,7 +14,19 @@ public class Inventory : MonoBehaviour
     public TextMeshProUGUI enlightenmentMeterText;
     // 아이템 설명 텍스트
     public TextMeshProUGUI itemDescriptionText;
-
+    
+    
+    void Start()
+    {
+        for (int i = 0; i < itemButtons.Length; i++)
+        {
+            int buttonID = i;
+            itemButtons[i].onClick.AddListener(() => OnItemButtonClick(buttonID));
+        }
+    }
+    
+    
+    // 활성화되면 UI 업데이트
     void OnEnable()
     {
         UpdateDayCounterText();
@@ -20,15 +34,6 @@ public class Inventory : MonoBehaviour
         UpdateenlightenmentMeterText();
     }
     
-    /*
-    void Update()
-    {
-        UpdateDayCounterText();
-        UpdateEnlightenmentMeterImage();
-        UpdateenlightenmentMeterText();
-    }
-    */
-
     // UI에 일수 업데이트
     private void UpdateDayCounterText()
     {
@@ -50,8 +55,9 @@ public class Inventory : MonoBehaviour
     // 버튼에 따라 다른 텍스트를 보여주는 함수
     public void OnItemButtonClick(int buttonID)
     {
+        Debug.Log(buttonID);
         string itemDescription = "";
-
+    
         switch (buttonID)
         {
             case 0:
@@ -73,7 +79,9 @@ public class Inventory : MonoBehaviour
                 itemDescription = "에리카가 화학실에서 구해온 휘발유다. 불을 붙일 때 사용할 수 있을 것 같다.";
                 break;
         }
-
+        
+        Debug.Log(itemDescriptionText);
         itemDescriptionText.text = itemDescription;
+        Debug.Log(itemDescriptionText.text);
     }
 }

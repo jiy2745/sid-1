@@ -2,7 +2,23 @@ using UnityEngine;
 
 public class InventoryUIManager : MonoBehaviour
 {
-    public GameObject inventoryUI;
+    public static InventoryUIManager instance;
+    public GameObject inventoryUIPrefab;
+    private GameObject inventoryUIInstance;
+    
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -10,12 +26,15 @@ public class InventoryUIManager : MonoBehaviour
             ToggleInventoryUI();
         }
     }
-    
+
     public void ToggleInventoryUI()
     {
-        if (inventoryUI != null)
+        if (inventoryUIInstance == null)
         {
-            inventoryUI.SetActive(!inventoryUI.activeSelf);
+            inventoryUIInstance = Instantiate(inventoryUIPrefab);
+            return;
         }
+        
+        inventoryUIInstance.SetActive(!inventoryUIInstance.activeSelf);
     }
 }
