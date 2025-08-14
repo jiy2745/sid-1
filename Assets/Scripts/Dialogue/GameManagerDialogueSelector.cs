@@ -28,6 +28,7 @@ public class GameManagerDialogueSelector : DialogueSelector
         }
         foreach (var dialogue in dialogues)
         {
+            int currentValue = GameManager.instance.enlightenmentMeter;
             bool minOk = dialogue.minEnlightenment < 0 || currentValue >= dialogue.minEnlightenment;
             bool maxOk = dialogue.maxEnlightenment < 0 || currentValue <= dialogue.maxEnlightenment;
 
