@@ -11656,7 +11656,7 @@ MonoBehaviour:
   currentGame: 0
   qteMinigamePrefab: {fileID: 4762196063928627406, guid: 7b5596ee99d86ad42a1c186ede9e59f5, type: 3}
   dodgeMinigamePrefab: {fileID: 1940919615532487286, guid: 077f63370d2b33e41b06b7f374d86375, type: 3}
-  slashMinigamePrefab: {fileID: 7905364434505610665, guid: c2f9c11a0cc0b2b43b18beff2f3d8a1e, type: 3}
+  slashMinigamePrefab: {fileID: 6971726661956677892, guid: c2f9c11a0cc0b2b43b18beff2f3d8a1e, type: 3}
 --- !u!4 &947726876
 Transform:
   m_ObjectHideFlags: 0
@@ -11788,7 +11788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &998101209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13728,6 +13728,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602c4ec77dc8d42429b09257812c8e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDialogueCompleted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1691938617
 GameObject:
   m_ObjectHideFlags: 0
@@ -26467,6 +26470,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602c4ec77dc8d42429b09257812c8e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDialogueCompleted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2101473835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26479,7 +26485,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df0f6c6376d76fb4ba25b406dde94f4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredDay: 0
   defaultDialogue:
     dialogueId: default_dialogue
     dialogueEvents:
