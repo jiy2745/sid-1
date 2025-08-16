@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointer: {fileID: 7455703306940528784}
-  pointerSpeed: 100
+  pointerSpeed: 200
   safeZone: {fileID: 1646494431990269279}
   safeZoneWidths:
   - 150
@@ -131,7 +131,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -200}
+  m_AnchoredPosition: {x: 115, y: -227}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &304868760904137574
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 8107366635331182373, guid: b36874bda9ef79140b3a7f76a62daca3, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -366,6 +366,8 @@ MonoBehaviour:
   slashBar: {fileID: 8910753504368435792}
   playerAnimator: {fileID: 0}
   radialTimerImage: {fileID: 3500783297708447663}
+  radialTimerOffset: {x: 100, y: 70, z: 0}
+  slashBarOffset: {x: 0, y: -200, z: 0}
   onMinigameStop:
     m_PersistentCalls:
       m_Calls: []
