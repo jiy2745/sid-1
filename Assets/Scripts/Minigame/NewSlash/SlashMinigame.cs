@@ -8,6 +8,8 @@ public class SlashMinigame : MonoBehaviour
     public SlashBar slashBar; // Reference to the SlashBar component
     public Animator playerAnimator; // Reference to the player's animator
     public UnityEngine.UI.Image radialTimerImage; // Reference to the radial timer image
+    public Vector3 radialTimerOffset = new Vector3(100, 70, 0); // Offset for the radial timer position
+    public Vector3 slashBarOffset = new Vector3(0, -200, 0); // Offset for the slash bar position
     public UnityEvent onMinigameStop;
 
     [Header("Settings")]
@@ -19,11 +21,23 @@ public class SlashMinigame : MonoBehaviour
     private float minigameTimer;    // Timer for whole minigame
     private bool gameActive = false;
 
+    private Camera mainCamera;
+    private Transform playerTransform;
+    private RectTransform slashBarTransform;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GameObject player = GameObject.FindWithTag("Player");
-        //TODO: Map to player object later
+        mainCamera = Camera.main; // Get the main camera
+        GameObject player = GameObject.FindWithTag("Player");   // Get the player GameObject
+        if (player == null)
+        {
+            Debug.LogError("Player GameObject not found.");
+            return;
+        }
+        playerAnimator = player.GetComponent<Animator>();
+        playerTransform = player.transform;
+        slashBarTransform = slashBar.GetComponent<RectTransform>();
         StartMinigame();
     }
 
@@ -40,7 +54,12 @@ public class SlashMinigame : MonoBehaviour
             SegmentFailed();
         }
 
-        // Input handling
+        // --- Object positioning ---
+        Vector3 screenPos = mainCamera.WorldToScreenPoint(playerTransform.position);
+        radialTimerImage.transform.position = screenPos + radialTimerOffset; // Position the radial timer image above the player
+        slashBarTransform.position = screenPos + slashBarOffset; // Position the slash bar below the player
+
+        // --- Input handling ---
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (playerAnimator != null)

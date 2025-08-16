@@ -4,7 +4,7 @@ using UnityEngine;
 public class SlashBar : MonoBehaviour
 {
     public RectTransform pointer;   // Reference to the pointer
-    public float pointerSpeed = 5f; // Speed at which the pointer moves
+    public float pointerSpeed = 200f; // Speed at which the pointer moves
 
     public RectTransform safeZone; // Reference to the safe zone area
     public float[] safeZoneWidths = { 150f, 100f, 60f }; // Widths for different difficulty levels
