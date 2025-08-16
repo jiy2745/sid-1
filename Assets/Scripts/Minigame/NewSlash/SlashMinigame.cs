@@ -81,6 +81,7 @@ public class SlashMinigame : MonoBehaviour
             }
             else
             {
+                currentSegment++;
                 SegmentFailed(); // Player failed the segment
             }
         }
