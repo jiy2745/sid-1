@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -25,10 +26,23 @@ public class MinigameManager : MonoBehaviour
     [Tooltip("Reference to Slash Minigame prefab")]
     public GameObject slashMinigamePrefab;
 
+    public float minigameCooldown = 3f; // Cooldown between minigames, in seconds
+    public List<int> minigameOrder = new List<int>
+    {
+        (int)Minigame.QTE_MINIGAME,
+        (int)Minigame.DODGE_MINIGAME,
+        (int)Minigame.SLASH_MINIGAME
+    };
+    private int currentMinigameIndex = 0;
+
+    public UnityEvent onMinigamePhaseEnd; // Event to notify when a minigame phase ends
+
     // Reference to instance of each minigame prefab;
     private GameObject qteMinigameInstance;
     private GameObject dodgeMinigameInstance;
     private GameObject slashMinigameInstance;
+
+    private float timer = 0f; // Timer for cooldown
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,6 +52,26 @@ public class MinigameManager : MonoBehaviour
         if (player == null)
         {
             Debug.LogError("Player not present in scene!");
+        }
+    }
+
+    void Update()
+    {
+        // --- Minigame management ---
+        if (currentGame == Minigame.NONE)
+        {
+            if (currentMinigameIndex >= minigameOrder.Count)
+            {
+                onMinigamePhaseEnd?.Invoke();
+                this.enabled = false; // Disable this script if all minigames have been played
+            }
+            timer += Time.deltaTime;
+            if (timer >= minigameCooldown)
+            {
+                Debug.Log("Starting minigame: " + minigameOrder[currentMinigameIndex]);
+                SetCurrentGame(minigameOrder[currentMinigameIndex++]);
+                timer = 0f; // Reset timer after starting a minigame
+            }
         }
     }
 

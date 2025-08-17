@@ -26,7 +26,7 @@ public class ChunkManager : MonoBehaviour
             animator.SetFloat("speed", 1);
             animator.SetFloat("moveX", 1);
         }
-        
+
         foreach (Transform chunk in chunks)
         {
             chunk.position += Vector3.left * moveSpeed * Time.deltaTime;
@@ -44,6 +44,16 @@ public class ChunkManager : MonoBehaviour
                 chunk.position = new Vector3(maxX + chunkWidth, chunk.position.y, 0f);
                 //Debug.Log($"{chunk.name} ���ġ��: {chunk.position}");
             }
+        }
+    }
+    
+    public void StopMoving()
+    {
+        isMoving = false;
+        if (animator != null)
+        {
+            animator.SetFloat("speed", 0);
+            animator.SetFloat("moveX", 0);
         }
     }
 }
