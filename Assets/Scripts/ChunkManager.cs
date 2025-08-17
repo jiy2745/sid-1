@@ -1,31 +1,48 @@
 using UnityEngine;
 using System.Linq;
 
+// 08/17 ê¹€ì§€ì„­ - Refactored to hold reference to player animator and added isMoving flag
 public class ChunkManager : MonoBehaviour
 {
-    public float moveSpeed = 5f;            // Ã»Å©°¡ ¿ÞÂÊÀ¸·Î ¿òÁ÷ÀÌ´Â ¼Óµµ
-    public float chunkWidth = 20f;          // Ã»Å©ÀÇ ³Êºñ
-    public Transform[] chunks;              // Å¸ÀÏ¸Ê Ã»Å©µé (Grid + Å¸ÀÏ¸Ê Æ÷ÇÔ ¿ÀºêÁ§Æ®)
+    public float moveSpeed = 5f;            // Ã»Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½Óµï¿½
+    public float chunkWidth = 20f;          // Ã»Å©ï¿½ï¿½ ï¿½Êºï¿½
+    public Transform[] chunks;              // Å¸ï¿½Ï¸ï¿½ Ã»Å©ï¿½ï¿½ (Grid + Å¸ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®)
+
+    public bool isMoving = true; // Set to false to stop moving chunks
+    [SerializeField] private Animator animator; // Reference to player animator
 
     void Update()
     {
-        // ¸ðµç Ã»Å©¸¦ ¿ÞÂÊÀ¸·Î ÀÌµ¿
+        if (isMoving)
+        {
+            MoveChunks();
+        }
+    }
+    private void MoveChunks()
+    {
+        if (animator != null)
+        {
+            // 08/17 ê¹€ì§€ì„­ - Set player animator to move right when moving chunks
+            animator.SetFloat("speed", 1);
+            animator.SetFloat("moveX", 1);
+        }
+        
         foreach (Transform chunk in chunks)
         {
             chunk.position += Vector3.left * moveSpeed * Time.deltaTime;
         }
 
-        // °¡Àå ¿ÞÂÊ¿¡ ÀÖ´Â Ã»Å©°¡ È­¸é ¿ÞÂÊ ¹Ù±ùÀ¸·Î ³ª°¬´ÂÁö È®ÀÎ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ê¿ï¿½ ï¿½Ö´ï¿½ Ã»Å©ï¿½ï¿½ È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
         foreach (Transform chunk in chunks)
         {
-            // ¸¸¾à ÀÌ Ã»Å©ÀÇ ¿À¸¥ÂÊ ³¡ÀÌ È­¸é ¿ÞÂÊº¸´Ù ´õ ¿ÞÂÊÀ¸·Î °¡¹ö·È´Ù¸é
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã»Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ ï¿½ï¿½ï¿½Êºï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È´Ù¸ï¿½
             float rightEdge = chunk.position.x + chunkWidth / 2f;
             if (rightEdge < -chunkWidth / 2f)
             {
-                // °¡Àå ¿À¸¥ÂÊ¿¡ ÀÖ´Â Ã»Å© Ã£±â
+                // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ê¿ï¿½ ï¿½Ö´ï¿½ Ã»Å© Ã£ï¿½ï¿½
                 float maxX = chunks.Max(c => c.position.x);
                 chunk.position = new Vector3(maxX + chunkWidth, chunk.position.y, 0f);
-                Debug.Log($"{chunk.name} Àç¹èÄ¡µÊ: {chunk.position}");
+                //Debug.Log($"{chunk.name} ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½: {chunk.position}");
             }
         }
     }
