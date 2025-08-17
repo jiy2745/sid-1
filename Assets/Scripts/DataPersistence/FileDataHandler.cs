@@ -73,7 +73,7 @@ public class FileDataHandler
                 }
             }
 
-            Debug.Log("Game data saved successfully.");
+            Debug.Log("Game data saved successfully on " + fullPath);
         }
         catch (Exception e)
         {
