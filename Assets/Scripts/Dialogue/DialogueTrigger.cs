@@ -19,13 +19,9 @@ public class Dialogue
 }
 
 [System.Serializable]
-public class ConditionalDialogue
+public class DialogueReference
 {
     public string dialogueId; // Unique identifier for the dialogue (the file name without extension)
-
-    [Header("Conditions")]
-    [Tooltip("The day on which this dialogue can be triggered. Set to 0 for any day.")]
-    public int requiredDay = 0;
 
     [Tooltip("Link UnityEvents here. Number of lines should match the dialogue file.")]
     public Dialogue dialogueEvents;
@@ -33,13 +29,23 @@ public class ConditionalDialogue
 
 public class DialogueTrigger : MonoBehaviour
 {
-    public List<ConditionalDialogue> conditionalDialogues = new List<ConditionalDialogue>();
+    private DialogueSelector dialogueSelector;
 
-    public ConditionalDialogue defaultDialogue; // Default dialogue to trigger if no conditions are met
+    [Header("Post-Dialogue Events")]
+    [Tooltip("Event fired after dialogue sequence ends.")]
+    public UnityEvent OnDialogueCompleted; // Event to call when dialogue ends
 
+    private void Awake()
+    {
+        dialogueSelector = GetComponent<DialogueSelector>();
+        if (dialogueSelector == null)
+        {
+            Debug.LogError("DialogueSelector component is missing on this GameObject.", this);
+        }
+    }
     public void TriggerDialogue()
     {
-        ConditionalDialogue dialogueToPlay = GetActiveDialogue();
+        DialogueReference dialogueToPlay = dialogueSelector.SelectDialogue();
         if (dialogueToPlay == null || string.IsNullOrEmpty(dialogueToPlay.dialogueId))
         {
             Debug.LogWarning("No suitable dialogue found for this trigger.", this);
@@ -61,30 +67,12 @@ public class DialogueTrigger : MonoBehaviour
                 }
             }
             // Start the dialogue with the loaded dialogue lines
-            DialogueManager.instance.StartDialogue(loadedDialogue);
+            DialogueManager.instance.StartDialogue(loadedDialogue, OnDialogueCompleted.Invoke);
         }
         else
         {
             Debug.LogError("Failed to load dialogue or DialogueManager instance is null.");
         }
-    }
-
-    private ConditionalDialogue GetActiveDialogue()
-    {
-        if (GameManager.instance == null)
-        {
-            Debug.LogError("GameManager instance is null. Cannot check conditions for dialogue.");
-            return defaultDialogue; // Return default dialogue if GameManager is not available
-        }
-
-        foreach (ConditionalDialogue conditionalDialogue in conditionalDialogues)
-        {
-            if (conditionalDialogue.requiredDay == 0 || GameManager.instance.currentDay == conditionalDialogue.requiredDay)
-            {
-                return conditionalDialogue; // Return the first matching dialogue based on conditions
-            }
-        }
-        return defaultDialogue; // Return default dialogue if no conditions are met
     }
 
     private void OnTriggerEnter2D(Collider2D other)

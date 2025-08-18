@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb71606bebfe8aa42bb09e6cd7ad78a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigameDuration: 20
+  minigameDuration: 10
   spawner: {fileID: 5437009517943160469}
   onMinigameStop:
     m_PersistentCalls:

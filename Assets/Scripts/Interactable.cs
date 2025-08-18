@@ -3,32 +3,44 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
+    [Tooltip("이 오브젝트를 식별할 고유한 ID를 입력하세요.")]
+    public string interactableId; // 각 오브젝트를 구분할 고유 ID
+
     public GameObject[] interactionIcons;
     public UnityEvent onInteract;
-    private bool isInteracted = false;
 
+    
     void Start()
     {
-        // 게임 시작 시 모든 아이콘을 숨김
+        
+        if (string.IsNullOrEmpty(interactableId))
+        {
+            Debug.LogError(gameObject.name + " 오브젝트에 Interactable ID가 설정되지 않았습니다! Inspector 창에서 ID를 입력해주세요.");
+        }
+        
         HideIcons();
     }
 
     public void Interact()
     {
-        // 아직 상호작용하지 않았을 때만 실행
-        if (!isInteracted)
+        
+       
+
+        if (!GameManager.instance.IsInteracted(interactableId))
         {
             onInteract.Invoke();
-            isInteracted = true; // 상호작용했다고 표시
-            HideIcons();         // 상호작용 후 아이콘을 영구적으로 숨기기
+            
+           
+            GameManager.instance.SetInteracted(interactableId); 
+            
+            HideIcons();
         }
     }
 
-    // PlayerMovement가 호출할 아이콘 표시 함수
     public void ShowIcons()
     {
-        // 상호작용하지 않은 오브젝트일 경우에만 아이콘을 표시
-        if (!isInteracted)
+        
+        if (!GameManager.instance.IsInteracted(interactableId))
         {
             foreach (GameObject icon in interactionIcons)
             {
@@ -40,7 +52,6 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    // PlayerMovement가 호출할 아이콘 숨기기 함수
     public void HideIcons()
     {
         foreach (GameObject icon in interactionIcons)
