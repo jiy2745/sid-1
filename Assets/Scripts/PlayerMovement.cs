@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
     }
 
-    void SetPlayerPosition(Vector3 pos)
+    public void SetPlayerPosition(Vector3 pos)
     {
         transform.position = pos;
     }
