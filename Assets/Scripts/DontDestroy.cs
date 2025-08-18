@@ -4,8 +4,8 @@ public class DontDestroy : MonoBehaviour
 {
     void Awake()
     {
-        // 이 스크립트를 가진 오브젝트를 모두 찾는다. 일단은 플레이어만 추가해둠. 
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
+        // 이 스크립트를 가진 오브젝트를 모두 찾는다. 
+        GameObject[] objs = GameObject.FindGameObjectsWithTag(gameObject.tag);
 
         // 만약 나 말고도 이미 다른 Player 오브젝트가 있다면
         if (objs.Length > 1)
