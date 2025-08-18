@@ -29,5 +29,36 @@ public class GameManagerActions : MonoBehaviour
     }
 }
 
-    // 이후 여기에 다른 GameManager 함수를 호출하는 public 함수들을 추가가능
+   
+   public void CallCollectHomework()
+    {
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.CollectHomework();
+        }
+    }
+
+    public void CallOrganizeBookshelf()
+    {
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.OrganizeBookshelf();
+        }
+    }
+
+    public void CallTalkToDeskmate()
+    {
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.TalkToDeskmate();
+        }
+    }
+
+    public void CallSweepFloor()
+    {
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.SweepFloor();
+        }
+    }
 }

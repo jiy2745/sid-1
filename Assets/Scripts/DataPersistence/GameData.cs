@@ -15,6 +15,8 @@ public class GameData
     public int glassesFavorability; // 안경 소녀 호감도
     public int rabbitFavorability;  // 토끼 호감도
 
+    public List<string> interactedObjectIds;
+
     public GameData()
     {
         currentDay = 1;          // 현재 날짜
@@ -25,6 +27,8 @@ public class GameData
         girlFavorability = 0;    // 옆자리 소녀 호감도
         glassesFavorability = 0; // 안경 소녀 호감도
         rabbitFavorability = 0;  // 토끼 호감도
+
+        interactedObjectIds = new List<string>();
 
     }
 }

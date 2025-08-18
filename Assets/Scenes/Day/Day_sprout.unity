@@ -381,6 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860817cdadd825640900b351cf2c4b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableId: watersprout
   interactionIcons:
   - {fileID: 614608482}
   - {fileID: 2140777517}
@@ -20351,6 +20352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860817cdadd825640900b351cf2c4b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableId: rabbit
   interactionIcons:
   - {fileID: 1033572837}
   - {fileID: 265319443}
