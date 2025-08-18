@@ -23,6 +23,11 @@ public class HealthManager : MonoBehaviour
     {
         int oldHealth = currentHealth;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        if (currentHealth <= 0)
+        {
+            GameOver();
+            return;
+        }
 
         // Update UI
         heartsUI.UpdateHearts(currentHealth);
@@ -55,5 +60,11 @@ public class HealthManager : MonoBehaviour
     public void DecreaseHealth()
     {
         ChangeHealth(-1);
+    }
+
+    private void GameOver()
+    {
+        // TODO: Handle game over logic here
+        Debug.Log("Game Over! Health reached zero.");
     }
 }
