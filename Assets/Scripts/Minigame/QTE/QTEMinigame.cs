@@ -66,18 +66,15 @@ public class QTEMinigame : MonoBehaviour
     private bool gameActive = false;
     private bool isWaitingForNextBatch = false;
     [SerializeField] private Color spriteColor;
-    private TriggerArea triggerArea;    // Child gameObject for player detection
 
     [SerializeField] private GameObject EffectOnDestroyPrefab;      // Effect prefab for key prefab destruction
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        triggerArea = GetComponentInChildren<TriggerArea>();
-        triggerArea.onPlayerEnter.AddListener(StartMinigame);
-
         GameObject player = GameObject.FindWithTag("Player");
         keySpawnPoint = player.transform;
+        StartMinigame();
     }
 
     // Update is called once per frame
