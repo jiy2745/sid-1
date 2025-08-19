@@ -1,28 +1,28 @@
 using UnityEngine;
-using UnityEngine.Events; 
-
+using UnityEngine.Events;
+using System.Collections.Generic; // HashSet을 사용하기 위해 추가
 
 public class GameManager : MonoBehaviour, IDataPersistence
 {
-
     // 싱글턴 인스턴스: 어떤 스크립트에서도 이 인스턴스를 통해 GameManager에 접근 가능
     public static GameManager instance;
 
     [Header("게임 상태 변수")]
-    public int currentDay = 1;          // 현재 날짜
-    public int actionsLeft = 4;         // 하루에 남은 행동 횟수
-    public int enlightenmentMeter = 50; // 계몽 수치
+    public int currentDay = 1;
+    public int actionsLeft = 4;
+    public int enlightenmentMeter = 50;
 
     [Header("NPC 호감도")]
-    public int girlFavorability = 0;    // 옆자리 소녀 호감도
-    public int glassesFavorability = 0; // 안경 소녀 호감도
-    public int rabbitFavorability = 0;  // 토끼 호감도
-
+    public int girlFavorability = 0;
+    public int glassesFavorability = 0;
+    public int rabbitFavorability = 0;
 
     // 상태가 변경될 때 UI업뎃 등을 위해 사용할 수 있는 이벤트
     public UnityEvent onStateChanged;
 
-
+    // (08/18 기존 interactable 스크립트 버그 수정을 위해 gamemanager에서 정보 가져오는 방식으로)
+    [Header("상호작용 기록")]
+    private HashSet<string> interactedObjectIds = new HashSet<string>();
 
     // 게임이 시작될 때 가장 먼저 호출
     void Awake()
@@ -39,11 +39,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         }
     }
 
-
-
-    // --------- 상호작용 함수들 --------
     // 이 함수들을 Interactable 오브젝트에서 연결하여 작동하는 구조
-
     public void WriteJournal()
     {
         if (CanAct())
@@ -74,39 +70,107 @@ public class GameManager : MonoBehaviour, IDataPersistence
             UseAction();
         }
     }
+
+    // (08/04 진성민)
+    public void SweepFloor()
+    {
+        if (CanAct())
+        {
+            Debug.Log("빗자루로 바닥을 청소했다. 계몽 수치가 3 감소합니다.");
+            enlightenmentMeter -= 3;
+            UseAction();
+        }
+    }
+
+    public void CollectHomework()
+    {
+        if (CanAct())
+        {
+            Debug.Log("친구들의 과제를 걷었다.");
+            if (Random.Range(0, 100) < 30)
+            {
+                Debug.Log("한 친구의 과제가 알 수 없는 언어로 적혀있는 것을 발견했다...");
+                Debug.Log("계몽 수치가 5 증가합니다.");
+                enlightenmentMeter += 5;
+            }
+            else
+            {
+                Debug.Log("오늘은 별다른 이상한 점은 없었다.");
+            }
+            UseAction();
+        }
+    }
+    
+    //(08/04 진성민)
+    public void OrganizeBookshelf()
+    {
+        if (CanAct())
+        {
+            Debug.Log("학급 문고를 정리했다.");
+            switch (currentDay)
+            {
+                case 1:
+                    Debug.Log("책을 정리하자 머리가 약간 아파왔다. 계몽 수치가 5 증가합니다.");
+                    enlightenmentMeter += 5;
+                    break;
+                case 2:
+                    Debug.Log("책장 구석에서 이상한 양피지를 발견했다! (토끼 마법 스크롤 획득)");
+                    enlightenmentMeter += 5;
+                    break;
+                default:
+                    if (Random.Range(0, 100) < 30)
+                    {
+                        Debug.Log("알 수 없는 언어로 쓰인 책을 발견했다. 머리가 깨질 것 같다!");
+                        enlightenmentMeter += 10;
+                    }
+                    else
+                    {
+                        Debug.Log("오늘은 별다른 것을 찾지 못했다.");
+                    }
+                    break;
+            }
+            UseAction();
+        }
+    }
     
     public void WaterSprout()
-{
-    if (CanAct())
     {
-        Debug.Log("새싹에 물을 주었다. 계몽 수치가 3 감소합니다.");
-        enlightenmentMeter -= 3;
-        UseAction();
+        if (CanAct())
+        {
+            Debug.Log("새싹에 물을 주었다. 계몽 수치가 3 감소합니다.");
+            enlightenmentMeter -= 3;
+            UseAction();
+        }
     }
-}
 
+    // --- Interactable 상태 관리 함수 ---
+    public bool IsInteracted(string objectId)
+    {
+        if (string.IsNullOrEmpty(objectId)) return false;
+        return interactedObjectIds.Contains(objectId);
+    }
 
+    public void SetInteracted(string objectId)
+    {
+        if (string.IsNullOrEmpty(objectId)) return;
+        if (!interactedObjectIds.Contains(objectId))
+        {
+            interactedObjectIds.Add(objectId);
+        }
+    }
 
     // -----------------내부 관리 함수들----------------
-
-    // 행동하고, 상태 변경 이벤트를 호출하는 함수
     private void UseAction()
     {
         actionsLeft--;
         Debug.Log("남은 행동 횟수: " + actionsLeft);
-        onStateChanged.Invoke(); // UI 등을 위해 이벤트를 발생시킴
-
+        onStateChanged.Invoke();
         if (actionsLeft <= 0)
         {
             Debug.Log("오늘의 행동 횟수를 모두 사용했습니다. 밤으로 넘어갑니다.");
-
-            // 여기에 밤으로 넘어가는 로직을 추가하면 될듯함
-            // ChangeToNight()....;
-
         }
     }
 
-    // 행동할 수 있는지 확인하는 함수
     private bool CanAct()
     {
         if (actionsLeft > 0)
@@ -115,22 +179,21 @@ public class GameManager : MonoBehaviour, IDataPersistence
         }
         else
         {
+            
             Debug.Log("행동 횟수가 남아있지 않습니다.");
             return false;
         }
     }
 
-
-
-    // 새 날이 시작될 때 호출할 함수(예시 프로토타입. 이것도 더 논의 필요)
     public void StartNewDay()
     {
         currentDay++;
-        actionsLeft = 4; // 행동 횟수 초기화
+        actionsLeft = 4;
         Debug.Log(currentDay + "일차 시작. 남은 행동 횟수: " + actionsLeft);
         onStateChanged.Invoke();
     }
 
+    // --- 데이터 저장/불러오기 ---
     public void LoadData(GameData data)
     {
         this.currentDay = data.currentDay;
@@ -139,6 +202,9 @@ public class GameManager : MonoBehaviour, IDataPersistence
         this.girlFavorability = data.girlFavorability;
         this.glassesFavorability = data.glassesFavorability;
         this.rabbitFavorability = data.rabbitFavorability;
+        // 상호작용 기록 불러오기
+        this.interactedObjectIds = new HashSet<string>(data.interactedObjectIds);
+        Debug.LogWarning($"[GameManager] LoadData가 호출되었습니다. actionsLeft가 <color=yellow>{this.actionsLeft}</color>로 설정됩니다.");
     }
 
     public void SaveData(GameData data)
@@ -149,7 +215,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
         data.girlFavorability = this.girlFavorability;
         data.glassesFavorability = this.glassesFavorability;
         data.rabbitFavorability = this.rabbitFavorability;
-
+        // 상호작용 기록 저장하기
+        data.interactedObjectIds = new List<string>(this.interactedObjectIds);
         Debug.Log("Saved game data");
     }
 }
