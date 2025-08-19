@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -164}
+  m_AnchoredPosition: {x: -233, y: 169}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2625624290312277404
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spaceBarPressed: {fileID: 1088122718650235891, guid: d0e70f65754839141a48559c7ef5e500, type: 3}
   spaceBarLifted: {fileID: 5398998059697563366, guid: d0e70f65754839141a48559c7ef5e500, type: 3}
-  pressInterval: 1
+  pressInterval: 0.5
 --- !u!1 &2561338652573989427
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,10 +456,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slashBar: {fileID: 8910753504368435792}
+  spaceBar: {fileID: 3986870054673175310}
   playerAnimator: {fileID: 0}
   radialTimerImage: {fileID: 3500783297708447663}
-  radialTimerOffset: {x: 100, y: 70, z: 0}
-  slashBarOffset: {x: 0, y: -200, z: 0}
+  radialTimerOffset: {x: 100, y: 40, z: 0}
+  slashBarOffset: {x: 0, y: -150, z: 0}
+  spaceBarOffset: {x: -140, y: 20, z: 0}
   onMinigameStop:
     m_PersistentCalls:
       m_Calls: []

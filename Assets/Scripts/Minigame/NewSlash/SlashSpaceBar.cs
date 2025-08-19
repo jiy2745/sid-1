@@ -13,7 +13,7 @@ public class SlashSpaceBar : MonoBehaviour
     private bool isPressed = false;
     private Coroutine pulseCoroutine;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         spaceBarImage = GetComponent<Image>();
     }

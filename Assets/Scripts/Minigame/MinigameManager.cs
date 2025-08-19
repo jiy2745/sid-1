@@ -34,6 +34,7 @@ public class MinigameManager : MonoBehaviour
         (int)Minigame.SLASH_MINIGAME
     };
     private int currentMinigameIndex = 0;
+    private HealthManager healthManager; // Reference to HealthManager for health management
 
     public UnityEvent onMinigamePhaseEnd; // Event to notify when a minigame phase ends
 
@@ -43,10 +44,18 @@ public class MinigameManager : MonoBehaviour
     private GameObject slashMinigameInstance;
 
     private float timer = 0f; // Timer for cooldown
+    private bool isPaused = false; // Flag to check if minigame is paused
+
+    void Awake()
+    {
+        healthManager = GetComponent<HealthManager>();
+    }
+        
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        healthManager.ShowHeartsUI(false); // Hide health UI at start
         currentGame = Minigame.NONE;
         player = GameObject.FindWithTag("Player");
         if (player == null)
@@ -58,13 +67,16 @@ public class MinigameManager : MonoBehaviour
     void Update()
     {
         // --- Minigame management ---
-        if (currentGame == Minigame.NONE)
+        if (currentGame == Minigame.NONE && !isPaused)
         {
             if (currentMinigameIndex >= minigameOrder.Count)
             {
                 onMinigamePhaseEnd?.Invoke();
                 this.enabled = false; // Disable this script if all minigames have been played
             }
+            //TODO: Add logic to check if player had revive item
+            // Play same minigame again if player has revive item
+
             timer += Time.deltaTime;
             if (timer >= minigameCooldown)
             {
@@ -86,6 +98,7 @@ public class MinigameManager : MonoBehaviour
                 // playerMovement.OnMinigameStop();
 
                 currentGame = Minigame.NONE;
+                healthManager.ShowHeartsUI(false); // Hide health UI when no minigame is active
                 // destroy all minigames
                 if (qteMinigameInstance != null) Destroy(qteMinigameInstance);
                 if (dodgeMinigameInstance != null) Destroy(dodgeMinigameInstance);
@@ -94,9 +107,11 @@ public class MinigameManager : MonoBehaviour
 
             case (int)Minigame.QTE_MINIGAME:
                 currentGame = Minigame.QTE_MINIGAME;
+                healthManager.ShowHeartsUI(true); // Show health UI
+                healthManager.ResetHealth();
                 if (qteMinigameInstance == null)
                 {
-                    qteMinigameInstance = Instantiate(qteMinigamePrefab);
+                    qteMinigameInstance = Instantiate(qteMinigamePrefab, gameObject.transform);
                     //TODO: set transform.position of minigame (position of TriggerArea) accordingly
                     QTEMinigame game = qteMinigameInstance.GetComponent<QTEMinigame>();
                     // Subscribe to the new instance's game stop event
@@ -109,9 +124,11 @@ public class MinigameManager : MonoBehaviour
 
             case (int)Minigame.DODGE_MINIGAME:
                 currentGame = Minigame.DODGE_MINIGAME;
+                healthManager.ShowHeartsUI(true); // Show health UI
+                healthManager.ResetHealth();
                 if (dodgeMinigameInstance == null)
                 {
-                    dodgeMinigameInstance = Instantiate(dodgeMinigamePrefab);
+                    dodgeMinigameInstance = Instantiate(dodgeMinigamePrefab, gameObject.transform);
                     //TODO: set transform.position of minigame (position of TriggerArea) accordingly
                     DodgeMinigame game = dodgeMinigameInstance.GetComponent<DodgeMinigame>();
                     // Subscribe to the new instance's game stop event
@@ -124,9 +141,11 @@ public class MinigameManager : MonoBehaviour
 
             case (int)Minigame.SLASH_MINIGAME:
                 currentGame = Minigame.SLASH_MINIGAME;
+                healthManager.ShowHeartsUI(true); // Show health UI
+                healthManager.ResetHealth();
                 if (slashMinigameInstance == null)
                 {
-                    slashMinigameInstance = Instantiate(slashMinigamePrefab);
+                    slashMinigameInstance = Instantiate(slashMinigamePrefab, gameObject.transform);
                     SlashMinigame game = slashMinigameInstance.GetComponent<SlashMinigame>();
                     // Subscribe to the new instance's game stop event
                     game.onMinigameStop.AddListener(() => SetCurrentGame(0));

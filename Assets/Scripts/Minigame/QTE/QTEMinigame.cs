@@ -65,6 +65,7 @@ public class QTEMinigame : MonoBehaviour
     private float spawnTimer;       // Timer for each new key spawn
     private bool gameActive = false;
     private bool isWaitingForNextBatch = false;
+    private HealthManager healthManager;
     [SerializeField] private Color spriteColor;
 
     [SerializeField] private GameObject EffectOnDestroyPrefab;      // Effect prefab for key prefab destruction
@@ -73,6 +74,7 @@ public class QTEMinigame : MonoBehaviour
     void Start()
     {
         GameObject player = GameObject.FindWithTag("Player");
+        healthManager = GetComponentInParent<HealthManager>();
         keySpawnPoint = player.transform;
         StartMinigame();
     }
@@ -206,14 +208,15 @@ public class QTEMinigame : MonoBehaviour
     // called when player misses a key, checks whether minigame over
     private void HandleFailure(ActiveKey key)
     {
-        playerHealth -= healthPenalty;
+        //playerHealth -= healthPenalty;
+        // Wire to health system
+        healthManager.DecreaseHealth();
 
         CleanUpAllKeys();
 
         // Game over check
-        if (playerHealth <= 0)
+        if (healthManager.currentHealth <= 0)
         {
-            playerHealth = 0;
             StopMinigame(false); // Player was defeated.
         }
         else
