@@ -7,7 +7,7 @@ public class Heart : MonoBehaviour
     private Image heartImage;
     private Animator animator;
 
-    void Start()
+    void Awake()
     {
         heartImage = GetComponent<Image>();
         animator = GetComponent<Animator>();
