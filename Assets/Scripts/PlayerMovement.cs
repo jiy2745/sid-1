@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>(); // 애니메이션 추가: 시작시 Animator 가져오기
     }
 
+
     void Update()
     {
         // (08/02 김지섭) 대화 중에는 플레이어 움직임 비활성화
@@ -51,13 +52,14 @@ public class PlayerMovement : MonoBehaviour
             // If dialogue is active, disable player movement
             movement = Vector2.zero;
 
-            // (08/03 진성민)대화 중일 때도 애니메이션은 멈춤 상태가 되어야 하므로 speed를 0으로 설정
+// (08/03 진성민)대화 중일 때도 애니메이션은 멈춤 상태가 되어야 하므로 speed를 0으로 설정
             if (anim != null)
             {
                 anim.SetFloat("speed", 0);
             }
             return;
         }
+            
 
         // Get input from WASD or arrow keys
         movement.x = Input.GetAxisRaw("Horizontal"); // A/D or Left/Right
@@ -87,6 +89,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void SetPlayerPosition(Vector3 pos)
+    {
+        transform.position = pos;
+    }
+
     void FixedUpdate()
     {
         // Apply movement
@@ -94,10 +101,7 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
     }
 
-    void SetPlayerPosition(Vector3 pos)
-    {
-        transform.position = pos;
-    }
+    
 
     public void OnMinigameStart()
     {

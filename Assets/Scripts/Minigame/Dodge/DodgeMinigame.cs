@@ -11,12 +11,10 @@ public class DodgeMinigame : MonoBehaviour
 
     private float minigameTimer;    // Timer for whole minigame
     private bool gameActive = false;
-    private TriggerArea triggerArea;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        triggerArea = GetComponentInChildren<TriggerArea>();
-        triggerArea.onPlayerEnter.AddListener(StartMinigame);
+        StartMinigame();
     }
 
     // Update is called once per frame
