@@ -12,22 +12,10 @@ public class HealthManager : MonoBehaviour
     public DamageFlash damageFlash;   // reference to DamageFlash component
     public UnityEvent onHealthChanged;
 
-    private void Start()
-    {
-        currentHealth = maxHealth;
-        heartsUI.InitHearts(maxHealth);
-        heartsUI.UpdateHearts(currentHealth);
-    }
-
     public void ChangeHealth(int amount)
     {
         int oldHealth = currentHealth;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        if (currentHealth <= 0)
-        {
-            GameOver();
-            return;
-        }
 
         // Update UI
         heartsUI.UpdateHearts(currentHealth);
@@ -48,7 +36,12 @@ public class HealthManager : MonoBehaviour
             }
 
         }
-
+        // Check for game over
+        if (currentHealth <= 0)
+        {
+            GameOver();
+            return;
+        }
         onHealthChanged?.Invoke();
     }
 
@@ -66,5 +59,19 @@ public class HealthManager : MonoBehaviour
     {
         // TODO: Handle game over logic here
         Debug.Log("Game Over! Health reached zero.");
+
+        // Need to check with game manager for item to revive
+        // Then set minigame to paused
+    }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+        heartsUI.InitHearts(maxHealth);
+    }
+
+    public void ShowHeartsUI(bool show)
+    {
+        heartsUI.gameObject.SetActive(show);
     }
 }

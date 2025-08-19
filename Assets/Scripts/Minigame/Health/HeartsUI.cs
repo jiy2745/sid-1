@@ -32,12 +32,11 @@ public class HeartsUI : MonoBehaviour
         for (int i = 0; i < maxHealth; i++)
         {
             GameObject newHeart = Instantiate(heartPrefab, transform);
-
+            hearts.Add(newHeart.GetComponent<Heart>());
             RectTransform rt = newHeart.GetComponent<RectTransform>();
             rt.anchoredPosition = new Vector2(i * heartSpacing - halfWidth, 0); // Position hearts horizontally
-
-            hearts.Add(newHeart.GetComponent<Heart>());
         }
+        UpdateHearts(maxHealth); // Initialize hearts to full
     }
 
     public void UpdateHearts(int currentHealth)
