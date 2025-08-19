@@ -1,20 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
+    private Action onDialogueCompleted; // Callback for when dialogue ends
     public static DialogueManager instance { get; private set; }
 
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI characterName;
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] public Animator animator; // Animator for dialogue UI
 
     public bool isDialogueActive { get; private set; } = false;
     public float dialogueSpeed = 0.05f; // Speed of dialogue text display
-    public Animator animator; // Animator for dialogue UI
+    
     private Queue<DialogueLine> dialogueQueue = new Queue<DialogueLine>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -31,8 +34,51 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    // Subscribe to the sceneLoaded event when the object is enabled
+    private void OnEnable()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // Unsubscribe when the object is disabled to prevent memory leaks
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Find the new scene's DialogueUI marker component
+        DialogueUI ui = FindFirstObjectByType<DialogueUI>();
+
+        if (ui != null)
+        {
+            // Get the UI component references from the marker
+            characterName = ui.characterNameText;
+            dialogueText = ui.dialogueText;
+            animator = ui.animator;
+        }
+        else
+        {
+            // If no DialogueUI is in the scene, clear references to prevent errors
+            characterName = null;
+            dialogueText = null;
+            animator = null;
+        }
+
+        // Ensure dialogue is not active when a new scene starts
+        isDialogueActive = false;
+        StopAllCoroutines();
+    }
+
+    public void StartDialogue(Dialogue dialogue, Action onCompletedCallback = null)
+    {
+        if (characterName == null || dialogueText == null || animator == null)
+        {
+            Debug.LogError("Dialogue UI references not found in the current scene. Make sure a DialogueUI component exists on the canvas.");
+            return;
+        }
+
         isDialogueActive = true;
         animator.Play("DialogueBoxPopUp");  // Play popup animation
 
@@ -41,13 +87,20 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueQueue.Enqueue(line); // Add each dialogue line to the queue
         }
+
+        this.onDialogueCompleted = onCompletedCallback; // Store calback for when dialogue ends
         DisplayNextLine();
     }
 
     void EndDialogue()
     {
         isDialogueActive = false;
-        animator.Play("DialogueBoxPopDown"); // Play dropdown animation
+        if (animator != null)
+        {
+            animator.Play("DialogueBoxPopDown"); // Play dropdown animation
+        }
+        onDialogueCompleted?.Invoke(); // Invoke the callback if set
+        onDialogueCompleted = null; // Clear the callback after use
     }
 
     public void DisplayNextLine()
