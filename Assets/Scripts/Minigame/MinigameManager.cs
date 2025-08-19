@@ -83,7 +83,7 @@ public class MinigameManager : MonoBehaviour
         {
             // No minigame is running, enable player movement
             case (int)Minigame.NONE:
-                playerMovement.OnMinigameStop();
+                // playerMovement.OnMinigameStop();
 
                 currentGame = Minigame.NONE;
                 // destroy all minigames
@@ -127,7 +127,6 @@ public class MinigameManager : MonoBehaviour
                 if (slashMinigameInstance == null)
                 {
                     slashMinigameInstance = Instantiate(slashMinigamePrefab);
-                    //TODO: set transform.position of minigame (position of TriggerArea) accordingly
                     SlashMinigame game = slashMinigameInstance.GetComponent<SlashMinigame>();
                     // Subscribe to the new instance's game stop event
                     game.onMinigameStop.AddListener(() => SetCurrentGame(0));

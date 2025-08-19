@@ -18,6 +18,7 @@ public class ChunkManager : MonoBehaviour
             MoveChunks();
         }
     }
+
     private void MoveChunks()
     {
         if (animator != null)
@@ -26,7 +27,6 @@ public class ChunkManager : MonoBehaviour
             animator.SetFloat("speed", 1);
             animator.SetFloat("moveX", 1);
         }
-
         foreach (Transform chunk in chunks)
         {
             chunk.position += Vector3.left * moveSpeed * Time.deltaTime;
