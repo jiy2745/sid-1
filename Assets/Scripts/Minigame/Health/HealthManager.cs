@@ -7,6 +7,7 @@ public class HealthManager : MonoBehaviour
     public int currentHealth;
 
     public HeartsUI heartsUI;
+    public GameOverUI gameOverUI; // Reference to GameOver UI
 
     [Header("Damage Flash")]
     public DamageFlash damageFlash;   // reference to DamageFlash component
@@ -57,11 +58,22 @@ public class HealthManager : MonoBehaviour
 
     private void GameOver()
     {
-        // TODO: Handle game over logic here
         Debug.Log("Game Over! Health reached zero.");
 
-        // Need to check with game manager for item to revive
-        // Then set minigame to paused
+        // Then set minigame to paused & NONE
+        GetComponent<MinigameManager>().PauseMinigamePhase();
+
+        // TODO: Need to check with game manager for item to revive
+
+        // For now, just show game over UI
+        if (gameOverUI != null)
+        {
+            gameOverUI.Show();
+        }
+        else
+        {
+            Debug.LogError("GameOverUI is not assigned in HealthManager!");
+        }
     }
 
     public void ResetHealth()

@@ -36,6 +36,7 @@ public class MinigameManager : MonoBehaviour
     private int currentMinigameIndex = 0;
     private HealthManager healthManager; // Reference to HealthManager for health management
 
+
     public UnityEvent onMinigamePhaseEnd; // Event to notify when a minigame phase ends
 
     // Reference to instance of each minigame prefab;
@@ -44,13 +45,13 @@ public class MinigameManager : MonoBehaviour
     private GameObject slashMinigameInstance;
 
     private float timer = 0f; // Timer for cooldown
-    private bool isPaused = false; // Flag to check if minigame is paused
+    private bool isPaused = false; // Flag to check if minigame phase is paused (revive or game over)
 
     void Awake()
     {
         healthManager = GetComponent<HealthManager>();
     }
-        
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -155,5 +156,13 @@ public class MinigameManager : MonoBehaviour
                 if (qteMinigameInstance != null) Destroy(qteMinigameInstance);
                 break;
         }
+    }
+
+    // When called, pauses the minigame phase (no minigame runs, and cooldown timer is stopped)
+    // This is used for game over or revive logic
+    public void PauseMinigamePhase()
+    {
+        isPaused = true;
+        SetCurrentGame((int)Minigame.NONE); // Stop current minigame
     }
 }
