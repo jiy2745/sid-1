@@ -208,7 +208,6 @@ public class QTEMinigame : MonoBehaviour
     // called when player misses a key, checks whether minigame over
     private void HandleFailure(ActiveKey key)
     {
-        //playerHealth -= healthPenalty;
         // Wire to health system
         healthManager.DecreaseHealth();
 

@@ -25,6 +25,7 @@ public class GameOverUI : MonoBehaviour
         SetAlpha(buttonsGroup, 0f);
 
         gameObject.SetActive(false);
+        SetAlpha(GetComponent<CanvasGroup>(), 1f);
 
         retryButton.onClick.AddListener(() => OnButtonClicked("NightScene"));
         // menuButton.onClick.AddListener(() => OnButtonClicked("MainMenu")); // TODO: Uncomment when MainMenu scene is available
