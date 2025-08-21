@@ -35,7 +35,7 @@ public class MinigameManager : MonoBehaviour
     };
     private int currentMinigameIndex = 0;
     private HealthManager healthManager; // Reference to HealthManager for health management
-
+    private ChunkManager chunkManager; // Reference to ChunkManager for chunk management
 
     public UnityEvent onMinigamePhaseEnd; // Event to notify when a minigame phase ends
 
@@ -50,6 +50,7 @@ public class MinigameManager : MonoBehaviour
     void Awake()
     {
         healthManager = GetComponent<HealthManager>();
+        chunkManager = FindFirstObjectByType<ChunkManager>();
     }
 
 
@@ -164,5 +165,6 @@ public class MinigameManager : MonoBehaviour
     {
         isPaused = true;
         SetCurrentGame((int)Minigame.NONE); // Stop current minigame
+        chunkManager.StopMoving(); // Stop chunk movement
     }
 }

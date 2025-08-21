@@ -8,7 +8,7 @@ public class ChunkManager : MonoBehaviour
     public float chunkWidth = 20f;          // ûũ�� �ʺ�
     public Transform[] chunks;              // Ÿ�ϸ� ûũ�� (Grid + Ÿ�ϸ� ���� ������Ʈ)
 
-    public bool isMoving = true; // Set to false to stop moving chunks
+    private bool isMoving = true; // Set to false to stop moving chunks
     [SerializeField] private Animator animator; // Reference to player animator
 
     void Update()

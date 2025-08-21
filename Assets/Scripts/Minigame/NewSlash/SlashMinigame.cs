@@ -16,7 +16,6 @@ public class SlashMinigame : MonoBehaviour
 
     [Header("Settings")]
     public int totalSegments = 5;
-    public int lives = 3; // Number of lives the player has
     public float segmentTimelimit = 3f; // Time allowed for each segment
 
     private int currentSegment = 0; // Current segment the player is on
@@ -96,14 +95,13 @@ public class SlashMinigame : MonoBehaviour
 
     private void SegmentFailed()
     {
-        lives--;
-        if (lives <= 0)
+        healthManager.DecreaseHealth(); // Decrease health in HealthManager
+        if (healthManager.currentHealth <= 0)
         {
             StopMinigame(false); // Player lost the minigame
         }
         else
         {
-            Debug.Log("Segment failed, lives left: " + lives);
             StartNewSegment(); // Start a new segment
         }
     }
