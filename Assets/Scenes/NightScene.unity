@@ -713,8 +713,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c01fd01b82b8c864b9cd4eb2ab54c282, type: 2}
+  m_sharedMaterial: {fileID: -4146899831820664279, guid: c01fd01b82b8c864b9cd4eb2ab54c282, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14602,6 +14602,7 @@ MonoBehaviour:
   - {fileID: 1201104240}
   - {fileID: 875829830}
   - {fileID: 733055016}
+  isMoving: 1
   animator: {fileID: 1970025085}
 --- !u!4 &1354742194
 Transform:
@@ -15154,8 +15155,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Retry
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c01fd01b82b8c864b9cd4eb2ab54c282, type: 2}
+  m_sharedMaterial: {fileID: -4146899831820664279, guid: c01fd01b82b8c864b9cd4eb2ab54c282, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -15813,8 +15814,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <color="red">GAME OVER</color>
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c01fd01b82b8c864b9cd4eb2ab54c282, type: 2}
+  m_sharedMaterial: {fileID: -4146899831820664279, guid: c01fd01b82b8c864b9cd4eb2ab54c282, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -29084,11 +29085,11 @@ PrefabInstance:
     - target: {fileID: 2268996287380455422, guid: 32efdf0bc6bf0334ebabbf63583364d3, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 73e391abdbf239e4d82fe11fb6279f11, type: 2}
+      objectReference: {fileID: 11400000, guid: c01fd01b82b8c864b9cd4eb2ab54c282, type: 2}
     - target: {fileID: 2268996287380455422, guid: 32efdf0bc6bf0334ebabbf63583364d3, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -4146899831820664279, guid: 73e391abdbf239e4d82fe11fb6279f11, type: 2}
+      objectReference: {fileID: -4146899831820664279, guid: c01fd01b82b8c864b9cd4eb2ab54c282, type: 2}
     - target: {fileID: 2268996287380455422, guid: 32efdf0bc6bf0334ebabbf63583364d3, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0

@@ -8,8 +8,23 @@ public class ChunkManager : MonoBehaviour
     public float chunkWidth = 20f;          // ûũ�� �ʺ�
     public Transform[] chunks;              // Ÿ�ϸ� ûũ�� (Grid + Ÿ�ϸ� ���� ������Ʈ)
 
-    private bool isMoving = true; // Set to false to stop moving chunks
+    [SerializeField] private bool isMoving = true; // Set to false to stop moving chunks
     [SerializeField] private Animator animator; // Reference to player animator
+
+    void Start()
+    {
+        // 08/17 김지섭 - Initialize animator reference
+        if (animator == null)
+        {
+            var player = GameObject.FindWithTag("Player");
+            animator = player.GetComponent<Animator>();
+            if (animator == null)
+            {
+                Debug.LogWarning("Animator component not found.");
+            }
+        }
+        isMoving = true; // Start moving chunks by default
+    }
 
     void Update()
     {
@@ -47,6 +62,15 @@ public class ChunkManager : MonoBehaviour
         }
     }
     
+    private void LateUpdate() {
+        if (isMoving && animator != null)
+        {
+            // 08/17 김지섭 - Set player animator to move right when moving chunks
+            animator.SetFloat("speed", 1);
+            animator.SetFloat("moveX", 1);
+        }
+    }
+
     public void StopMoving()
     {
         isMoving = false;
