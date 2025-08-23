@@ -13,12 +13,17 @@ public class GameOverUI : MonoBehaviour
     public Button retryButton;
     public Button menuButton;
 
+    [Header("Audio")]
+    public AudioSource gameOverSound;
+    public AudioClip gameOverClip;
+
     [Header("Fade Settings")]
     public float fadeDuration = 1f;      // How long each fade takes
     public float interval = 0.5f;        // Delay between each element
 
     private void Start()
     {
+        GetComponent<AudioSource>().clip = gameOverClip;
         // Ensure all groups start invisible
         SetAlpha(backgroundGroup, 0f);
         SetAlpha(textGroup, 0f);
@@ -34,6 +39,11 @@ public class GameOverUI : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            player.GetComponent<PlayerMovement>().enabled = false;
+        }
         StartCoroutine(ShowSequence());
     }
 
@@ -44,6 +54,10 @@ public class GameOverUI : MonoBehaviour
         yield return StartCoroutine(FadeIn(backgroundGroup));
         yield return new WaitForSeconds(interval);
 
+        if (gameOverSound != null)
+        {
+            gameOverSound.Play();
+        }
         yield return StartCoroutine(FadeIn(textGroup));
         yield return new WaitForSeconds(interval);
 
