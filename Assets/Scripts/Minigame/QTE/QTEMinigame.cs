@@ -1,7 +1,9 @@
 using System.Collections.Generic;
-using System.Linq;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
+using System.Collections;
 
 // helper class
 [System.Serializable]
@@ -35,6 +37,9 @@ public class QTEMinigame : MonoBehaviour
     [Tooltip("The time in seconds between the end of one batch and the start of the next.")]
     public float batchSpawnInterval = 2.0f;
 
+    public float timePerBatch = 5.0f;
+    public float keySpawnDelay = 0.15f;
+
     [Tooltip("생성될 key prefab들의 리스트")]
     public KeyPrefab[] keyOptions;
 
@@ -46,15 +51,10 @@ public class QTEMinigame : MonoBehaviour
     [Tooltip("플레이어의 위치에서 key가 생성되는 Y좌표가 떨어진 정도")]
     public float spawnYPosition = 3.0f;
 
-    [Header("Key Object Settings")]
-    [Tooltip("Key의 추락 속도")]
-    public float fallSpeed = 3.0f;
-    [Tooltip("실패 판정이 되는 Y좌표 / key가 제거되는 좌표")]
-    public float despawnYPosition = -5.0f;
+    [Header("UI Elements")]
+    public Image timerBar;
+    public Gradient timerGradient;
 
-    [Header("Player Settings (Map to player object later)")]
-    public float playerHealth = 100.0f;
-    public float healthPenalty = 20.0f;
     [Header("True로 설정 시, 화면에 없는 키를 누르면 패널티 부여")]
     public bool penalizeWrongKey = false;
 
@@ -62,9 +62,10 @@ public class QTEMinigame : MonoBehaviour
 
     private List<ActiveKey> currentBatch = new List<ActiveKey>();
     private float minigameTimer;    // Timer for whole minigame
-    private float spawnTimer;       // Timer for each new key spawn
+    private float nextBatchTimer;       // Timer for new batch spawn
+    private float batchTimer;           // Timer for current batch duration
     private bool gameActive = false;
-    private bool isWaitingForNextBatch = false;
+    private bool isBatchActive = false;
     private HealthManager healthManager;
     [SerializeField] private Color spriteColor;
 
@@ -76,6 +77,10 @@ public class QTEMinigame : MonoBehaviour
         GameObject player = GameObject.FindWithTag("Player");
         healthManager = GetComponentInParent<HealthManager>();
         keySpawnPoint = player.transform;
+        if (timerBar != null)
+        {
+            timerBar.gameObject.SetActive(false);
+        }
         StartMinigame();
     }
 
@@ -93,29 +98,47 @@ public class QTEMinigame : MonoBehaviour
         }
 
         // --- Key spawn logic ---
-        if (isWaitingForNextBatch)
+        if (isBatchActive)
         {
-            spawnTimer -= Time.deltaTime;
-            if (spawnTimer <= 0)
-            {
-                SpawnNewKey();
-            }
+            // --- Key fall and input handling ---
+            HandleBatchTimer();
+            CheckPlayerInput();
         }
         else
         {
-             // --- Key fall and input handling ---
-            HandleActiveKeys();
-            CheckPlayerInput();
+            // --- Inter-batch timer logic ---
+            nextBatchTimer -= Time.deltaTime;
+            if (nextBatchTimer <= 0)
+            {
+                StartCoroutine(SpawnBatchCoroutine());
+            }
+        }
+    }
+
+    private void HandleBatchTimer()
+    {
+         batchTimer -= Time.deltaTime;
+
+        if (timerBar != null)
+        {
+            float fillAmount = Mathf.Clamp01(batchTimer / timePerBatch);
+            timerBar.fillAmount = fillAmount;
+            timerBar.color = timerGradient.Evaluate(1f - fillAmount); // Evaluate gradient based on time elapsed
+        }
+
+        if (batchTimer <= 0)
+        {
+            HandleFailure("Time ran out!");
         }
     }
 
     // handles player input
     private void CheckPlayerInput()
     {
+        if (!Input.anyKeyDown) return;  // Early exit if no key was pressed
         bool correctKeyPressed = false;
-        //ActiveKey keyToClear = null;
 
-        foreach (ActiveKey activeKey in currentBatch)
+        foreach (ActiveKey activeKey in new List<ActiveKey>(currentBatch))
         {
             KeyCode key = activeKey.Key;
             if (Input.GetKeyDown(key))
@@ -123,17 +146,6 @@ public class QTEMinigame : MonoBehaviour
                 Debug.Log("pressed + " + key);
                 HandleSuccess(activeKey);
                 correctKeyPressed = true;
-                /*
-                // Find all keys that match the one pressed.
-                var matchingKeys = activeKeys.Where(ak => ak.Key == key).ToList();
-                if (matchingKeys.Any())
-                {
-                    // Order them by their Y position to get the one lowest on the screen.
-                    keyToClear = matchingKeys.OrderBy(ak => ak.Instance.transform.position.y).First();
-                    HandleSuccess(keyToClear);
-                    correctKeyPressed = true;
-                }
-                */
                 break;
             }
         }
@@ -141,25 +153,7 @@ public class QTEMinigame : MonoBehaviour
         // If a key was pressed but it didn't match any active key.
         if (!correctKeyPressed && penalizeWrongKey)
         {
-            HandleFailure(null);
-        }
-    }
-
-    // Move key prefabs downwards and check for failure in each key
-    private void HandleActiveKeys()
-    {
-        for (int i = currentBatch.Count - 1; i >= 0; i--)
-        {
-            ActiveKey key = currentBatch[i];
-            // Move the key down in 2D space (Y-axis).
-            key.Instance.transform.position -= new Vector3(0, fallSpeed * Time.deltaTime, 0);
-
-            // Check if the key has fallen past the miss point.
-            if (key.Instance.transform.position.y < despawnYPosition)
-            {
-                HandleFailure(key);
-                return; // Exit after handling failure to avoid further processing.
-            }
+            HandleFailure("Wrong key pressed");
         }
     }
 
@@ -170,44 +164,21 @@ public class QTEMinigame : MonoBehaviour
         {
             Instantiate(EffectOnDestroyPrefab, clearedKey.Instance.transform.position, Quaternion.identity);
         }
-        ParticleSystem ps = EffectOnDestroyPrefab.GetComponent<ParticleSystem>();
-        if (ps != null)
-        {
-            var main = ps.main;
-            main.startColor = spriteColor;
 
-            var col = ps.colorOverLifetime;
-            col.enabled = true;
-
-            // Gradient fades to transparent
-            Gradient gradient = new Gradient();
-            gradient.SetKeys(
-            new GradientColorKey[] {
-                new GradientColorKey(spriteColor, 0.0f),
-                new GradientColorKey(spriteColor, 1.0f)
-            },
-            new GradientAlphaKey[] {
-            new GradientAlphaKey(spriteColor.a, 0.0f),
-            new GradientAlphaKey(0.0f, 1.0f)
-            }
-            );
-            col.color = new ParticleSystem.MinMaxGradient(gradient);
-        }
         Destroy(clearedKey.Instance);
         currentBatch.Remove(clearedKey);
 
         if (currentBatch.Count == 0)
         {
-            // If all keys in the current batch are cleared, prepare for the next batch.
-            isWaitingForNextBatch = true;
-            spawnTimer = batchSpawnInterval;
+            EndBatch();
         }
  
     }
 
     // called when player misses a key, checks whether minigame over
-    private void HandleFailure(ActiveKey key)
+    private void HandleFailure(string reason)
     {
+        Debug.Log($"Batch failed : {reason}");
         // Wire to health system
         healthManager.DecreaseHealth();
 
@@ -220,8 +191,7 @@ public class QTEMinigame : MonoBehaviour
         }
         else
         {
-            isWaitingForNextBatch = true;
-            spawnTimer = batchSpawnInterval;
+            EndBatch();
         }
     }
 
@@ -236,20 +206,52 @@ public class QTEMinigame : MonoBehaviour
                 return;
             }
             gameActive = true;
+            isBatchActive = false;
             minigameTimer = minigameDuration;
-            isWaitingForNextBatch = true;
-            spawnTimer = 0;
+            nextBatchTimer = 0;
 
-            // TODO: temporary testing variable (remove and connect to actual player later!!!)
-            playerHealth = 100.0f;
             Debug.Log("Minigame start, active for " + minigameDuration + " seconds.");
+            
+            // Modify particle system color if applicable
+            ParticleSystem ps = EffectOnDestroyPrefab.GetComponent<ParticleSystem>();
+            if (ps != null)
+            {
+                var main = ps.main;
+                main.startColor = spriteColor;
+
+                var col = ps.colorOverLifetime;
+                col.enabled = true;
+
+                // Gradient fades to transparent
+                Gradient gradient = new Gradient();
+                gradient.SetKeys(
+                new GradientColorKey[] {
+                    new GradientColorKey(spriteColor, 0.0f),
+                    new GradientColorKey(spriteColor, 1.0f)
+                },
+                new GradientAlphaKey[] {
+                new GradientAlphaKey(spriteColor.a, 0.0f),
+                new GradientAlphaKey(0.0f, 1.0f)
+                }
+                );
+                col.color = new ParticleSystem.MinMaxGradient(gradient);
+            }
         }
     }
 
     public void StopMinigame(bool playerWon)
     {
+        if (!gameActive) return;
+
         gameActive = false;
+        isBatchActive = false;
+        StopAllCoroutines();
         CleanUpAllKeys();
+
+        if (timerBar != null)
+        {
+            timerBar.gameObject.SetActive(false);
+        }
         if (playerWon)
         {
             Debug.Log("Player Won");
@@ -263,20 +265,45 @@ public class QTEMinigame : MonoBehaviour
         onMinigameStop?.Invoke();
     }
 
-    // spawns random key prefab at random location specified in keySpawnPoint
-    private void SpawnNewKey()
+    private IEnumerator SpawnBatchCoroutine()
     {
-        isWaitingForNextBatch = false;
+        isBatchActive = true;
+        batchTimer = timePerBatch;
+
+        // Calculate the starting position to spawn keys from left to right.
+        float startX = keySpawnPoint.position.x - spawnXRange / 2;
+        float stepX = spawnXRange / (keysPerBatch - 1);
 
         for (int i = 0; i < keysPerBatch; i++)
         {
-           KeyPrefab newKey = keyOptions[UnityEngine.Random.Range(0, keyOptions.Length)];
-            float xPos = keySpawnPoint.position.x - (spawnXRange / 2) + (spawnXRange * (i + 0.5f) / keysPerBatch);
-            Vector3 spawnPosition = new Vector3(keySpawnPoint.position.x + xPos, keySpawnPoint.position.y + spawnYPosition, keySpawnPoint.position.z);
+            KeyPrefab randomKeyPrefab = keyOptions[UnityEngine.Random.Range(0, keyOptions.Length)];
 
-            // instantiate new key prefab and store it to list
-            GameObject newInstance = Instantiate(newKey.prefab, spawnPosition, keySpawnPoint.rotation);
-            currentBatch.Add(new ActiveKey(newInstance, newKey.key));
+            // Position keys evenly across the spawn range.
+            float xPos = startX + (i * stepX);
+            Vector3 spawnPosition = new Vector3(xPos, keySpawnPoint.position.y + spawnYPosition, keySpawnPoint.position.z);
+
+            GameObject newInstance = Instantiate(randomKeyPrefab.prefab, spawnPosition, keySpawnPoint.rotation);
+            currentBatch.Add(new ActiveKey(newInstance, randomKeyPrefab.key));
+
+            // Wait for the specified delay before spawning the next key.
+            yield return new WaitForSeconds(keySpawnDelay);
+        }
+        // After spawning all keys, start the batch timer.
+        if (timerBar != null)
+        {
+            timerBar.gameObject.SetActive(true);
+        }
+    }
+
+    private void EndBatch()
+    {
+        isBatchActive = false;
+        CleanUpAllKeys();
+        nextBatchTimer = batchSpawnInterval;
+
+        if (timerBar != null)
+        {
+            timerBar.gameObject.SetActive(false);
         }
     }
 

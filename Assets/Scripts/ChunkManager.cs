@@ -61,15 +61,6 @@ public class ChunkManager : MonoBehaviour
             }
         }
     }
-    
-    private void LateUpdate() {
-        if (isMoving && animator != null)
-        {
-            // 08/17 김지섭 - Set player animator to move right when moving chunks
-            animator.SetFloat("speed", 1);
-            animator.SetFloat("moveX", 1);
-        }
-    }
 
     public void StopMoving()
     {
