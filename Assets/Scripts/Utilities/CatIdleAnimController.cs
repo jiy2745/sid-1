@@ -17,7 +17,7 @@ public class CatIdleAnimController : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        if (timer <= 0f)
+        if (timer <= 0f)    // Timer finished, choose a new animation
         {
             int choice = Random.Range(0, 3); // 0 = idle, 1 = lick, 2 = groom
             if (choice == 1)
