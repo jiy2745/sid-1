@@ -60,6 +60,7 @@ public class DodgeMinigameObject : MonoBehaviour
                 col.color = new ParticleSystem.MinMaxGradient(gradient);
             }
             //TODO: handle penalty (player health loss etc.)
+            GetComponentInParent<DodgeMinigame>().DecreaseHealth();
             Destroy(gameObject);
         }
     }

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class AfterMinigame : MonoBehaviour
@@ -27,8 +26,6 @@ public class AfterMinigame : MonoBehaviour
         {
             // Set the player's position to the destination position
             playerMovement.SetPlayerPosition(destinationPosition);
-
-            // Optionally, you can also enable player movement if it was disabled during the minigame
             playerMovement.SetMovementActive(true);
         }
         else
@@ -37,3 +34,6 @@ public class AfterMinigame : MonoBehaviour
         }
     }
 }
+
+// TODO: Add logic to check the current day, for specific events
+// Right now, we only handle the standard case excluding day 1 and final day

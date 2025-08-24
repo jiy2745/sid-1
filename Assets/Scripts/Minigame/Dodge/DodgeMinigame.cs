@@ -11,9 +11,11 @@ public class DodgeMinigame : MonoBehaviour
 
     private float minigameTimer;    // Timer for whole minigame
     private bool gameActive = false;
+    private HealthManager healthManager; // Reference to the HealthManager component
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        healthManager = GetComponentInParent<HealthManager>();
         StartMinigame();
     }
 
@@ -61,5 +63,17 @@ public class DodgeMinigame : MonoBehaviour
             // Do additional stuff when lost
         }
         onMinigameStop?.Invoke();
+    }
+
+    public void DecreaseHealth()
+    {
+        if (healthManager != null)
+        {
+            healthManager.DecreaseHealth();
+        }
+        else
+        {
+            Debug.LogError("HealthManager not found in parent!");
+        }
     }
 }
