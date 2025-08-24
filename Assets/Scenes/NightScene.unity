@@ -12914,8 +12914,10 @@ MonoBehaviour:
   qteMinigamePrefab: {fileID: 4762196063928627406, guid: 7b5596ee99d86ad42a1c186ede9e59f5, type: 3}
   dodgeMinigamePrefab: {fileID: 1940919615532487286, guid: 077f63370d2b33e41b06b7f374d86375, type: 3}
   slashMinigamePrefab: {fileID: 6971726661956677892, guid: c2f9c11a0cc0b2b43b18beff2f3d8a1e, type: 3}
+  maxHealth: 2
+  currentHealth: 0
   minigameCooldown: 3
-  minigameOrder: 
+  minigameOrder: 020000000200000003000000
   onMinigamePhaseEnd:
     m_PersistentCalls:
       m_Calls:
@@ -12923,6 +12925,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ChunkManager, Assembly-CSharp
         m_MethodName: StopMoving
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1961645240}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12967,6 +12981,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  onGameOver:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1961645241}
+        m_TargetAssemblyTypeName: MonsterMovement, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 947726875}
+        m_TargetAssemblyTypeName: MinigameManager, Assembly-CSharp
+        m_MethodName: GameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &947726876
 Transform:
   m_ObjectHideFlags: 0
@@ -12999,9 +13040,45 @@ MonoBehaviour:
   heartsUI: {fileID: 484910650}
   gameOverUI: {fileID: 77619825}
   damageFlash: {fileID: 1970025096}
-  onHealthChanged:
+  onMinigameLost:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1961645241}
+        m_TargetAssemblyTypeName: MonsterMovement, Assembly-CSharp
+        m_MethodName: AdjustToNextDistance
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 947726875}
+        m_TargetAssemblyTypeName: MinigameManager, Assembly-CSharp
+        m_MethodName: SetCurrentGame
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 947726875}
+        m_TargetAssemblyTypeName: MinigameManager, Assembly-CSharp
+        m_MethodName: DecreaseHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &980918613
 GameObject:
   m_ObjectHideFlags: 0
@@ -17467,7 +17544,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367598b13747ddb45985a6e718f3c95d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDistances: []
+  player: {fileID: 1970025095}
+  distances:
+  - 4
+  - 2
+  moveSpeed: 2
+  adjustSpeed: 1
 --- !u!95 &1961645242
 Animator:
   serializedVersion: 7
