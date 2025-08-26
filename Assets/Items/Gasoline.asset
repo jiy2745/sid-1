@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e9f7ca8ffbad949b11724a98d6faf1, type: 3}
   m_Name: Gasoline
   m_EditorClassIdentifier: 
-  id: 0
-  itemName: 
-  description: 
-  icon: {fileID: 0}
+  id: 2
+  itemName: "\uD718\uBC1C\uC720"
+  description: "\uC5D0\uB9AC\uCE74\uAC00 \uD654\uD559\uC2E4\uC5D0\uC11C \uAD6C\uD574\uC628
+    \uD718\uBC1C\uC720\uB2E4. \uBD88\uC744 \uBD99\uC77C \uB54C \uC0AC\uC6A9\uD560
+    \uC218 \uC788\uC744 \uAC83 \uAC19\uB2E4."
+  icon: {fileID: 4747589293380749780, guid: 563b3a7a04d367c48862c4267741f5d6, type: 3}

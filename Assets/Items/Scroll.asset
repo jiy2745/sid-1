@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e9f7ca8ffbad949b11724a98d6faf1, type: 3}
   m_Name: Scroll
   m_EditorClassIdentifier: 
-  id: 0
-  itemName: 
-  description: 
-  icon: {fileID: 0}
+  id: 6
+  itemName: "\uC18C\uD658 \uB9C8\uBC95 \uC2A4\uD06C\uB864"
+  description: "'\uC18C\uD658 \uB9C8\uBC95 \uC2A4\uD06C\uB864' \uC774\uB77C\uACE0
+    \uC801\uD600 \uC788\uB294 \uB0A1\uC740 \uC885\uC774\uB2E4. \uB531 \uD55C \uBC88,
+    \uC774 \uC885\uC774\uB97C \uCC22\uC73C\uBA74 \uAE61\uCD1D\uAC70\uB9AC\uB294 \uC9D0\uC2B9\uB4E4\uC5D0\uAC8C
+    \uB3C4\uC6C0\uC744 \uBC1B\uC744 \uC218 \uC788\uB2E4\uACE0 \uC4F0\uC5EC\uC788\uB2E4."
+  icon: {fileID: -519052415876542791, guid: 90485ae0cadc5fd4d8c221565073bc7c, type: 3}

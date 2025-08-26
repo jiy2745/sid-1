@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e9f7ca8ffbad949b11724a98d6faf1, type: 3}
   m_Name: FireAx
   m_EditorClassIdentifier: 
-  id: 0
-  itemName: 
-  description: 
-  icon: {fileID: 0}
+  id: 1
+  itemName: "\uC18C\uBC29\uB3C4\uB07C"
+  description: "\uC18C\uBC29\uB3C4\uAD6C\uD568\uC5D0\uC11C \uAEBC\uB0B8 \uC18C\uBC29\uB3C4\uB07C\uB2E4.
+    \uB3C4\uB07C\uB0A0\uC774 \uB0A0\uCE74\uB85C\uC6CC\uC11C \uBB34\uC5B8\uAC00\uB97C
+    \uBD80\uC220 \uB54C \uC4F8 \uC218 \uC788\uC744 \uAC83 \uAC19\uB2E4."
+  icon: {fileID: -7602835606445974557, guid: bec98f52f55f22c4e896aa086b3027e6, type: 3}

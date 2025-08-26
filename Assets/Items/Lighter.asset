@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e9f7ca8ffbad949b11724a98d6faf1, type: 3}
   m_Name: Lighter
   m_EditorClassIdentifier: 
-  id: 0
-  itemName: 
-  description: 
-  icon: {fileID: 0}
+  id: 3
+  itemName: "\uB77C\uC774\uD130"
+  description: "\uCCAD\uC18C\uD558\uB2E4\uAC00 \uAD50\uC2E4 \uBC14\uB2E5\uC5D0\uC11C
+    \uC8FC\uC6B4 \uB77C\uC774\uD130\uB2E4. \uAD34\uBB3C\uC5D0\uAC8C \uBD99\uC7A1\uD790
+    \uAC83 \uAC19\uC744 \uB54C \uBD88\uC744 \uD53C\uC6CC \uAD34\uBB3C\uC744 \uCAD3\uC544\uB0BC
+    \uC218 \uC788\uC744 \uAC83 \uAC19\uB2E4."
+  icon: {fileID: 3447037166458568269, guid: 102d1e93fd2438544b2cece1a1ec89c5, type: 3}
