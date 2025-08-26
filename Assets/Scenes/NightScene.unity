@@ -12917,7 +12917,7 @@ MonoBehaviour:
   maxHealth: 2
   currentHealth: 0
   minigameCooldown: 3
-  minigameOrder: 
+  minigameOrder: 0300000002000000
   onMinigamePhaseEnd:
     m_PersistentCalls:
       m_Calls:
