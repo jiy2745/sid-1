@@ -207,8 +207,10 @@ public class GameManager : MonoBehaviour, IDataPersistence
         Debug.LogWarning($"[GameManager] LoadData가 호출되었습니다. actionsLeft가 <color=yellow>{this.actionsLeft}</color>로 설정됩니다.");
     }
 
+    // This method is typcially called by the DataPersistenceManager at scene start or when saving the game
     public void SaveData(GameData data)
     {
+        data.lastSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         data.currentDay = this.currentDay;
         data.actionsLeft = this.actionsLeft;
         data.enlightenmentMeter = this.enlightenmentMeter;

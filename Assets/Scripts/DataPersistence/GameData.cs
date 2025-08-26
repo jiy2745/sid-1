@@ -4,6 +4,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class GameData
 {
+    public string lastSceneName; // 마지막으로 플레이한 씬 이름
     // 게임 상태 data
     public int currentDay;          // 현재 날짜
     public int currentTime;        // 현재 시간 (밤 / 낮)
@@ -19,6 +20,7 @@ public class GameData
 
     public GameData()
     {
+        lastSceneName = "Day_classroom"; // 기본 시작 씬 이름
         currentDay = 1;          // 현재 날짜
         actionsLeft = 4;         // 하루에 남은 행동 횟수
         enlightenmentMeter = 50; // 계몽 수치
