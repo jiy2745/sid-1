@@ -11,7 +11,7 @@ public class HealthManager : MonoBehaviour
 
     [Header("Damage Flash")]
     public DamageFlash damageFlash;   // reference to DamageFlash component
-    public UnityEvent onHealthChanged;
+    public UnityEvent onMinigameLost;
 
     public void ChangeHealth(int amount)
     {
@@ -40,10 +40,10 @@ public class HealthManager : MonoBehaviour
         // Check for game over
         if (currentHealth <= 0)
         {
-            GameOver();
+            onMinigameLost?.Invoke();
+            //GameOver();
             return;
         }
-        onHealthChanged?.Invoke();
     }
 
     public void IncreaseHealth()
@@ -56,12 +56,9 @@ public class HealthManager : MonoBehaviour
         ChangeHealth(-1);
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         Debug.Log("Game Over! Health reached zero.");
-
-        // Then set minigame to paused & NONE
-        GetComponent<MinigameManager>().PauseMinigamePhase();
 
         // TODO: Need to check with game manager for item to revive
 

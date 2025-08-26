@@ -92,4 +92,30 @@ public class FileDataHandler
     {
         return System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(data));
     }
+
+    public static List<string> GetAllProfileIds(string directoryPath, string fileName)
+    {
+        List<string> profileIds = new List<string>();
+        try
+        {
+            if (Directory.Exists(directoryPath))
+            {
+                string[] files = Directory.GetFiles(directoryPath);
+                foreach (string file in files)
+                {
+                    string fileBaseName = Path.GetFileName(file);
+                    if (fileBaseName.EndsWith(fileName))
+                    {
+                        string profileId = fileBaseName.Replace("_" + fileName, "");    // Extract profile ID from filename
+                        profileIds.Add(profileId);
+                    }
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Failed to get profile IDs: {e.Message}");
+        }
+        return profileIds;
+    }
 }

@@ -26,6 +26,8 @@ public class MinigameManager : MonoBehaviour
     [Tooltip("Reference to Slash Minigame prefab")]
     public GameObject slashMinigamePrefab;
 
+    public int maxHealth = 3; // Health where player may lose a minigame (If health reaches 0, game over)
+    public int currentHealth;
     public float minigameCooldown = 3f; // Cooldown between minigames, in seconds
     public List<int> minigameOrder = new List<int>
     {
@@ -37,7 +39,11 @@ public class MinigameManager : MonoBehaviour
     private HealthManager healthManager; // Reference to HealthManager for health management
     private ChunkManager chunkManager; // Reference to ChunkManager for chunk management
 
+    [Tooltip("When a minigame phase ends normally (not game over), this event is triggered")]
     public UnityEvent onMinigamePhaseEnd; // Event to notify when a minigame phase ends
+
+    [Tooltip("When a game over occurs, this event is triggered")]
+    public UnityEvent onGameOver; // Event to notify when game over occurs
 
     // Reference to instance of each minigame prefab;
     private GameObject qteMinigameInstance;
@@ -64,6 +70,9 @@ public class MinigameManager : MonoBehaviour
         {
             Debug.LogError("Player not present in scene!");
         }
+
+        currentHealth = maxHealth;
+        if (maxHealth > minigameOrder.Count) maxHealth = minigameOrder.Count;
     }
 
     void Update()
@@ -71,6 +80,11 @@ public class MinigameManager : MonoBehaviour
         // --- Minigame management ---
         if (currentGame == Minigame.NONE && !isPaused)
         {
+            if (currentHealth <= 0)
+            {
+                onGameOver?.Invoke();
+                return;
+            }
             if (currentMinigameIndex >= minigameOrder.Count)
             {
                 onMinigamePhaseEnd?.Invoke();
@@ -166,5 +180,17 @@ public class MinigameManager : MonoBehaviour
         isPaused = true;
         SetCurrentGame((int)Minigame.NONE); // Stop current minigame
         chunkManager.StopMoving(); // Stop chunk movement
+    }
+
+    public void DecreaseHealth()
+    {
+        currentHealth--;
+    }
+
+    public void GameOver()
+    {
+        PauseMinigamePhase();
+        healthManager.GameOver();
+        this.enabled = false; // Disable this script after game over
     }
 }
