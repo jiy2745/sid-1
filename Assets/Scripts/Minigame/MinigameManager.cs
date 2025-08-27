@@ -128,7 +128,6 @@ public class MinigameManager : MonoBehaviour
                 if (qteMinigameInstance == null)
                 {
                     qteMinigameInstance = Instantiate(qteMinigamePrefab, gameObject.transform);
-                    //TODO: set transform.position of minigame (position of TriggerArea) accordingly
                     QTEMinigame game = qteMinigameInstance.GetComponent<QTEMinigame>();
                     // Subscribe to the new instance's game stop event
                     game.onMinigameStop.AddListener(() => SetCurrentGame(0));
@@ -145,7 +144,6 @@ public class MinigameManager : MonoBehaviour
                 if (dodgeMinigameInstance == null)
                 {
                     dodgeMinigameInstance = Instantiate(dodgeMinigamePrefab, gameObject.transform);
-                    //TODO: set transform.position of minigame (position of TriggerArea) accordingly
                     DodgeMinigame game = dodgeMinigameInstance.GetComponent<DodgeMinigame>();
                     // Subscribe to the new instance's game stop event
                     game.onMinigameStop.AddListener(() => SetCurrentGame(0));

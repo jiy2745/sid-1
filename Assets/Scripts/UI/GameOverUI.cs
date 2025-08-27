@@ -33,7 +33,7 @@ public class GameOverUI : MonoBehaviour
         SetAlpha(GetComponent<CanvasGroup>(), 1f);
 
         retryButton.onClick.AddListener(() => OnButtonClicked("NightScene"));
-        // menuButton.onClick.AddListener(() => OnButtonClicked("MainMenu")); // TODO: Uncomment when MainMenu scene is available
+        menuButton.onClick.AddListener(() => OnButtonClicked("MainMenuScene"));
     }
 
     public void Show()
