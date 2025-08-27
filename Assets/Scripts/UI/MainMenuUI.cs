@@ -33,7 +33,6 @@ public class MainMenuUI : MonoBehaviour
 
     void Start()
     {
-
         newGameButton.onClick.AddListener(StartNewGame);
         continueButton.onClick.AddListener(ContinueGame);
         quitButton.onClick.AddListener(QuitGame);
@@ -51,7 +50,7 @@ public class MainMenuUI : MonoBehaviour
             string slotId = "slot" + i;
             bool hasSave = profileIds.Contains(slotId); // Whether this slot has a save file
 
-            slot.slotButton.GetComponentInChildren<TMP_Text>().text = hasSave ? $"세이브 {i}" : $"빈 슬롯";
+            slot.slotButton.GetComponentInChildren<TMP_Text>().text = hasSave ? $"세이브 {i}" : $"빈 슬롯"; // TODO: Add timestamp and game info
             slot.slotButton.onClick.AddListener(() => OnSlotSelected(slotId, hasSave));
         }
     }
@@ -72,25 +71,28 @@ public class MainMenuUI : MonoBehaviour
             DataPersistenceManager.instance.NewGame();
             sceneToLoad = newGameSceneName; // New game starts at the classroom scene
         }
-        
+
         if (debuggingMode)
         {
             sceneToLoad = debugNewGameSceneName; // Override for debugging
         }
-        SceneManager.LoadScene(sceneToLoad);
-        // TODO: Add loading screen
-        // TODO: Load the scene specified in the loaded game data
+        //SceneManager.LoadScene(sceneToLoad);
+        SceneFade.LoadScene(sceneToLoad);
     }
 
     // ------ Methods for button actions ------
     public void StartNewGame()
     {
         SaveSlotPopup();
+        newGameButton.interactable = false; // Prevent multiple clicks
+        continueButton.interactable = false;
     }
 
     public void ContinueGame()
     {
         SaveSlotPopup();
+        newGameButton.interactable = false; // Prevent multiple clicks
+        continueButton.interactable = false;
         //TODO: Load the last saved game directly without showing save slots (use timestamps to determine the most recent save)
     }
 
@@ -102,6 +104,8 @@ public class MainMenuUI : MonoBehaviour
     public void SaveSlotPopdown()
     {
         animator.Play("SaveSlotPopdown");
+        newGameButton.interactable = true;
+        continueButton.interactable = true;
     }
 
     public void QuitGame()

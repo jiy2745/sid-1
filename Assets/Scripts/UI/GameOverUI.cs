@@ -101,6 +101,6 @@ public class GameOverUI : MonoBehaviour
             yield return null;
         }
 
-        SceneManager.LoadScene(sceneName);
+        SceneFade.LoadScene(sceneName);
     }
 }
