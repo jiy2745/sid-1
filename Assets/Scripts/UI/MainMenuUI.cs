@@ -50,9 +50,23 @@ public class MainMenuUI : MonoBehaviour
             string slotId = "slot" + i;
             bool hasSave = profileIds.Contains(slotId); // Whether this slot has a save file
 
-            slot.slotButton.GetComponentInChildren<TMP_Text>().text = hasSave ? $"세이브 {i}" : $"빈 슬롯"; // TODO: Add timestamp and game info
+            slot.slotButton.GetComponentInChildren<TMP_Text>().text = SaveSlotInfo(slotId, hasSave);
             slot.slotButton.onClick.AddListener(() => OnSlotSelected(slotId, hasSave));
         }
+    }
+
+    private string SaveSlotInfo(string slotId, bool hasSave)
+    {
+        if (!hasSave)
+        {
+            return "빈 슬롯";
+        }
+        DataPersistenceManager.instance.ChangeSelectedProfileId(slotId);
+        GameData data = DataPersistenceManager.instance.GetGameData();
+
+        // TODO: Add timestamp and game info
+        
+        return "세이브" + slotId.Substring(slotId.Length - 1);
     }
 
     private void OnSlotSelected(string slotId, bool hasSave)
