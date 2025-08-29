@@ -22,15 +22,15 @@ public class GameManagerActions : MonoBehaviour
     }
 
     public void CallWaterSprout()
-{
-    if (GameManager.instance != null)
     {
-        GameManager.instance.WaterSprout();
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.WaterSprout();
+        }
     }
-}
 
-   
-   public void CallCollectHomework()
+
+    public void CallCollectHomework()
     {
         if (GameManager.instance != null)
         {
@@ -59,6 +59,15 @@ public class GameManagerActions : MonoBehaviour
         if (GameManager.instance != null)
         {
             GameManager.instance.SweepFloor();
+        }
+    }
+
+    // 08/29 김지섭 New Day 추가
+    public void CallNextDay()
+    {
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.StartNewDay();
         }
     }
 }
