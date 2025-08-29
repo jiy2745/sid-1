@@ -74,6 +74,8 @@ public class DataPersistenceManager : MonoBehaviour
       dataPersistenceObj.SaveData(gameData); // Save data from each IDataPersistence object
     }
 
+    gameData.timestamp = DateTime.Now.ToFileTime(); // Update timestamp
+
     // Save gameData to a file or PlayerPrefs
     fileDataHandler.Save(gameData); // Save the game data to file
     Debug.Log($"Game data saved in slot {selectedProfileId}.");
@@ -82,6 +84,7 @@ public class DataPersistenceManager : MonoBehaviour
   private void OnApplicationQuit()
   {
     SaveGame(); // Save game data when the application quits
+    // TODO: null reference exception here (potentially due to game manager being destroyed first)
   }
 
   private List<IDataPersistence> FindAllDataPersistenceObjects()
@@ -98,5 +101,26 @@ public class DataPersistenceManager : MonoBehaviour
   public GameData GetGameData()
   {
     return this.gameData;
+  }
+
+  public string GetMostRecentProfileId()
+  {
+    List<string> profileIds = GetAllProfileIds();
+    if (profileIds.Count == 0) return null;
+
+    string mostRecentProfileId = profileIds[0];
+    long mostRecentTimestamp = 0;
+
+    foreach (string profileId in profileIds)
+    {
+      var handler = new FileDataHandler(Application.persistentDataPath, profileId + "_" + fileName, useEncryption);
+      GameData data = handler.Load(); // Load game data from file
+      if (data != null && data.timestamp > mostRecentTimestamp)
+      {
+        mostRecentTimestamp = data.timestamp;
+        mostRecentProfileId = profileId;
+      }
+    }
+    return mostRecentProfileId;   // Return the profile ID with the most recent timestamp
   }
 }

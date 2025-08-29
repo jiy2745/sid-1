@@ -34,9 +34,14 @@ public class MainMenuUI : MonoBehaviour
     void Start()
     {
         newGameButton.onClick.AddListener(StartNewGame);
-        continueButton.onClick.AddListener(ContinueGame);
         quitButton.onClick.AddListener(QuitGame);
-        InitSaveSlots();
+
+        string latestSlotId = DataPersistenceManager.instance.GetMostRecentProfileId();
+        if (latestSlotId == null)
+        {
+            continueButton.interactable = false; // Disable continue button if no save files exist
+        }
+        else continueButton.onClick.AddListener(()=>{ContinueGame(latestSlotId);});
     }
 
     private void InitSaveSlots()
@@ -55,18 +60,23 @@ public class MainMenuUI : MonoBehaviour
         }
     }
 
+    // Returns the display string for a save slot
     private string SaveSlotInfo(string slotId, bool hasSave)
     {
+        string info = "";
         if (!hasSave)
         {
-            return "빈 슬롯";
+            return info + "빈 슬롯";
         }
+
+        info += "세이브" + slotId.Substring(slotId.Length - 1);
+
         DataPersistenceManager.instance.ChangeSelectedProfileId(slotId);
         GameData data = DataPersistenceManager.instance.GetGameData();
-
         // TODO: Add timestamp and game info
-        
-        return "세이브" + slotId.Substring(slotId.Length - 1);
+        DateTime saveTime = DateTime.FromFileTime(data.timestamp);
+        info += $"\n마지막 플레이: {saveTime:yyyy-MM-dd HH:mm}";
+        return info;
     }
 
     private void OnSlotSelected(string slotId, bool hasSave)
@@ -102,16 +112,17 @@ public class MainMenuUI : MonoBehaviour
         continueButton.interactable = false;
     }
 
-    public void ContinueGame()
+    public void ContinueGame(string slotId)
     {
-        SaveSlotPopup();
         newGameButton.interactable = false; // Prevent multiple clicks
         continueButton.interactable = false;
         //TODO: Load the last saved game directly without showing save slots (use timestamps to determine the most recent save)
+        OnSlotSelected(slotId, true);
     }
 
     public void SaveSlotPopup()
     {
+        InitSaveSlots();    // lazy initialization
         animator.Play("SaveSlotPopup");
     }
 
