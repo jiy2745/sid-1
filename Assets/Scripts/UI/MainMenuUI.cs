@@ -24,6 +24,7 @@ public class MainMenuUI : MonoBehaviour
     public Animator animator;
     [SerializeField] private Button newGameButton;
     [SerializeField] private Button continueButton;
+    [SerializeField] private Button loadGameButton;
     [SerializeField] private Button quitButton;
 
     [Header("Main Menu Settings")]
@@ -31,21 +32,25 @@ public class MainMenuUI : MonoBehaviour
     public List<SaveSlot> saveSlots = new List<SaveSlot>();
     [SerializeField] private string newGameSceneName = "Day_classroom"; // The scene to load when starting a new game
 
+    private bool isSaveSlotLoaded = false;
+
     void Start()
     {
         newGameButton.onClick.AddListener(StartNewGame);
+        loadGameButton.onClick.AddListener(LoadSaveGame);
         quitButton.onClick.AddListener(QuitGame);
 
         string latestSlotId = DataPersistenceManager.instance.GetMostRecentProfileId();
         if (latestSlotId == null)
         {
-            continueButton.interactable = false; // Disable continue button if no save files exist
+            continueButton.gameObject.SetActive(false); // Deactivate continue button if no save files exist
         }
         else continueButton.onClick.AddListener(()=>{ContinueGame(latestSlotId);});
     }
 
     private void InitSaveSlots()
     {
+        if (isSaveSlotLoaded) return; // Prevent re-initialization
         // Get save data from DataPersistenceManager and update slot names accordingly
         List<string> profileIds = DataPersistenceManager.instance.GetAllProfileIds();
         // Update save slot buttons
@@ -58,6 +63,7 @@ public class MainMenuUI : MonoBehaviour
             slot.slotButton.GetComponentInChildren<TMP_Text>().text = SaveSlotInfo(slotId, hasSave);
             slot.slotButton.onClick.AddListener(() => OnSlotSelected(slotId, hasSave));
         }
+        isSaveSlotLoaded = true;
     }
 
     // Returns the display string for a save slot
@@ -73,7 +79,8 @@ public class MainMenuUI : MonoBehaviour
 
         DataPersistenceManager.instance.ChangeSelectedProfileId(slotId);
         GameData data = DataPersistenceManager.instance.GetGameData();
-        // TODO: Add timestamp and game info
+        // Add timestamp and game info
+        info += $" : {data.currentDay}" + "일차 ";
         DateTime saveTime = DateTime.FromFileTime(data.timestamp);
         info += $"\n마지막 플레이: {saveTime:yyyy-MM-dd HH:mm}";
         return info;
@@ -110,14 +117,23 @@ public class MainMenuUI : MonoBehaviour
         SaveSlotPopup();
         newGameButton.interactable = false; // Prevent multiple clicks
         continueButton.interactable = false;
+        loadGameButton.interactable = false;
     }
 
     public void ContinueGame(string slotId)
     {
         newGameButton.interactable = false; // Prevent multiple clicks
         continueButton.interactable = false;
-        //TODO: Load the last saved game directly without showing save slots (use timestamps to determine the most recent save)
+        loadGameButton.interactable = false;
+        // Load the last saved game directly without showing save slots (use timestamps to determine the most recent save)
         OnSlotSelected(slotId, true);
+    }
+
+    public void LoadSaveGame()
+    {
+        SaveSlotPopup();
+        newGameButton.interactable = false; // Prevent multiple clicks
+        continueButton.interactable = false;
     }
 
     public void SaveSlotPopup()
@@ -131,6 +147,7 @@ public class MainMenuUI : MonoBehaviour
         animator.Play("SaveSlotPopdown");
         newGameButton.interactable = true;
         continueButton.interactable = true;
+        loadGameButton.interactable = true;
     }
 
     public void QuitGame()

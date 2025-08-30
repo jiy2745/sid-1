@@ -1,4 +1,3 @@
-using UnityEngine;
 using System.Collections.Generic;
 
 [System.Serializable]
@@ -8,7 +7,6 @@ public class GameData
     public long timestamp;      // 저장 시점의 타임스탬프 
     // 게임 상태 data
     public int currentDay;          // 현재 날짜
-    public int currentTime;        // 현재 시간 (밤 / 낮)
     public int actionsLeft;         // 하루에 남은 행동 횟수
     public int enlightenmentMeter; // 계몽 수치
 
