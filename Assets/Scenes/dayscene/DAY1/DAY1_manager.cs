@@ -187,8 +187,19 @@ public class DAY1_manager : MonoBehaviour
     void LoadNextScene()
     {
         isEventSequenceRunning = true; 
-        Debug.Log("씬 로딩: Day1_2_classroom");
-        SceneManager.LoadScene("Day1_2_classroom");
+        Debug.Log("씬 전환 시작: Day1_2_classroom");
+
+        
+        if (TransitionManager.instance != null)
+        {
+            TransitionManager.instance.LoadSceneWithTransition("Day1_2_classroom");
+        }
+        else
+        {
+           
+            Debug.LogError("씬에 TransitionManager가 없습니다! 일반 방식으로 씬을 로드합니다.");
+            SceneManager.LoadScene("Day1_2_classroom");
+        }
     }
     
     IEnumerator MoveTeacher(Transform targetPos, System.Action onCompleted)

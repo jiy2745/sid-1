@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class day1_dialogmanager : MonoBehaviour
 {
+    public static event Action OnDialogueStart;
+    public static event Action OnDialogueEnd;
+
     [Header("UI References")]
     [SerializeField] private Animator animator;
     [SerializeField] private TextMeshProUGUI characterNameText;
@@ -21,8 +24,10 @@ public class day1_dialogmanager : MonoBehaviour
     private bool isTyping = false;
     private string currentSentence;
     
- 
     private bool acceptInput = false;
+    
+    
+    private bool playerIsLockedByThisDialogue = false;
 
     void Start()
     {
@@ -34,7 +39,6 @@ public class day1_dialogmanager : MonoBehaviour
 
     void Update()
     {
-        
         if (isDialogueActive && acceptInput && Input.GetKeyDown(KeyCode.E))
         {
             if (isTyping)
@@ -51,13 +55,25 @@ public class day1_dialogmanager : MonoBehaviour
         }
     }
 
+    
     public void StartDialogue(Dialogue dialogue, Action onCompletedCallback = null)
+    {
+      
+        StartDialogue(dialogue, onCompletedCallback, false);
+    }
+
+    public void StartDialogue(Dialogue dialogue, Action onCompletedCallback, bool lockPlayerMovement)
     {
         if (!isDialogueActive && animator != null)
         {
-            
-            acceptInput = false;
+            playerIsLockedByThisDialogue = lockPlayerMovement;
+            if (playerIsLockedByThisDialogue)
+            {
+              
+                OnDialogueStart?.Invoke();
+            }
 
+            acceptInput = false;
             animator.gameObject.SetActive(true);
             isDialogueActive = true;
             animator.Play("DialogueBoxPopUp");
@@ -99,8 +115,6 @@ public class day1_dialogmanager : MonoBehaviour
             yield return new WaitForSeconds(dialogueSpeed);
         }
         isTyping = false;
-
-       
         acceptInput = true;
     }
     
@@ -115,5 +129,23 @@ public class day1_dialogmanager : MonoBehaviour
         }
         onDialogueCompleted?.Invoke();
         onDialogueCompleted = null;
+
+        if (playerIsLockedByThisDialogue)
+        {
+         
+            OnDialogueEnd?.Invoke();
+        }
+        playerIsLockedByThisDialogue = false; 
+    }
+    
+    public void ForceEndDialogue()
+    {
+        if (!isDialogueActive)
+        {
+            return;
+        }
+        Debug.Log("플레이어가 멀어져 대화를 강제로 종료합니다.");
+        StopAllCoroutines();
+        StartCoroutine(EndDialogueRoutine());
     }
 }
