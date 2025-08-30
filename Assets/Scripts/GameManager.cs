@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         if (CanAct())
         {
             Debug.Log("옆자리 소녀와 대화했다. 호감도가 1 증가하고 계몽 수치가 3 감소합니다.");
-            ShowActionDialogue("주번 활동을 하고 있구나? 오늘은 처음이니까 다 해봐! 내일부턴 다 할 필요는 없을거야", "레이나");
+            ShowActionDialogue("주번 활동을 하고 있구나? 멋있어!" , "레이나");
             girlFavorability++;
             enlightenmentMeter -= 3;
             UseAction();

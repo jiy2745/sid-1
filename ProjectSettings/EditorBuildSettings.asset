@@ -15,12 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/dayscene/DAY1/Day1_classroom.unity
     guid: d249648bae5a15c4a97d4b7c52816371
   - enabled: 1
-    path: Assets/Scenes/dayscene/DAY1/Day1_hallway.unity
-    guid: cbc7f0ef29293f74db2b6e2288be8bfa
-  - enabled: 1
-    path: Assets/Scenes/dayscene/DAY1/Day1_sprout.unity
-    guid: bfc6a76da84042a4eae48c2dd58237ec
-  - enabled: 1
     path: Assets/Scenes/dayscene/DAY1_2/Day1_2_hallway.unity
     guid: 90be904798d8df04ba0af8da07b530b6
   - enabled: 1
@@ -29,6 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/dayscene/DAY1_2/Day1_2_classroom.unity
     guid: a18b3a91353c12a4b98f9a8c9283f3e7
+  - enabled: 1
+    path: Assets/Scenes/dayscene/DAY1_3/Day1_3_hallway.unity
+    guid: d9e13ed8864117544be973d6b593c88f
+  - enabled: 1
+    path: Assets/Scenes/dayscene/DAY1_3/Day1_3_dorm.unity
+    guid: ea3729b6f6238634db522971d4475e81
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0

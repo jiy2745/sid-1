@@ -10439,7 +10439,7 @@ Animator:
   m_GameObject: {fileID: 671559036}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 86001fd4191392f4c88f4b6b52b0296c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4c583db47b8a2a94c8edd22cf5765bb3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -10463,7 +10463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17196aa965f9b87439d1e6d2eb178cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 3.5
 --- !u!70 &671559039
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -11087,7 +11087,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e852d5ec7955b7a4ba7646313791c126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  speedRange: {x: 1.5, y: 2.5}
+  waitTimeRange: {x: 1, y: 4}
+  moveTimeRange: {x: 1, y: 3}
   maxX: 10000
   minX: -10000
   maxY: 10000
@@ -12322,7 +12324,7 @@ Transform:
   m_GameObject: {fileID: 888430047}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.428398, y: 5.2233987, z: 0}
+  m_LocalPosition: {x: -29.6, y: 7.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12426,7 +12428,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e852d5ec7955b7a4ba7646313791c126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  speedRange: {x: 1.5, y: 2.5}
+  waitTimeRange: {x: 1, y: 4}
+  moveTimeRange: {x: 1, y: 3}
   maxX: 10000
   minX: -10000
   maxY: 10000
@@ -13800,7 +13804,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e852d5ec7955b7a4ba7646313791c126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  speedRange: {x: 1.5, y: 2.5}
+  waitTimeRange: {x: 1, y: 4}
+  moveTimeRange: {x: 1, y: 3}
   maxX: 10000
   minX: -10000
   maxY: 10000
@@ -15254,7 +15260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e852d5ec7955b7a4ba7646313791c126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  speedRange: {x: 1.5, y: 2.5}
+  waitTimeRange: {x: 1, y: 4}
+  moveTimeRange: {x: 1, y: 3}
   maxX: 10000
   minX: -10000
   maxY: 10000
@@ -39113,7 +39121,7 @@ Transform:
   m_GameObject: {fileID: 1819852597}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.85, y: 6, z: 0}
+  m_LocalPosition: {x: -24.02, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -39233,7 +39241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e852d5ec7955b7a4ba7646313791c126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  speedRange: {x: 1.5, y: 2.5}
+  waitTimeRange: {x: 1, y: 4}
+  moveTimeRange: {x: 1, y: 3}
   maxX: 10000
   minX: -10000
   maxY: 10000

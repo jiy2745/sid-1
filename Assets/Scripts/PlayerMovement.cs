@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isActive)
         {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             if (anim != null)
             {
                 anim.SetFloat("speed", 0);
