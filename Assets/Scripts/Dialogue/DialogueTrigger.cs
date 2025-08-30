@@ -75,6 +75,7 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
+    /*
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -82,6 +83,7 @@ public class DialogueTrigger : MonoBehaviour
             TriggerDialogue(); // Trigger dialogue when player enters the trigger area
         }
     }
+    */
 }
 
 public class DialogueLoader
