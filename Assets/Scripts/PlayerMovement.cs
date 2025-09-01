@@ -11,34 +11,49 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement;
     private Animator anim;
     private Interactable currentInteractable;
-    
- 
     private bool canMove = true;
-
 
     void OnEnable()
     {
-       
         SceneManager.sceneLoaded += OnSceneLoaded;
-        
-       
         day1_dialogmanager.OnDialogueStart += DisableMovement;
         day1_dialogmanager.OnDialogueEnd += EnableMovement;
     }
 
     void OnDisable()
     {
-       
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        
-        
         day1_dialogmanager.OnDialogueStart -= DisableMovement;
         day1_dialogmanager.OnDialogueEnd -= EnableMovement;
     }
-    
+
+   
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+       
         currentInteractable = null;
+
+      
+        if (GameManager.instance != null && !string.IsNullOrEmpty(GameManager.instance.nextPlayerSpawnPointName))
+        {
+            
+            GameObject spawnPoint = GameObject.Find(GameManager.instance.nextPlayerSpawnPointName);
+
+          
+            if (spawnPoint != null)
+            {
+                
+                transform.position = spawnPoint.transform.position;
+                Debug.Log(spawnPoint.name + " 위치에서 플레이어 스폰 완료.");
+            }
+            else 
+            {
+                Debug.LogWarning(GameManager.instance.nextPlayerSpawnPointName + " 이름의 스폰 포인트를 씬에서 찾을 수 없습니다!");
+            }
+
+           
+            GameManager.instance.nextPlayerSpawnPointName = null;
+        }
     }
 
     void Start()
@@ -50,24 +65,19 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-       
         if (canMove)
         {
-           
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
         }
         else
         {
-            
             movement = Vector2.zero;
         }
-        
-      
+
         if (anim != null)
         {
             anim.SetFloat("speed", movement.sqrMagnitude);
-
             if (movement.sqrMagnitude > 0.01f)
             {
                 anim.SetFloat("moveX", movement.x);
@@ -77,7 +87,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-    
         if (Keyboard.current.eKey.wasPressedThisFrame && currentInteractable != null && canMove)
         {
             currentInteractable.Interact();
@@ -89,21 +98,17 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
     }
 
-   
     private void DisableMovement()
     {
         canMove = false;
         Debug.Log("대화 시작: 플레이어 움직임 비활성화");
     }
 
-  
     private void EnableMovement()
     {
         canMove = true;
         Debug.Log("대화 종료: 플레이어 움직임 활성화");
     }
-
-
 
     public void SetPlayerPosition(Vector3 pos)
     {

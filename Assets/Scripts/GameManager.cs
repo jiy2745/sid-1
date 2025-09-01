@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour, IDataPersistence
 {
     public static GameManager instance;
 
+    // ▼▼▼ [수정] 씬 전환 시 스폰 위치 정보를 담을 변수를 추가했습니다. ▼▼▼
+    public string nextPlayerSpawnPointName;
+
     [Header("게임 상태 변수")]
     public int currentDay = 1;
     public int actionsLeft = 4;
@@ -36,7 +39,6 @@ public class GameManager : MonoBehaviour, IDataPersistence
         }
     }
 
- 
     private void ShowActionDialogue(string text, string characterName = "나")
     {
         if (dialogueManager == null)
@@ -59,7 +61,6 @@ public class GameManager : MonoBehaviour, IDataPersistence
             dialogueText = text
         };
         dialogue.dialogueLines.Add(line);
-
         
         dialogueManager.StartDialogue(dialogue, null, true);
     }
@@ -159,6 +160,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
         return interactedObjectIds.Contains(objectId);
     }
 
+
+
     public void SetInteracted(string objectId)
     {
         if (string.IsNullOrEmpty(objectId)) return;
@@ -218,7 +221,6 @@ public class GameManager : MonoBehaviour, IDataPersistence
         Debug.LogWarning($"[GameManager] LoadData가 호출되었습니다. actionsLeft가 <color=yellow>{this.actionsLeft}</color>로 설정됩니다.");
     }
 
-    // This method is typcially called by the DataPersistenceManager at scene start or when saving the game
     public void SaveData(GameData data)
     {
         if (data == null)
@@ -230,7 +232,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         string currentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         if (currentSceneName != "MainMenuScene")
         {
-            data.lastSceneName = currentSceneName; // Only update if not in main menu
+            data.lastSceneName = currentSceneName; 
         }
         data.currentDay = this.currentDay;
         data.actionsLeft = this.actionsLeft;
