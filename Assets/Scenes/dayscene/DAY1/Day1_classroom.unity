@@ -10972,7 +10972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
   defaultSprite: {fileID: 21300000, guid: 78060279599a75f448a9b19f5b5d155f, type: 2}
-  lookAtEachOtherSprite: {fileID: 21300000, guid: faf943dde6a03234abade6a7f08ef6ad, type: 2}
+  lookAtEachOtherSprite: {fileID: 6698610658300907383, guid: 017744e794ca02a42a11f4649d1e9147, type: 3}
 --- !u!1 &700492071
 GameObject:
   m_ObjectHideFlags: 0
@@ -11017,7 +11017,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
