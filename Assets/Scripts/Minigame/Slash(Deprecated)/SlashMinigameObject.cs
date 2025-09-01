@@ -27,7 +27,6 @@ public class SlashMinigameObject : MonoBehaviour
     {
         if (other.gameObject.CompareTag("SlashMinigameGround"))
         {
-            //TODO: handle penalty (player health loss etc.)
             Destroy(gameObject);
         }
     }

@@ -203,6 +203,11 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
+        if (data == null)
+        {
+            Debug.LogError("GameData is null. Cannot load data.");
+            return;
+        }
         this.currentDay = data.currentDay;
         this.actionsLeft = data.actionsLeft;
         this.enlightenmentMeter = data.enlightenmentMeter;
@@ -213,8 +218,20 @@ public class GameManager : MonoBehaviour, IDataPersistence
         Debug.LogWarning($"[GameManager] LoadData가 호출되었습니다. actionsLeft가 <color=yellow>{this.actionsLeft}</color>로 설정됩니다.");
     }
 
+    // This method is typcially called by the DataPersistenceManager at scene start or when saving the game
     public void SaveData(GameData data)
     {
+        if (data == null)
+        {
+            Debug.LogError("GameData is null. Cannot save data.");
+            return;
+        }
+        
+        string currentSceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        if (currentSceneName != "MainMenuScene")
+        {
+            data.lastSceneName = currentSceneName; // Only update if not in main menu
+        }
         data.currentDay = this.currentDay;
         data.actionsLeft = this.actionsLeft;
         data.enlightenmentMeter = this.enlightenmentMeter;

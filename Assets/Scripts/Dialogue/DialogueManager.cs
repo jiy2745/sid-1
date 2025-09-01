@@ -34,6 +34,17 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (!isDialogueActive) return;
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+        {
+            Debug.Log("Space or return pressed");
+            DisplayNextLine();
+        }  
+    }
+
     // Subscribe to the sceneLoaded event when the object is enabled
     private void OnEnable()
     {

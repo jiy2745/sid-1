@@ -2,52 +2,62 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Inventory : MonoBehaviour
 {
-    // (임시 변수) 나중에 다른 씬이랑 합쳤을 때 GameManager.cs에 있는 currentDay를 쓸 예정입니다.
-    private int currentDay = 3;
-    // (임시 변수) 나중에 다른 씬이랑 합쳤을 때 GameManager.cs에 있는 currentDay를 쓸 예정입니다.
-    private int enlightenmentMeter = 70;
-
+    // 아이템 아이콘들
+    public Button[] itemButtons;
     // DAY - (숫자)가 써있는 텍스트
     public TextMeshProUGUI dayCounterText;
     // 계몽 수치 게이지
     public Image enlightenmentMeterImage;
     // 계몽 수치 퍼센트 텍스트
     public TextMeshProUGUI enlightenmentMeterText;
-
-    public TextMeshProUGUI ItemDescriptionText;
-
+    // 아이템 설명 텍스트
+    public TextMeshProUGUI itemDescriptionText;
+    
+    
+    void Start()
+    {
+        for (int i = 0; i < itemButtons.Length; i++)
+        {
+            int buttonID = i;
+            itemButtons[i].onClick.AddListener(() => OnItemButtonClick(buttonID));
+        }
+    }
+    
+    
+    // 활성화되면 UI 업데이트
     void OnEnable()
     {
         UpdateDayCounterText();
         UpdateEnlightenmentMeterImage();
         UpdateenlightenmentMeterText();
     }
-
+    
     // UI에 일수 업데이트
     private void UpdateDayCounterText()
     {
-        dayCounterText.text = "DAY - " + currentDay;
+        dayCounterText.text = "DAY - " + GameManager.instance.currentDay;
     }
 
     // 계몽 수치 바 업데이트
     private void UpdateEnlightenmentMeterImage()
     {
-        enlightenmentMeterImage.fillAmount = enlightenmentMeter / 100f;
+        enlightenmentMeterImage.fillAmount = GameManager.instance.enlightenmentMeter / 100f;
     }
 
     // 계몽 수치 퍼센트 업데이트
     private void UpdateenlightenmentMeterText()
     {
-        enlightenmentMeterText.text = enlightenmentMeter + "%";
+        enlightenmentMeterText.text = GameManager.instance.enlightenmentMeter + "%";
     }
 
     // 버튼에 따라 다른 텍스트를 보여주는 함수
     public void OnItemButtonClick(int buttonID)
     {
+        Debug.Log(buttonID);
         string itemDescription = "";
-
+    
         switch (buttonID)
         {
             case 0:
@@ -69,7 +79,9 @@ public class NewMonoBehaviourScript : MonoBehaviour
                 itemDescription = "에리카가 화학실에서 구해온 휘발유다. 불을 붙일 때 사용할 수 있을 것 같다.";
                 break;
         }
-
-        ItemDescriptionText.text = itemDescription;
+        
+        Debug.Log(itemDescriptionText);
+        itemDescriptionText.text = itemDescription;
+        Debug.Log(itemDescriptionText.text);
     }
 }

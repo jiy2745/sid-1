@@ -6,15 +6,16 @@ public class SlashMinigame : MonoBehaviour
 {
     [Header("References")]
     public SlashBar slashBar; // Reference to the SlashBar component
+    public SlashSpaceBar spaceBar; // Reference to the SlashSpaceBar component
     public Animator playerAnimator; // Reference to the player's animator
     public UnityEngine.UI.Image radialTimerImage; // Reference to the radial timer image
     public Vector3 radialTimerOffset = new Vector3(100, 70, 0); // Offset for the radial timer position
     public Vector3 slashBarOffset = new Vector3(0, -200, 0); // Offset for the slash bar position
+    public Vector3 spaceBarOffset = new Vector3(-140, 40, 0); // Offset for the space bar position
     public UnityEvent onMinigameStop;
 
     [Header("Settings")]
     public int totalSegments = 5;
-    public int lives = 3; // Number of lives the player has
     public float segmentTimelimit = 3f; // Time allowed for each segment
 
     private int currentSegment = 0; // Current segment the player is on
@@ -22,8 +23,10 @@ public class SlashMinigame : MonoBehaviour
     private bool gameActive = false;
 
     private Camera mainCamera;
+    private HealthManager healthManager; // Reference to the HealthManager component
     private Transform playerTransform;
     private RectTransform slashBarTransform;
+    private RectTransform spaceBarTransform;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,6 +41,8 @@ public class SlashMinigame : MonoBehaviour
         playerAnimator = player.GetComponent<Animator>();
         playerTransform = player.transform;
         slashBarTransform = slashBar.GetComponent<RectTransform>();
+        spaceBarTransform = spaceBar.GetComponent<RectTransform>();
+        healthManager = GetComponentInParent<HealthManager>();
         StartMinigame();
     }
 
@@ -58,6 +63,7 @@ public class SlashMinigame : MonoBehaviour
         Vector3 screenPos = mainCamera.WorldToScreenPoint(playerTransform.position);
         radialTimerImage.transform.position = screenPos + radialTimerOffset; // Position the radial timer image above the player
         slashBarTransform.position = screenPos + slashBarOffset; // Position the slash bar below the player
+        spaceBarTransform.position = screenPos + spaceBarOffset; // Position the space bar left of the player
 
         // --- Input handling ---
         if (Input.GetKeyDown(KeyCode.Space))
@@ -89,14 +95,13 @@ public class SlashMinigame : MonoBehaviour
 
     private void SegmentFailed()
     {
-        lives--;
-        if (lives <= 0)
+        healthManager.DecreaseHealth(); // Decrease health in HealthManager
+        if (healthManager.currentHealth <= 0)
         {
             StopMinigame(false); // Player lost the minigame
         }
         else
         {
-            Debug.Log("Segment failed, lives left: " + lives);
             StartNewSegment(); // Start a new segment
         }
     }

@@ -19,6 +19,7 @@ public class Dialogue
 }
 
 [System.Serializable]
+// A reference to a single json dialogue file, used to load dialogues dynamically.
 public class DialogueReference
 {
     public string dialogueId; // Unique identifier for the dialogue (the file name without extension)
@@ -30,6 +31,10 @@ public class DialogueReference
 public class DialogueTrigger : MonoBehaviour
 {
     private DialogueSelector dialogueSelector;
+
+    [Header("Pre-Dialogue Events")]
+    [Tooltip("Event fired before dialogue sequence starts.")]
+    public UnityEvent OnDialogueStart; // Event to call before dialogue starts
 
     [Header("Post-Dialogue Events")]
     [Tooltip("Event fired after dialogue sequence ends.")]
@@ -66,6 +71,8 @@ public class DialogueTrigger : MonoBehaviour
                     }
                 }
             }
+            // Trigger pre-dialogue events
+            OnDialogueStart?.Invoke();
             // Start the dialogue with the loaded dialogue lines
             DialogueManager.instance.StartDialogue(loadedDialogue, OnDialogueCompleted.Invoke);
         }
