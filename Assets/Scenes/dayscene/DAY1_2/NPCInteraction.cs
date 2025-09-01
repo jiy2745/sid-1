@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// 이 스크립트는 Collider2D가 있는 오브젝트에 붙여야 합니다.
+
 [RequireComponent(typeof(Collider2D))]
 public class NPCInteraction : MonoBehaviour
 {

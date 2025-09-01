@@ -37105,7 +37105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Day1_3_dorm
-  spawnPointName: FromHall1
+  spawnPointName: fromHall1
 --- !u!114 &2096536461
 MonoBehaviour:
   m_ObjectHideFlags: 0

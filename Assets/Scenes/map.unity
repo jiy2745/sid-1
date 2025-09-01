@@ -12488,6 +12488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860817cdadd825640900b351cf2c4b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableId: 
+  interactionIcons: []
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -13876,6 +13878,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860817cdadd825640900b351cf2c4b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableId: 
+  interactionIcons: []
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -18011,6 +18015,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860817cdadd825640900b351cf2c4b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableId: 
+  interactionIcons: []
   onInteract:
     m_PersistentCalls:
       m_Calls:
@@ -46001,6 +46007,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860817cdadd825640900b351cf2c4b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableId: 
+  interactionIcons: []
   onInteract:
     m_PersistentCalls:
       m_Calls:
