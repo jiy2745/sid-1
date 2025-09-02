@@ -48,7 +48,7 @@ public class catTalk : MonoBehaviour
         conversationHad = true;
         Dialogue dialogue = new Dialogue();
 
-       
+        
         dialogue.dialogueLines.Add(new DialogueLine { characterName = "고양이", dialogueText = "듣거라." });
         dialogue.dialogueLines.Add(new DialogueLine { characterName = "나", dialogueText = "(고양이가 말을 했다?!)" });
         dialogue.dialogueLines.Add(new DialogueLine { characterName = "고양이?", dialogueText = "인간의 눈은 2개다. 인간에게는 촉수가 달려있지 않다. 저들은 인간이 아니다." });
@@ -94,14 +94,26 @@ public class catTalk : MonoBehaviour
         Debug.Log("고양이 이동 완료.");
     }
 
+    
     private IEnumerator SceneChangeRoutine()
     {
-        Debug.Log("1초 후 씬을 전환합니다.");
+        Debug.Log("1초 후 다음 날로 전환을 시작합니다.");
         yield return new WaitForSeconds(1f);
         
-      
-        GameManager.instance.nextPlayerSpawnPointName = "from1_3dorm";
+        
+        if(GameManager.instance != null)
+        {
+           
+            GameManager.instance.StartNewDay();
+           
+            GameManager.instance.nextPlayerSpawnPointName = "from1_3dorm";
+        }
+        else
+        {
+            Debug.LogError("GameManager 인스턴스를 찾을 수 없습니다! 날짜를 변경하거나 스폰 위치를 지정할 수 없습니다.");
+        }
 
+       
         SceneManager.LoadScene("Day2_classroom");
     }
 
@@ -127,3 +139,4 @@ public class catTalk : MonoBehaviour
     }
     #endregion
 }
+

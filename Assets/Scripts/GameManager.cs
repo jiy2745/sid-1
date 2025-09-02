@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour, IDataPersistence
 {
     public static GameManager instance;
 
-    // ▼▼▼ [수정] 씬 전환 시 스폰 위치 정보를 담을 변수를 추가했습니다. ▼▼▼
     public string nextPlayerSpawnPointName;
 
     [Header("게임 상태 변수")]
@@ -70,7 +69,13 @@ public class GameManager : MonoBehaviour, IDataPersistence
         if (CanAct())
         {
             ShowActionDialogue("(오늘 있던 일을 되돌아보며 학급 일지를 작성했다.)");
-            enlightenmentMeter += 5;
+
+            // 1일차에는 계몽 수치 변경 없음
+            if (currentDay > 1)
+            {
+                enlightenmentMeter += 5;
+            }
+            
             UseAction();
         }
     }
@@ -79,10 +84,25 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         if (CanAct())
         {
-            Debug.Log("옆자리 소녀와 대화했다. 호감도가 1 증가하고 계몽 수치가 3 감소합니다.");
             ShowActionDialogue("주번 활동을 하고 있구나? 멋있어!" , "레이나");
-            girlFavorability++;
-            enlightenmentMeter -= 3;
+            
+            switch (currentDay)
+            {
+                case 1:
+                    // 1일차: 레이나 호감도 +1, 계몽 수치 변경 없음
+                    girlFavorability++;
+                    break;
+                case 2:
+                    // 2일차: 레이나 호감도 +1, 계몽 수치 -8
+                    girlFavorability++;
+                    enlightenmentMeter -= 8;
+                    break;
+                default:
+                    // 그 외의 날: 기존 로직
+                    girlFavorability++;
+                    enlightenmentMeter -= 3;
+                    break;
+            }
             UseAction();
         }
     }
@@ -93,6 +113,13 @@ public class GameManager : MonoBehaviour, IDataPersistence
         {
             ShowActionDialogue("(토끼에게 밥을 주었다.)");
             rabbitFavorability++;
+            
+            // 2일차에만 계몽 수치 변경
+            if (currentDay == 2)
+            {
+                enlightenmentMeter += 5;
+            }
+            
             UseAction();
         }
     }
@@ -102,7 +129,20 @@ public class GameManager : MonoBehaviour, IDataPersistence
         if (CanAct())
         {
             ShowActionDialogue("(교실 바닥을 열심히 쓸었다.)");
-            enlightenmentMeter -= 3;
+            
+            // 1일차에는 계몽 수치 변경 없음
+            if (currentDay > 1)
+            {
+                if (currentDay == 2)
+                {
+                    enlightenmentMeter -= 5; // 2일차
+                }
+                else
+                {
+                    enlightenmentMeter -= 3; // 그 외의 날
+                }
+            }
+
             UseAction();
         }
     }
@@ -112,10 +152,16 @@ public class GameManager : MonoBehaviour, IDataPersistence
         if (CanAct())
         {
             ShowActionDialogue("(학생들이 제출한 과제를 순서대로 정리했다.)");
-            if (Random.Range(0, 100) < 30)
+
+            // 1일차에는 계몽 수치 변경 없음
+            if (currentDay > 1)
             {
-                enlightenmentMeter += 5;
+                if (Random.Range(0, 100) < 30)
+                {
+                    enlightenmentMeter += 5;
+                }
             }
+
             UseAction();
         }
     }
@@ -125,15 +171,18 @@ public class GameManager : MonoBehaviour, IDataPersistence
         if (CanAct())
         {
             ShowActionDialogue("(학급 문고를 정리했다.)");
+            
             switch (currentDay)
             {
                 case 1:
-                    enlightenmentMeter += 5;
+                    // 1일차: 계몽 수치 변경 없음
                     break;
                 case 2:
+                    // 2일차: 계몽 수치 +5
                     enlightenmentMeter += 5;
                     break;
                 default:
+                    // 예시: 그 외의 날: 30% 확률로 계몽 수치 +10
                     if (Random.Range(0, 100) < 30)
                     {
                         enlightenmentMeter += 10;
@@ -149,7 +198,20 @@ public class GameManager : MonoBehaviour, IDataPersistence
         if (CanAct())
         {
             ShowActionDialogue("(식물에 물을 주었다.)");
-            enlightenmentMeter -= 3;
+            
+            // 1일차에는 계몽 수치 변경 없음
+            if (currentDay > 1)
+            {
+                if (currentDay == 2)
+                {
+                    enlightenmentMeter -= 5; // 2일차
+                }
+                else
+                {
+                    enlightenmentMeter -= 3; 
+                }
+            }
+            
             UseAction();
         }
     }
@@ -159,8 +221,6 @@ public class GameManager : MonoBehaviour, IDataPersistence
         if (string.IsNullOrEmpty(objectId)) return false;
         return interactedObjectIds.Contains(objectId);
     }
-
-
 
     public void SetInteracted(string objectId)
     {

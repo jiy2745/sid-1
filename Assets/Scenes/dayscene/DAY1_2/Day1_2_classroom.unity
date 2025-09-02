@@ -11048,7 +11048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextPlayerSpawnPointName: 
   currentDay: 1
-  actionsLeft: 4
+  actionsLeft: 6
   enlightenmentMeter: 50
   girlFavorability: 0
   glassesFavorability: 0
