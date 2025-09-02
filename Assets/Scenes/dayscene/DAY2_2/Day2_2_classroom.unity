@@ -15429,7 +15429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 020351a635fc8a2468c049af14533064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Day1_2_hallway
+  sceneToLoad: Day2_2_hallway
   spawnPointName: FromClass_Front
 --- !u!114 &1544485921
 MonoBehaviour:
@@ -40602,7 +40602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 020351a635fc8a2468c049af14533064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Day1_2_hallway
+  sceneToLoad: Day2_2_hallway
   spawnPointName: FromClass_Back
 --- !u!1 &1998925038
 GameObject:
