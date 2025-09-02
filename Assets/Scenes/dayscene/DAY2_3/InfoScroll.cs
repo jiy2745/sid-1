@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RoomEntryEvent : MonoBehaviour
+public class InfoScroll : MonoBehaviour
 {
     [Header("필수 연결")]
     [Tooltip("씬에 있는 Dialogue Manager를 연결해주세요.")]
@@ -35,9 +35,8 @@ public class RoomEntryEvent : MonoBehaviour
         Dialogue dialogue = new Dialogue();
 
       
-        dialogue.dialogueLines.Add(new DialogueLine { characterName = "나", dialogueText = "(기숙사 안의 내 방으로 왔다.)" });
-        dialogue.dialogueLines.Add(new DialogueLine { characterName = "고양이", dialogueText = "야옹." });
-        dialogue.dialogueLines.Add(new DialogueLine { characterName = "나", dialogueText = "(방 안에 고양이가 들어와 있다. 창문을 통해 들어온 것 같다)" });
+        dialogue.dialogueLines.Add(new DialogueLine { characterName = "나", dialogueText = "(침대 위에 이상한 종이가 놓여있다)" });
+        
 
         dialogueManager.StartDialogue(dialogue, OnEventComplete, true);
     }
