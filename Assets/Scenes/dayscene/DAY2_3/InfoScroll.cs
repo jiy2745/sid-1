@@ -35,7 +35,7 @@ public class InfoScroll : MonoBehaviour
         Dialogue dialogue = new Dialogue();
 
       
-        dialogue.dialogueLines.Add(new DialogueLine { characterName = "나", dialogueText = "(침대 위에 이상한 종이가 놓여있다)" });
+        dialogue.dialogueLines.Add(new DialogueLine { characterName = "나", dialogueText = "(침대 위에 이상한 종이가 보인다)" });
         
 
         dialogueManager.StartDialogue(dialogue, OnEventComplete, true);

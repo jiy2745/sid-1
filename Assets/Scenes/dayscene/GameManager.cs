@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour, IDataPersistence
 {
@@ -35,8 +36,56 @@ public class GameManager : MonoBehaviour, IDataPersistence
         else
         {
             Destroy(gameObject);
+            return; 
         }
     }
+
+    private void OnEnable()
+    {
+        
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+ 
+    private void OnDisable()
+    {
+        
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+  
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+   
+        if (!string.IsNullOrEmpty(nextPlayerSpawnPointName))
+        {
+          
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player == null)
+            {
+                Debug.LogError("씬 전환 후 'Player' 태그를 가진 오브젝트를 찾을 수 없습니다!");
+                return;
+            }
+
+            GameObject spawnPoint = GameObject.Find(nextPlayerSpawnPointName);
+            if (spawnPoint == null)
+            {
+                Debug.LogError($"'{scene.name}' 씬에서 '{nextPlayerSpawnPointName}' 이름의 스폰 포인트를 찾을 수 없습니다!");
+                return;
+            }
+
+          
+            player.transform.position = spawnPoint.transform.position;
+            Debug.Log($"플레이어를 '{nextPlayerSpawnPointName}' 위치로 이동시켰습니다.");
+
+            player.transform.localScale = new Vector3(1f, 1f, 1f);
+            Debug.Log("플레이어의 스케일을 (1, 1, 1)로 변경했습니다.");
+
+
+            nextPlayerSpawnPointName = null;
+        }
+    }
+ 
 
     private void ShowActionDialogue(string text, string characterName = "나")
     {
@@ -355,7 +404,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         Debug.Log("Saved game data");
     }
 
-  
+ 
     private System.Collections.IEnumerator ShowEndOfDayDialogueRoutine()
     {
         if (dialogueManager == null)
@@ -370,3 +419,4 @@ public class GameManager : MonoBehaviour, IDataPersistence
         ShowActionDialogue("(어느새 기숙사로 돌아갈 시간이 되었다)");
     }
 }
+

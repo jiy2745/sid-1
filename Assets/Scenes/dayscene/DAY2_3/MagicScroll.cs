@@ -8,12 +8,11 @@ public class EndDay2Interaction : MonoBehaviour
     public day1_dialogmanager dialogueManager;
 
     private bool playerIsInRange = false;
-    private bool eventTriggered = false; 
-    private GameObject playerObject;     
+    private bool eventTriggered = false;
+    private GameObject playerObject;
 
     void Update()
     {
-       
         if (playerIsInRange && Input.GetKeyDown(KeyCode.E) && !eventTriggered && !dialogueManager.isDialogueActive)
         {
             StartBedSequence();
@@ -22,9 +21,8 @@ public class EndDay2Interaction : MonoBehaviour
 
     private void StartBedSequence()
     {
-        eventTriggered = true; 
+        eventTriggered = true;
 
-      
         if (playerObject != null)
         {
             PlayerMovement playerMovement = playerObject.GetComponent<PlayerMovement>();
@@ -35,7 +33,6 @@ public class EndDay2Interaction : MonoBehaviour
             }
         }
 
-       
         Dialogue dialogue = new Dialogue();
         dialogue.dialogueLines.Add(new DialogueLine { characterName = "나", dialogueText = "(침대에 낡은 종이가 놓여져 있다)" });
         dialogue.dialogueLines.Add(new DialogueLine { characterName = "나", dialogueText = "(그 종이에는 이렇게 적혀 있었다)" });
@@ -46,7 +43,6 @@ public class EndDay2Interaction : MonoBehaviour
         dialogue.dialogueLines.Add(new DialogueLine { characterName = "나", dialogueText = "(그러나 지금은 이미 상식을 벗어난 상황이었기에 일단 이 종이를 챙겨두기로 했다)" });
         dialogue.dialogueLines.Add(new DialogueLine { characterName = "나", dialogueText = "(그 후 나는 잠에 들었다)" });
 
-        
         dialogueManager.StartDialogue(dialogue, OnDialogueComplete, true);
     }
 
@@ -54,28 +50,29 @@ public class EndDay2Interaction : MonoBehaviour
     {
         Debug.Log("대화 종료. Day3으로 전환합니다.");
 
-   
-        if (GameManager.instance != null)
+      
+        if (playerObject != null)
         {
-            GameManager.instance.nextPlayerSpawnPointName = "from2_3dorm";
-          
+            Debug.Log("씬 전환 전 메인 캐릭터를 파괴합니다.");
+            Destroy(playerObject);
         }
         else
         {
-            Debug.LogError("GameManager 인스턴스를 찾을 수 없습니다! 스폰 위치를 지정할 수 없습니다.");
+           
+            Debug.LogWarning("파괴할 메인 캐릭터를 찾지 못했습니다. OnTriggerEnter2D가 제대로 호출되었는지 확인해주세요.");
         }
 
-     
+      
         SceneManager.LoadScene("Day3_classroom");
     }
 
-   
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             playerIsInRange = true;
-            playerObject = other.gameObject; 
+            playerObject = other.gameObject;
         }
     }
 
@@ -84,7 +81,7 @@ public class EndDay2Interaction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerIsInRange = false;
-            playerObject = null; 
+            playerObject = null;
         }
     }
 }

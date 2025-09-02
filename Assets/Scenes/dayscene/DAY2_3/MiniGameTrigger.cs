@@ -46,7 +46,23 @@ public class MiniGameTrigger : MonoBehaviour
   
     private void LoadMiniGameScene()
     {
-        Debug.Log("미니게임 인트로 종료. NightScene2_3 씬으로 전환합니다.");
+        Debug.Log("미니게임 인트로 종료. 기존 플레이어를 파괴하고 NightScene2_3 씬으로 전환합니다.");
+
+        
+        GameObject player = GameObject.FindWithTag("Player");
+
+       
+        if (player != null)
+        {
+            
+            Destroy(player);
+        }
+        else
+        {
+            Debug.LogWarning("파괴할 플레이어를 찾지 못했습니다.");
+        }
+
+       
         SceneManager.LoadScene("NightScene2_3");
     }
 }
