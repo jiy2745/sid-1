@@ -19815,7 +19815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 020351a635fc8a2468c049af14533064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Day1_hallway
+  sceneToLoad: Day3_2_hallway
   spawnPointName: Fromsp_Hall
 --- !u!114 &863628925
 MonoBehaviour:

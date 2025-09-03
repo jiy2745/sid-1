@@ -6,7 +6,6 @@ public class EricaTalk : MonoBehaviour
     [Tooltip("씬에 있는 Dialogue Manager를 연결해주세요.")]
     public day1_dialogmanager dialogueManager;
 
-    // 에리카의 애니메이터 컴포넌트
     private Animator anim;
     
    

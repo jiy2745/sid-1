@@ -11049,7 +11049,7 @@ MonoBehaviour:
   nextPlayerSpawnPointName: 
   currentDay: 1
   actionsLeft: 6
-  enlightenmentMeter: 50
+  enlightenmentMeter: 65
   girlFavorability: 0
   glassesFavorability: 0
   rabbitFavorability: 0

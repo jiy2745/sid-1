@@ -56,11 +56,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void Awake()
+{
+    rb = GetComponent<Rigidbody2D>();
+    sprite = GetComponent<SpriteRenderer>();
+    anim = GetComponent<Animator>();
+}
+
     void Start()
     {
+        /*
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        */
     }
 
     void Update()
