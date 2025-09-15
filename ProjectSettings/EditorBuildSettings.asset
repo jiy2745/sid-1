@@ -6,20 +6,53 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Sample/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MainMenuScene.unity
+    guid: 4bed07fd8e2c41246a8d2fb466b546c2
   - enabled: 1
     path: Assets/Scenes/NightScene.unity
     guid: 447fa08fb9e26b746929d9fe4175ed12
   - enabled: 1
-    path: Assets/Scenes/Day/Day_classroom.unity
+    path: Assets/Scenes/dayscene/DAY1/Day1_classroom.unity
     guid: d249648bae5a15c4a97d4b7c52816371
   - enabled: 1
-    path: Assets/Scenes/Day/Day_hallway.unity
-    guid: cbc7f0ef29293f74db2b6e2288be8bfa
+    path: Assets/Scenes/dayscene/DAY1_2/Day1_2_hallway.unity
+    guid: 90be904798d8df04ba0af8da07b530b6
   - enabled: 1
-    path: Assets/Scenes/Day/Day_sprout.unity
-    guid: bfc6a76da84042a4eae48c2dd58237ec
+    path: Assets/Scenes/dayscene/DAY1_2/Day1_2_sprout.unity
+    guid: 2e16e8b69c9bf7441b45f395f5cf17af
+  - enabled: 1
+    path: Assets/Scenes/dayscene/DAY1_2/Day1_2_classroom.unity
+    guid: a18b3a91353c12a4b98f9a8c9283f3e7
+  - enabled: 1
+    path: Assets/Scenes/dayscene/DAY1_3/Day1_3_hallway.unity
+    guid: d9e13ed8864117544be973d6b593c88f
+  - enabled: 1
+    path: Assets/Scenes/dayscene/DAY1_3/Day1_3_dorm.unity
+    guid: ea3729b6f6238634db522971d4475e81
+  - enabled: 1
+    path: Assets/Scenes/dayscene/DAY2/Day2_classroom.unity
+    guid: e6082dd6f57f28a44a703df162983c97
+  - enabled: 1
+    path: Assets/Scenes/dayscene/DAY2_2/Day2_2_classroom.unity
+    guid: 915e183bd04ce984b9cc06f4d1cc396a
+  - enabled: 1
+    path: Assets/Scenes/dayscene/DAY2_2/Day2_2_sprout.unity
+    guid: 94cea0937028a3f4bbee64ef465770e3
+  - enabled: 1
+    path: Assets/Scenes/dayscene/DAY2_2/Day2_2_hallway.unity
+    guid: 695b8d9bb370a5142a3d9f8c5424a719
+  - enabled: 1
+    path: Assets/Scenes/dayscene/DAY2_3/NightScene2_3.unity
+    guid: 123714fc8f90412478220f4cdb98ec42
+  - enabled: 1
+    path: Assets/Scenes/dayscene/DAY2_3/Day2_3_hallway.unity
+    guid: e2186ea1a24d0bb4aa01fabd6ce96b0e
+  - enabled: 1
+    path: Assets/Scenes/dayscene/DAY3/Day3_classroom.unity
+    guid: 47ebe5b29510acb47b37f4eb9c0bad75
+  - enabled: 1
+    path: Assets/Scenes/dayscene/DAY3_2/Day3_2_classroom.unity
+    guid: 18450d6f6a6c02b46bb7b3a12085487f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0

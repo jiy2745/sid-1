@@ -13,14 +13,31 @@
 
 
 ### 주의 사항
+- 현재 씬에 DialogueManager 오브젝트 있는지 확인 (싱글톤에 DontDestroyLoad라 씬 전환 넘어옴)
+- 연결할 UI Canvas에 DialogueUI 스크립트 삽입, 각 컴포넌트 연결되어 있어야 함
 - 대사 파일은 Assets/Resources/Dialogues 내에 저장
 - 반드시 하나의 오브젝트에 DialogueSelector 컴포넌트가 DialogueTrigger 컴포넌트와 같이 존재해야 함
 - 만약 강제 이벤트 방식으로 대화창을 부르고 싶은 경우 (UnityEvent 등을 이용하여) DialogueManager의 StartDialogue 함수를 호출하면 됨
+
+### DialogueManager 클래스
+전역 상글톤 오브젝트, 대화창 애니메이션, 실제 대화 출력을 담당하는 스크립트.  
+대사 출력 이펙트는 Coroutine으로 구현, 출력 속도 조정 가능
+```
+void StartDialogue(Dialogue dialogue, Action onCompletedCallback)
+```
+대화를 시작하는 함수, 출력할 대사 dialogue와 출력 완료 시 실행할 콜백 함수 onCompletedCallback을 인자로 받음
+
 
 ### DialogueSelector 클래스
 
 NPC 또는 상호작용할 물체가 어떤 경우에 어떤 대화를 출력할 지 결정하는 스크립트. 추상 클래스로 구현해놨으므로, 별도의 로직이 필요하다면 상속 후 구현하여 컴포넌트로 추가 가능
 
 **현재 구현해둔 클래스**
+- BasicDialogueSelector  
+대사 파일 한 개만 존재하는 클래스, 아무 조건 없이 항상 고정된 대사 출력을 위해 사용한다.
+
 - NPCDialogueSelector  
 기본적인 NPC 행동을 위한 클래스, Game Manager 클래스에 저장된 현재 날짜를 바탕으로 대사를 지정한다.
+
+- GameManagerDialogueSelector  
+게임 매니저에서 호출을 위한 클래스, 계몽 수치 등으로 게임 오버 판정을 통해 대사를 지정한다.
