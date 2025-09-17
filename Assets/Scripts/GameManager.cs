@@ -24,6 +24,11 @@ public class GameManager : MonoBehaviour, IDataPersistence
     [Header("상호작용 기록")]
     private HashSet<string> interactedObjectIds = new HashSet<string>();
 
+    [Header("아이템 데이터 및 인벤토리")]
+    public List<ItemData> itemDatabase;
+    public List<InventorySlot> inventory = new List<InventorySlot>();
+
+
     // 게임이 시작될 때 가장 먼저 호출
     void Awake()
     {
@@ -100,7 +105,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
             UseAction();
         }
     }
-    
+
     //(08/04 진성민)
     public void OrganizeBookshelf()
     {
@@ -132,7 +137,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
             UseAction();
         }
     }
-    
+
     public void WaterSprout()
     {
         if (CanAct())
@@ -179,7 +184,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         }
         else
         {
-            
+
             Debug.Log("행동 횟수가 남아있지 않습니다.");
             return false;
         }
@@ -218,5 +223,27 @@ public class GameManager : MonoBehaviour, IDataPersistence
         // 상호작용 기록 저장하기
         data.interactedObjectIds = new List<string>(this.interactedObjectIds);
         Debug.Log("Saved game data");
+    }
+
+    // --- 인벤토리 관련 함수들 ---
+    private ItemData GetItemDataByID(int itemID)
+    {
+        return itemDatabase.Find(item => (int)item.id == itemID);
+    }
+
+    public void AddItemToInventory(int itemID, int quantity)
+    {
+        InventorySlot existingSlot = inventory.Find(slot => (int)slot.itemData.id == itemID);
+
+        if (existingSlot != null)
+        {
+            existingSlot.quantity += quantity;
+        }
+        else
+        {
+            inventory.Add(new InventorySlot(GetItemDataByID(itemID), quantity));
+        }
+
+        onStateChanged.Invoke();
     }
 }
